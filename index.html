@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory-Game</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemoryGame</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body class="bodyBackground">
+    <div id="btns">
+        <button class="btn" id="start-game">Start</button>
+        <button class="btn" id="pause-game">Pause</button>
+        <button class="btn" id="reset">Reset</button>
+    </div>
+    <div id="game-preferences">
+        <button id="left-arrow"class="arrow"><</button>
+        <div id="choices">
+
+            <fieldset id="field1">
+                <legend>Choose Difficulty:</legend>
+            
+                <div>
+                    <input type="radio" id="easy" name="difficulty" value="easy" checked>
+                    <label for="easy">Easy</label>
+                </div>
+                <div>
+                    <input type="radio" id="medium" name="difficulty" value="medium">
+                    <label for="medium">Medium</label>
+                </div>
+                <div>
+                    <input type="radio" id="hard" name="difficulty" value="hard">
+                    <label for="difficult">Hard</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="expert" name="difficulty" value="expert">
+                    <label for="expert">Expert</label>
+                </div>
+            </fieldset>
+            <fieldset id="field2">
+                <legend>Choose Subject:</legend>
+            
+                <div>
+                    <input type="radio" id="easy" name="subject" value="football"checked >
+                    <label for="easy">Football-Teams</label>
+                </div>
+                <div>
+                    <input type="radio" id="medium" name="subject" value="countries">
+                    <label for="medium">Country-Flags</label>
+                </div>
+                <div>
+                    <input type="radio" id="difficult" name="subject" value="jungle">
+                    <label for="difficult">Jungle</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="expert" name="subject" value="personalities">
+                    <label for="expert">Personalities</label>
+                </div>
+            </fieldset>
+            
+            
+        </div>
+        <button id="right-arrow"class="arrow">></button>
+    </div>
+    <p id="message"class="animate_animated animate__zoomIn"></p>
+
+    <!-- <div id="results">
+        <p>Moves:<span>0</span></p>
+        <p>Time:<span id="time"></span></p>
+    </div> -->
+    <p id="founded_item"></p>
+    <div id="game">
+        
+    </div>
+    
+</body>
+</html>
