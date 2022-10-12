@@ -208,33 +208,6 @@ function changerSubjectRadios(){
 }
 changerSubjectRadios()
 
-// const subjectChoice = document.querySelector('input[name="subject"]:checked').value
-
-// function findSubject(){
-//     if (subjectChoice == "football") {
-//         classesEasy =easyFootball
-//         classesMedium = mediumFootball
-//         classesHard = hardFootball
-//         classesExpert = expertFootball
-
-//     } else if (subjectChoice == "countries") {
-//         classesEasy =easyCountries
-//         classesMedium = mediumFootball
-//         classesHard = hardFootball
-//         classesExpert = expertFootball
-//     } else if (subjectChoice == "jungle") {
-//         rows = 5
-//         columns = 10
-//         classes = classesHard
-//     } else {
-//         rows = 6
-//         columns = 14
-//         classes = classesExpert
-//     }
-
-
-// }
-// // findSubject()
 
 //WHEN PUSH THE START GAME
 startGame=()=>{
@@ -268,10 +241,7 @@ startGame=()=>{
 
             const difficultyChoice = document.querySelector('input[name="difficulty"]:checked').value
             
-            // const classesEasy =easyFootball
-            // const classesMedium = mediumFootball
-            // const classesHard = hardFootball
-            // const classesExpert = expertFootball
+
             let rows, columns, classes
             function findRowColumns() {
                 if (difficultyChoice == "easy") {
