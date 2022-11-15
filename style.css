@@ -32,12 +32,13 @@
         display:flex;
         flex-direction:row;
         justify-content:center;
-        align-items:flex-start;
+        align-items:center;
         overflow-y: hidden;
         height:100%;
     }
 
     .arrow{
+        display:block;
         width:50px;
         height:100px;
         margin:0 auto;
@@ -56,17 +57,20 @@
 
     #choices {
         position:relative;
-        width: 100%;
+        width: 250%;
+        height:60%;
         text-align: center;
         display:flex;
-        flex-direction:row; 
+        flex-direction:row;
+        justify-content:center; 
+        align-items:center;
         transition: transform 1s;
         /* animation:flow 1s ease-in-out; */
     }
 
     fieldset {
         width:500px;
-        margin:20% 0;
+        /* margin:20% 0; */
         border: 3px solid white;
         /* margin-top: 30%; */
         height: 300px;
@@ -103,22 +107,29 @@
         position:absolute;
         top:50%;
         left:50%;
+    
         transform:translate(-50%,-50%);
 
     }
     #field2{
-       
-        position:absolute;
+    
+      position:absolute;
         top:50%;
         left:50%;
-        transform:translate(150%,-50%);
+
+        /* transform:translate(150%,-50%); */
+       transform:translate(155%,-50%);
     }
 
     #game {
         margin: auto;
-        overflow: hidden;
-        /* position:relative; */
-        /* display: none; */
+        /* overflow: hidden; */
+        width:100%;
+        height:100%;
+        /* min-width:410px; */
+        position:relative;
+        aspect-ratio:1/1;
+      
     }
 
     /* #game-board {
@@ -129,7 +140,7 @@
         right:50%;
         transform:translate(-50%,-50%);} */
     
-    #founded_item{
+    #founded_item,#messageBonus,#godMsg{
         z-index:100;
         color:green;
         font-size:70px;
@@ -142,8 +153,15 @@
         transform:translate(-50%,-50%); 
     }
 
+    #godMsg{
+        font-size:120px;
+    }
+
     .row {
         text-align: center;
+        display:flex;
+        flex-wrap:nowrap;
+        justify-content:center;
     }
     /* #left-arrow:active ~ #choices{
       
@@ -181,9 +199,12 @@
         position: relative;
         display: inline-block;
         width: 100px;
-        height: 100px;
+        height: auto;
+        /* min-width:30px;
+        min-height:30px; */
         cursor: pointer;
         perspective: 500px;
+        aspect-ratio: 1/1;
     }
 
     /* .card:hover{
@@ -213,7 +234,7 @@
         width: 100%;
         background-color: rgb(253, 247, 247);
         background-image: url("https://cdn.britannica.com/68/195168-050-BBAE019A/football.jpg");
-        background-size: cover;
+        background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
         line-height: 20px;
@@ -233,6 +254,9 @@
     #btns {
         margin: auto;
         text-align: center;
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
     }
 
     
@@ -252,7 +276,7 @@
 
     .real {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/1200px-Real_Madrid_CF.svg.png"); */
-        background-image: url("/images/football/Real_Madrid.svg.png");
+        background-image: url("./images/football/Real_Madrid.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -262,7 +286,7 @@
     .barcelona {
         /*   background-color:blue; */
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/1200px-FC_Barcelona_%28crest%29.svg.png"); */
-        background-image:url("/images/football/FC_Barcelona.svg.png");
+        background-image:url("./images/football/FC_Barcelona.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -271,7 +295,7 @@
     .liverpool {
         /*   background-color:green; */
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/1200px-Liverpool_FC.svg.png"); */
-        background-image:url("/images/football/Liverpool_FC.svg.png");
+        background-image:url("./images/football/Liverpool_FC.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -280,7 +304,7 @@
     .bayern {
         /*   background-color:pink; */
         /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/1200px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png"); */
-        background-image:url("/images/football/FC_Bayern_München.svg.png");
+        background-image:url("./images/football/FC_Bayern_München.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -289,7 +313,7 @@
     .milan {
         /*   background-color:cyan; */
         /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Logo_of_AC_Milan.svg/1200px-Logo_of_AC_Milan.svg.png"); */
-        background-image:url("/images/football/Milan.svg.png");
+        background-image:url("./images/football/Milan.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -298,7 +322,7 @@
     .juve {
         /*   background-color:orange; */
         /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Juventus_FC_2017_icon_%28black%29.svg/1200px-Juventus_FC_2017_icon_%28black%29.svg.png"); */
-        background-image: url("/images/football/Juventus.svg.png");
+        background-image: url("./images/football/Juventus.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -307,7 +331,7 @@
     .manunited {
         /*   background-color:yellow; */
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/800px-Manchester_United_FC_crest.svg.png"); */
-        background-image:url("/images/football/Manchester_United.svg.webp");
+        background-image:url("./images/football/Manchester_United.svg.webp");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -316,7 +340,7 @@
     .inter {
         /*   background-color:teal; */
         /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/FC_Internazionale_Milano_2021.svg/1200px-FC_Internazionale_Milano_2021.svg.png"); */
-        background-image: url("/images/football/Inter.svg.webp");
+        background-image: url("./images/football/Inter.svg.webp");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -324,7 +348,7 @@
 
     .chelsea {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Chelsea_FC.svg/1200px-Chelsea_FC.svg.png"); */
-        background-image: url("/images/football/Chelsea.svg.png");
+        background-image: url("./images/football/Chelsea.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -332,7 +356,7 @@
 
     .dortmund {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/1200px-Borussia_Dortmund_logo.svg.png"); */
-        background-image:url("/images/football/Dortmund.svg.png");
+        background-image:url("./images/football/Dortmund.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -341,7 +365,7 @@
 
     .atletico {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/Atletico_Madrid_2017_logo.svg/1200px-Atletico_Madrid_2017_logo.svg.png"); */
-        background-image:url("/images/football/Atletico_Madrid.svg.png");
+        background-image:url("./images/football/Atletico_Madrid.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -349,7 +373,7 @@
 
     .porto {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/FC_Porto.svg/1200px-FC_Porto.svg.png"); */
-        background-image:url("/images/football/Porto.svg.png");
+        background-image:url("./images/football/Porto.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -357,7 +381,7 @@
 
     .ajax {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/7/79/Ajax_Amsterdam.svg/1200px-Ajax_Amsterdam.svg.png"); */
-        background-image:url("/images/football/Ajax.svg.png");
+        background-image:url("./images/football/Ajax.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -365,7 +389,7 @@
 
     .benfica {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/SL_Benfica_logo.svg/1200px-SL_Benfica_logo.svg.png"); */
-        background-image: url("/images/football/Benfica.svg.png");
+        background-image: url("./images/football/Benfica.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -373,7 +397,7 @@
 
     .arsenal {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Arsenal_FC.svg/1200px-Arsenal_FC.svg.png"); */
-        background-image:url("/images/football/Arsenal.svg.png");
+        background-image:url("./images/football/Arsenal.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -381,7 +405,7 @@
 
     .psg {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Paris_Saint-Germain_F.C..svg/1200px-Paris_Saint-Germain_F.C..svg.png"); */
-        background-image:url("/images/football/PSG.svg.png");
+        background-image:url("./images/football/PSG.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -389,7 +413,7 @@
 
     .osfp {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/el/thumb/b/b9/OSFP-logo.svg/2048px-OSFP-logo.svg.png"); */
-        background-image:url("/images/football/Olympiakos.svg.png");
+        background-image:url("./images/football/Olympiakos.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -397,7 +421,7 @@
 
     .pao {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/el/thumb/5/56/Panathinaikos_FC_logo.svg/1200px-Panathinaikos_FC_logo.svg.png"); */
-        background-image: url("/images/football/Panathinaikos.svg.png");
+        background-image: url("./images/football/Panathinaikos.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -405,7 +429,7 @@
 
     .dinamo {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/FC_Dynamo_Kyiv_logo.svg/1200px-FC_Dynamo_Kyiv_logo.svg.png"); */
-        background-image:url("/images/football/Dynamo_Kyiv.svg.png");
+        background-image:url("./images/football/Dynamo_Kyiv.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -413,7 +437,7 @@
 
     .city {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/1200px-Manchester_City_FC_badge.svg.png"); */
-        background-image:url("/images/football/Manchester_City.svg.png");
+        background-image:url("./images/football/Manchester_City.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -421,7 +445,7 @@
 
     .marseille {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Olympique_Marseille_logo.svg/1200px-Olympique_Marseille_logo.svg.png"); */
-        background-image:url("/images/football/Marseille.svg.png");
+        background-image:url("./images/football/Marseille.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -429,7 +453,7 @@
 
     .galata {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Galatasaray_Sports_Club_Logo.png/822px-Galatasaray_Sports_Club_Logo.png"); */
-        background-image: url("/images/football/Galatasaray.png");
+        background-image: url("./images/football/Galatasaray.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -437,7 +461,7 @@
 
     .celtic {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/3/35/Celtic_FC.svg/800px-Celtic_FC.svg.png"); */
-        background-image:url("/images/football/Celtic.svg.png");
+        background-image:url("./images/football/Celtic.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -445,7 +469,7 @@
 
     .rangers {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Rangers_FC.svg/1200px-Rangers_FC.svg.png"); */
-        background-image:url("/images/football/Rangers.svg.png");
+        background-image:url("./images/football/Rangers.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -453,7 +477,7 @@
 
     .anderlecht {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/7/71/RSC_Anderlecht_logo.svg/1200px-RSC_Anderlecht_logo.svg.png"); */
-        background-image:url("/images/football/Anderlecht.svg.png");
+        background-image:url("./images/football/Anderlecht.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -461,7 +485,7 @@
 
     .aek {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/0/04/AEK_Athens_FC_logo.svg/1200px-AEK_Athens_FC_logo.svg.png"); */
-        background-image: url("/images/football/AEK.svg.png");
+        background-image: url("./images/football/AEK.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -469,7 +493,7 @@
 
     .lyon {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/1/12/Logo_Olympique_Lyonnais_2022.png"); */
-        background-image:url("/images/football/Lyon.png");
+        background-image:url("./images/football/Lyon.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -477,7 +501,7 @@
 
     .eindhoven {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/0/05/PSV_Eindhoven.svg/1200px-PSV_Eindhoven.svg.png"); */
-        background-image: url("/images/football/PSV.svg.png");
+        background-image: url("./images/football/PSV.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -485,7 +509,7 @@
 
     .napoli {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/SSC_Neapel.svg/1200px-SSC_Neapel.svg.png"); */
-        background-image:url("/images/football/Napoli.svg.webp");
+        background-image:url("./images/football/Napoli.svg.webp");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -493,7 +517,7 @@
 
     .leverkusen {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/5/59/Bayer_04_Leverkusen_logo.svg/1200px-Bayer_04_Leverkusen_logo.svg.png"); */
-        background-image:url("/images/football/Leverkusen.svg.png");
+        background-image:url("./images/football/Leverkusen.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -501,7 +525,7 @@
 
     .leipzig {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/0/04/RB_Leipzig_2014_logo.svg/1200px-RB_Leipzig_2014_logo.svg.png"); */
-        background-image:url("/images/football/Leipzig.svg.png");
+        background-image:url("./images/football/Leipzig.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -509,7 +533,7 @@
 
     .roma {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/f/f7/AS_Roma_logo_%282017%29.svg/1200px-AS_Roma_logo_%282017%29.svg.png"); */
-        background-image: url("/images/football/Roma.svg.png");
+        background-image: url("./images/football/Roma.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -517,7 +541,7 @@
 
     .valencia {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/Valenciacf.svg/1200px-Valenciacf.svg.png"); */
-        background-image:url("/images/football/Valencia.svg.png");
+        background-image:url("./images/football/Valencia.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -525,7 +549,7 @@
 
     .fener {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/3/39/Fenerbah%C3%A7e.svg/1200px-Fenerbah%C3%A7e.svg.png"); */
-        background-image: url("/images/football/Fenerbahçe.svg.png");
+        background-image: url("./images/football/Fenerbahçe.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -533,7 +557,7 @@
 
     .feyen {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/Feyenoord_logo.svg/1200px-Feyenoord_logo.svg.png"); */
-        background-image: url("/images/football/Feyenoord.svg.png");
+        background-image: url("./images/football/Feyenoord.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -541,7 +565,7 @@
 
     .zvezda {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Grb-fk-crvena-zvezda.svg/1200px-Grb-fk-crvena-zvezda.svg.png"); */
-        background-image:url("/images/football/redStar.svg.png");
+        background-image:url("./images/football/redStar.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -549,7 +573,7 @@
 
     .monaco {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/AS_Monaco_FC_Logo_2021.svg/800px-AS_Monaco_FC_Logo_2021.svg.png"); */
-        background-image:url("/images/football/Monaco.svg.png");
+        background-image:url("./images/football/Monaco.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -557,7 +581,7 @@
 
     .totthenham {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Tottenham_Hotspur.svg/1200px-Tottenham_Hotspur.svg.png"); */
-        background-image: url("/images/football/Tottenham.svg.png");
+        background-image: url("./images/football/Tottenham.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -565,7 +589,7 @@
 
     .rosenborg {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Rosenborg_Trondheim_logo.svg/1200px-Rosenborg_Trondheim_logo.svg.png"); */
-        background-image: url("/images/football/Rosenborg.svg.png");
+        background-image: url("./images/football/Rosenborg.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -573,7 +597,7 @@
 
     .lazio {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/S.S._Lazio_badge.svg/1200px-S.S._Lazio_badge.svg.png"); */
-        background-image: url("/images/football/Lazio.svg.png");
+        background-image: url("./images/football/Lazio.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -581,7 +605,7 @@
 
     .sparta {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/el/thumb/a/ae/Sparta_Prague_logo.svg/1200px-Sparta_Prague_logo.svg.png"); */
-        background-image: url("/images/football/Sparta_Prague.svg.png");
+        background-image: url("./images/football/Sparta_Prague.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -589,7 +613,7 @@
 
     .spartak {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/FC_Spartak_Moscow_Logotype.png/640px-FC_Spartak_Moscow_Logotype.png"); */
-        background-image: url("/images/football/Spartak_Moscow.png");
+        background-image: url("./images/football/Spartak_Moscow.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -598,264 +622,264 @@
 
 /*countris-flags*/
     .greece{
-        background-image: url("/images/countries/greece.png");
+        background-image: url("./images/countries/greece.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .germany{
-        background-image: url("/images/countries/germany.svg.webp");
+        background-image: url("./images/countries/germany.svg.webp");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .italy{
-        background-image: url("/images/countries/italy.svg.webp");
+        background-image: url("./images/countries/italy.svg.webp");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .france{
-        background-image: url("/images/countries/France.svg.webp");
+        background-image: url("./images/countries/France.svg.webp");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .usa{
-        background-image: url("/images/countries/usa.png");
+        background-image: url("./images/countries/usa.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .spain{
-        background-image: url("/images/countries/spain.webp");
+        background-image: url("./images/countries/spain.webp");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .russia{
-        background-image: url("/images/countries/Russia.svg.webp");
+        background-image: url("./images/countries/Russia.svg.webp");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .china{
-        background-image: url("/images/countries/China.webp");
+        background-image: url("./images/countries/China.webp");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .brazil{
-        background-image: url("/images/countries/Brazil.svg.png");
+        background-image: url("./images/countries/Brazil.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .portugal{
-        background-image: url("/images/countries/portugal.jpg");
+        background-image: url("./images/countries/portugal.jpg");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .norway{
-        background-image: url("/images/countries/Norway.svg.png");
+        background-image: url("./images/countries/Norway.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .turkey{
-        background-image: url("/images/countries/Turkey.svg.png");
+        background-image: url("./images/countries/Turkey.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .southafrica{
-        background-image: url("/images/countries/South-Africa.webp");
+        background-image: url("./images/countries/South-Africa.webp");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .saudi{
-        background-image: url("/images/countries/Saudi_Arabia.svg.png");
+        background-image: url("./images/countries/Saudi_Arabia.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .grbritain{
-        background-image: url("/images/countries/United_Kingdom.svg.png");
+        background-image: url("./images/countries/United_Kingdom.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .sweden{
-        background-image: url("/images/countries/sweden.svg.png");
+        background-image: url("./images/countries/sweden.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .finland{
-        background-image: url("/images/countries/finland.svg.png");
+        background-image: url("./images/countries/finland.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .denmark{
-        background-image: url("/images/countries/denmark.svg.png");
+        background-image: url("./images/countries/denmark.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .argentina{
-        background-image: url("/images/countries/Argentina.webp");
+        background-image: url("./images/countries/Argentina.webp");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .japan{
-        background-image: url("/images/countries/Japan.jpg");
+        background-image: url("./images/countries/Japan.jpg");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .cuba{
-        background-image: url("/images/countries/Cuba.svg.png");
+        background-image: url("./images/countries/Cuba.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .newzeeland{
-        background-image: url("/images/countries/New-Zealand.webp");
+        background-image: url("./images/countries/New-Zealand.webp");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .mexico{
-        background-image: url("/images/countries/Mexico.svg.png");
+        background-image: url("./images/countries/Mexico.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .chile{
-        background-image: url("/images/countries/chile.png");
+        background-image: url("./images/countries/chile.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .canada{
-        background-image: url("/images/countries/Canada.svg.png");
+        background-image: url("./images/countries/Canada.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .austria{
-        background-image: url("/images/countries/Austria.svg.png");
+        background-image: url("./images/countries/Austria.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .romania{
-        background-image: url("/images/countries/Romania.svg.png");
+        background-image: url("./images/countries/Romania.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .bulgaria{
-        background-image: url("/images/countries/bulgaria.png");
+        background-image: url("./images/countries/bulgaria.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .albania{
-        background-image: url("/images/countries/Albania.svg.png");
+        background-image: url("./images/countries/Albania.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .croatia{
-        background-image: url("/images/countries/croatia.jpg");
+        background-image: url("./images/countries/croatia.jpg");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .india{
-        background-image: url("/images/countries/india.png");
+        background-image: url("./images/countries/india.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .cameroon{
-        background-image: url("/images/countries/Cameroon.svg.png");
+        background-image: url("./images/countries/Cameroon.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .morocco{
-        background-image: url("/images/countries/Morocco.svg.webp");
+        background-image: url("./images/countries/Morocco.svg.webp");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .egypt{
-        background-image: url("/images/countries/Egypt.svg.png");
+        background-image: url("./images/countries/Egypt.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .iraq{
-        background-image: url("/images/countries/Iraq.svg.png");
+        background-image: url("./images/countries/Iraq.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat; 
     }
     .switzerland{
-        background-image: url("/images/countries/switzerland.avif");
+        background-image: url("./images/countries/switzerland.avif");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat; 
     }
     .poland{
-        background-image: url("/images/countries/Poland.svg.png");
+        background-image: url("./images/countries/Poland.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat; 
     }
     .poland{
-        background-image: url("/images/countries/Poland.svg.png");
+        background-image: url("./images/countries/Poland.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat; 
     }
     .czech{
-        background-image: url("/images/countries/Czech_Republic.svg.png");
+        background-image: url("./images/countries/Czech_Republic.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat; 
     }
     .hungary{
-        background-image: url("/images/countries/Flag-Hungary.webp");
+        background-image: url("./images/countries/Flag-Hungary.webp");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat; 
     }
     .northkorea{
-        background-image: url("/images/countries/north_korea.jpg");
+        background-image: url("./images/countries/north_korea.jpg");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat; 
     }
     .belgium{
-        background-image: url("/images/countries/Belgium.svg.png");
+        background-image: url("./images/countries/Belgium.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat; 
     }
     .mongolia{
-        background-image: url("/images/countries/Belgium.svg.png");
+        background-image: url("./images/countries/Belgium.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat; 
@@ -863,293 +887,293 @@
     /************************************END COUNTRIES***********************/
     /******************************JUNGLE******************************/
      .lion{
-        background-image: url("/images/jungle/lion.png");
+        background-image: url("./images/jungle/lion.png");
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .tiger{
-        background-image: url("/images/jungle/tiger.png");
+        background-image: url("./images/jungle/tiger.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .elephant{
-        background-image: url("/images/jungle/elephant.png");
+        background-image: url("./images/jungle/elephant.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .parrot{
-        background-image: url("/images/jungle/parrot.png");
+        background-image: url("./images/jungle/parrot.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .bear{
-        background-image: url("/images/jungle/bear.png");
+        background-image: url("./images/jungle/bear.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .hippo{
-        background-image: url("/images/jungle/hippo.png");
+        background-image: url("./images/jungle/hippo.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .monkey{
-        background-image: url("/images/jungle/monkey.png");
+        background-image: url("./images/jungle/monkey.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .snake{
-        background-image: url("/images/jungle/snake.png");
+        background-image: url("./images/jungle/snake.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .lemur{
-        background-image: url("/images/jungle/lemur.png");
+        background-image: url("./images/jungle/lemur.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .gorilla{
-        background-image: url("/images/jungle/gorilla.png");
+        background-image: url("./images/jungle/gorilla.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .tapir{
-        background-image: url("/images/jungle/tapir.png");
+        background-image: url("./images/jungle/tapir.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .armadillo{
-        background-image: url("/images/jungle/armadillo.png");
+        background-image: url("./images/jungle/armadillo.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .giraffe{
-        background-image: url("/images/jungle/giraffe.png");
+        background-image: url("./images/jungle/giraffe.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .leopard{
-        background-image: url("/images/jungle/leopard.png");
+        background-image: url("./images/jungle/leopard.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .wolf{
-        background-image: url("/images/jungle/wolf.png");
+        background-image: url("./images/jungle/wolf.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .fox{
-        background-image: url("/images/jungle/fox.png");
+        background-image: url("./images/jungle/fox.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .goose{
-        background-image: url("/images/jungle/goose.png");
+        background-image: url("./images/jungle/goose.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .deer{
-        background-image: url("/images/jungle/deer.png");
+        background-image: url("./images/jungle/deer.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .kangaroo{
-        background-image: url("/images/jungle/kangaroo.png");
+        background-image: url("./images/jungle/kangaroo.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .spider{
-        background-image: url("/images/jungle/spider.png");
+        background-image: url("./images/jungle/spider.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .turtle{
-        background-image: url("/images/jungle/turtle.png");
+        background-image: url("./images/jungle/turtle.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .camel{
-        background-image: url("/images/jungle/camel.png");
+        background-image: url("./images/jungle/camel.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .frogey{
-        background-image: url("/images/jungle/frogey.png");
+        background-image: url("./images/jungle/frogey.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .lizard{
-        background-image: url("/images/jungle/lizard.png");
+        background-image: url("./images/jungle/lizard.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .rabbit{
-        background-image: url("/images/jungle/rabbit.png");
+        background-image: url("./images/jungle/rabbit.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .crocodile{
-        background-image: url("/images/jungle/crocodile.png");
+        background-image: url("./images/jungle/crocodile.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .goat{
-        background-image: url("/images/jungle/goat.png");
+        background-image: url("./images/jungle/goat.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .bull{
-        background-image: url("/images/jungle/bull");
+        background-image: url("./images/jungle/bull");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .horse{
-        background-image: url("/images/jungle/horse.png");
+        background-image: url("./images/jungle/horse.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .whiteHorse{
-        background-image: url("/images/jungle/whiteHorse.png");
+        background-image: url("./images/jungle/whiteHorse.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .hedgehog{
-        background-image: url("/images/jungle/hedgehog.png");
+        background-image: url("./images/jungle/hedgehog.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .kitten{
-        background-image: url("/images/jungle/kitten.png");
+        background-image: url("./images/jungle/kitten.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .polarBear{
-        background-image: url("/images/jungle/polarBear.png");
+        background-image: url("./images/jungle/polarBear.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .mamba{
-        background-image: url("/images/jungle/mamba.png");
+        background-image: url("./images/jungle/mamba.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .labradorDog{
-        background-image: url("/images/jungle/labradorDog.png");
+        background-image: url("./images/jungle/labradorDog.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .mouse{
-        background-image: url("/images/jungle/mouse.png");
+        background-image: url("./images/jungle/mouse.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .whiteDuck{
-        background-image: url("/images/jungle/whiteDuck.png");
+        background-image: url("./images/jungle/whiteDuck.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .anteater{
-        background-image: url("/images/jungle/anteater.png");
+        background-image: url("./images/jungle/anteater.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .duck{
-        background-image: url("/images/jungle/duck.png");
+        background-image: url("./images/jungle/duck.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .blackPanther{
-        background-image: url("/images/jungle/blackPanther.png");
+        background-image: url("./images/jungle/blackPanther.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .jaguar{
-        background-image: url("/images/jungle/jaguar.png");
+        background-image: url("./images/jungle/jaguar.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .pitbull{
-        background-image: url("/images/jungle/pitbull.png");
+        background-image: url("./images/jungle/pitbull.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -1157,303 +1181,303 @@
     }
 /**************************************PERSONALITIES****************************************/
 .aristotle{
-        background-image: url("/images/personalities/aristotle.png");
+        background-image: url("./images/personalities/aristotle.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
 .einstein{
-        background-image: url("/images/personalities/einstein.png");
+        background-image: url("./images/personalities/einstein.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
 .napoleon{
-        background-image: url("/images/personalities/napoleon.png");
+        background-image: url("./images/personalities/napoleon.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
 .newton{
-        background-image: url("/images/personalities/newton.png");
+        background-image: url("./images/personalities/newton.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
 .beethoven{
-        background-image: url("/images/personalities/beethoven.png");
+        background-image: url("./images/personalities/beethoven.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .churchill{
-        background-image: url("/images/personalities/churchill.png");
+        background-image: url("./images/personalities/churchill.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .lama{
-        background-image: url("/images/personalities/dalaiLama.png");
+        background-image: url("./images/personalities/dalaiLama.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .maradona{
-        background-image: url("/images/personalities/Diego-Maradona-Transparent-File.png");
+        background-image: url("./images/personalities/Diego-Maradona-Transparent-File.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .elizabeth{
-        background-image: url("/images/personalities/elizabeth.png");
+        background-image: url("./images/personalities/elizabeth.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .gandhi{
-        background-image: url("/images/personalities/gandhi.png");
+        background-image: url("./images/personalities/gandhi.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .hitler{
-        background-image: url("/images/personalities/hitler.png");
+        background-image: url("./images/personalities/hitler.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .marx{
-        background-image: url("/images/personalities/karlMarx.png");
+        background-image: url("./images/personalities/karlMarx.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .lenin{
-        background-image: url("/images/personalities/lenin.png");
+        background-image: url("./images/personalities/lenin.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .licoln{
-        background-image: url("/images/personalities/licoln.png");
+        background-image: url("./images/personalities/licoln.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .luther{
-        background-image: url("/images/personalities/lutherKing.png");
+        background-image: url("./images/personalities/lutherKing.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .motherTeresa{
-        background-image: url("/images/personalities/motherTeresa.png");
+        background-image: url("./images/personalities/motherTeresa.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .picasso{
-        background-image: url("/images/personalities/Pablo-Picasso-PNG-HD-Quality.png");
+        background-image: url("./images/personalities/Pablo-Picasso-PNG-HD-Quality.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .shakespeare{
-        background-image: url("/images/personalities/shakespeare.png");
+        background-image: url("./images/personalities/shakespeare.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .stalin{
-        background-image: url("/images/personalities/stalin.png");
+        background-image: url("./images/personalities/stalin.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .alexander{
-        background-image: url("/images/personalities/alexander.png");
+        background-image: url("./images/personalities/alexander.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .chaplin{
-        background-image: url("/images/personalities/chaplin.png");
+        background-image: url("./images/personalities/chaplin.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .che{
-        background-image: url("/images/personalities/che.png");
+        background-image: url("./images/personalities/che.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .curie{
-        background-image: url("/images/personalities/curie.png");
+        background-image: url("./images/personalities/curie.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .mandela{
-        background-image: url("/images/personalities/mandela.png");
+        background-image: url("./images/personalities/mandela.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .tesla{
-        background-image: url("/images/personalities/tesla.png");
+        background-image: url("./images/personalities/tesla.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .schrodinger{
-        background-image: url("/images/personalities/Schrödinger.png");
+        background-image: url("./images/personalities/Schrödinger.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .galileo{
-        background-image: url("/images/personalities/galileo.png");
+        background-image: url("./images/personalities/galileo.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .colombus{
-        background-image: url("/images/personalities/colombus.png");
+        background-image: url("./images/personalities/colombus.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .mozart{
-        background-image: url("/images/personalities/mozart.png");
+        background-image: url("./images/personalities/mozart.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .charlemagne{
-        background-image: url("/images/personalities/charlemagne.png");
+        background-image: url("./images/personalities/charlemagne.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .planck{
-        background-image: url("/images/personalities/planck.png");
+        background-image: url("./images/personalities/planck.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .mao{
-        background-image: url("/images/personalities/mao.png");
+        background-image: url("./images/personalities/mao.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .ali{
-        background-image: url("/images/personalities/ali.png");
+        background-image: url("./images/personalities/ali.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .roosevelt{
-        background-image: url("/images/personalities/roosevelt.png");
+        background-image: url("./images/personalities/roosevelt.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .senna{
-        background-image: url("/images/personalities/senna.png");
+        background-image: url("./images/personalities/senna.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .plato{
-        background-image: url("/images/personalities/plato.png");
+        background-image: url("./images/personalities/plato.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .darwin{
-        background-image: url("/images/personalities/darwin.png");
+        background-image: url("./images/personalities/darwin.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .heisenberg{
-        background-image: url("/images/personalities/heisenberg.png");
+        background-image: url("./images/personalities/heisenberg.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
 
     }
     .vasco{
-        background-image: url("/images/personalities/vasco.png");
+        background-image: url("./images/personalities/vasco.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
     }
     .putin{
-        background-image: url("/images/personalities/putin.png");
+        background-image: url("./images/personalities/putin.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
     }
     .freud{
-        background-image: url("/images/personalities/freud.png");
+        background-image: url("./images/personalities/freud.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
     }
     .monroe{
-        background-image: url("/images/personalities/monroe.png");
+        background-image: url("./images/personalities/monroe.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .mendeleev{
-        background-image: url("/images/personalities/mendeleev.png");
+        background-image: url("./images/personalities/mendeleev.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
     }
     .voltaire{
-        background-image: url("/images/personalities/voltaire.png");
+        background-image: url("./images/personalities/voltaire.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -1471,6 +1495,9 @@
         background-repeat: no-repeat;
         background-position: no position;
         transform: rotateY(180deg);
+    }
+    .founded{
+        pointer-events: none;
     }
 
     .founded .back {
@@ -1536,6 +1563,9 @@
     .godlike{
         /* background:url("/images/god.png"); */
         animation:godLike 3s
+    }
+    .disable {
+        pointer-events: none;
     }
 
 
@@ -1748,6 +1778,179 @@
 
 
 
-    .disable {
-        pointer-events: none;
+   
+
+
+
+/******BONUS GAME ***********************/
+
+#mini-game{
+    display:none;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    width:40%;
+    /* border:2px solid black; */
+    background:rgba(8, 8, 8, 0.541);
+    height:500px;
+}
+
+#mini-game p{
+    text-align:center;
+    font-size:20px;
+   
+
+}
+#mini-game #bonus-image{
+    
+    width:16rem;
+    height:16rem;
+    margin-bottom:1rem;
+    /* background:url("/images/football/Panathinaikos.svg.png") no-repeat center center fixed; */
+    background-position: center center;
+    background-repeat:no-repeat;
+    background-size:contain;
+    
+}
+
+.mini-game-animation{
+    animation: heavenFrames 2s
+}
+.bonus-game-right{
+    border:2px solid green;
+}
+
+.miniGameFinished{
+    animation:bonusFinished 5s
+}
+#bonus-btn{
+    width: 135px;
+    height: 50px;
+    border: 2px solid rgba(16, 147, 212, 0.533);
+    border-radius: 50px;
+    background-color:rgba(16, 147, 212, 0.533);
+}
+#bonus-btn:hover{
+    cursor:pointer;
+    background-color:#87ceeb;
+    box-shadow:0px 0px 0px 1px #87ceeb;
+}
+#bonus-input{
+    width: 40%;
+    height: 20px;
+    border: 2px solid rgba(16, 147, 212, 0.533);
+}
+
+/***COUNTDOWN AT BONUS GAME ******/
+#countDown {
+    position: relative;
+    width: 80px;
+    margin: 15px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(22, 22, 22);
+    color: white;
+    height: 80px;
+    border-radius: 50%;
+    font-size:10px;
+}
+
+#countDown::before {
+    position: absolute;
+    content: " ";
+    width: 95px;
+    z-index: -1;
+    height: 95px;
+    border-radius: 50%;
+    background: linear-gradient(0deg, rgba(63, 82, 249, 0.1) 33%, rgb(63, 88, 249) 100%);
+    box-shadow: 0 5px 10px #888888;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: var(--animationToPseudoElement, none);
+
+
+}
+
+#numberSquare {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:20px;
+}
+
+#countDown{
+    display:none;
+    
+    
+}
+
+
+@keyframes bonusFinished{
+    0%{
+        background:url("images/heaven.jpg") no-repeat fixed top center;
+        background-color:rgba(255, 255, 255, 0);
+        background-size:cover;
+        
     }
+
+    100%{
+        background:url("images/heaven.jpg") no-repeat fixed top center;
+        background-color:rgb(255, 255, 255);
+        background-size:cover;
+        background-blend-mode: screen;
+    }
+}
+
+
+
+@keyframes heavenFrames{
+    0%{
+        
+       
+        background:white;
+      
+    }
+   100%{
+    
+        background:url("images/heaven.jpg")no-repeat fixed top center;
+        background-size:cover;
+
+        
+   }
+}
+
+/**countdown animation */
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%)rotate(0);
+    }
+
+    to {
+        transform: translate(-50%, -50%)rotate(395deg);
+    }
+}
+
+
+/*Responsiveness*/
+
+@media only screen and (max-width: 440px) {
+    #results{
+        width:100%;
+    }
+  .card {
+    width:100%;
+    min-width:15px;
+    min-height:auto;
+  }
+}
+
