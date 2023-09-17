@@ -1,7 +1,7 @@
 # Kal. Memory Game
 This is a small sample of a memory game created using JavaScript, HTML, and CSS. This version serves as a basic demonstration of the game's functionality and design. The final version will incorporate Java Servlets, a database, and additional features, and will be hosted on a Tomcat web server.
 
-# Feaatures
+# Features
 
 - <b>Theme selection</b>: Choose from a limited set of themes in this sample, such as football teams,animals,great historic personalities and country flags.
 
