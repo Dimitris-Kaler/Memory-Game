@@ -1985,5 +1985,36 @@
     min-width:15px;
     min-height:auto;
   }
+
+  @keyframes rightChoice {
+    0% {
+        transform: translate(-50%, -50%) scale(0); /* Adjust the scale for smaller screens */
+    }
+
+    20% {
+        color: rgb(253, 247, 247);
+        text-shadow: 0px 0px 5px 2px rgb(253, 247, 247); /* Reduce text-shadow for smaller screens */
+    }
+
+    40% {
+        color: green;
+        text-shadow: 0px 0px 5px 2px green; /* Reduce text-shadow for smaller screens */
+    }
+
+    60% {
+        color: rgb(253, 247, 247);
+        text-shadow: 0px 0px 5px 2px rgb(253, 247, 247); /* Reduce text-shadow for smaller screens */
+    }
+
+    80% {
+        color: green;
+        text-shadow: 0px 0px 5px 2px green; /* Reduce text-shadow for smaller screens */
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.2); /* Adjust the scale for smaller screens */
+        text-shadow: 0px 0px 5px 2px green; /* Reduce text-shadow for smaller screens */
+    }
+}
 }
 
