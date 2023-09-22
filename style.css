@@ -55,6 +55,7 @@
         background-color: rgb(78, 78, 136);
         box-shadow: 0px 0px 10px 5px rgb(78, 78, 136);
     }
+    
 
     #choices {
 
@@ -66,7 +67,7 @@
         flex-direction:row;
         justify-content:center; 
         align-items:center;
-        transition: transform 1s;
+        transition: transform 1s; 
         /* position:relative;
         width: 100%;
         text-align: center;
@@ -74,12 +75,14 @@
         flex-direction:row; 
         transition: transform 1s; */
         /* animation:flow 1s ease-in-out; */
-    }
+   }
+
 
     fieldset {
+        
         /* width:500px;
         margin:20% 0; */
-        width:35%;
+        /* width:35%; */
         border: 3px solid white;
         /* margin-top: 30%; */
         height: 40vh;
@@ -1773,7 +1776,47 @@
         pointer-events: none;
     }
 
-    @media only screen and (max-width: 440px) {
+/* 
+    @media only screen and (max-width: 810px){
+        #game-preferences{
+            width:70%;
+        }
+        .arrow{
+            display:none;
+        }
+    } */
+
+    @media only screen and (max-width: 810px) {
+        #game-preferences{
+            
+            width:80%;
+        }
+        label{
+            font-weight:bold;
+            font-size:15px;
+        }
+        fieldset{
+            margin-top:0;
+            /* display:block; */
+        }
+        fieldset div{
+            width:100%;
+        }
+        .arrow{
+            display:none;
+        }
+        .gallery{
+            display:flex;
+            align-items:center;
+            /* column-gap:20px; */
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+        }
+        
+    .gallery_item{
+        scroll-snap-align: center;
+        min-width:75%;
+    }
         #results{
             width:100%;
         }
