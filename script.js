@@ -400,7 +400,7 @@ startGame=()=>{
 
                 card.addEventListener("click", (e) => {
 
-                    play("/sounds/flipcard.mp3",1.5);
+                    play("sounds/flipcard.mp3",1.5);
                     console.log(e.target);
                     let child = card.querySelector('.content')
                     let front = card.querySelector(".front")
@@ -433,7 +433,7 @@ startGame=()=>{
                                 card.classList.add("founded")
                                 clickedCard.classList.add("founded")
                                 clickedCard = null;
-                                setTimeout(() => {play("/sounds/correct.mp3") }, 300);
+                                setTimeout(() => {play("sounds/correct.mp3") }, 300);
 
                                 Array.from(cards).forEach((card) => {
                                     let child = card.querySelector('.content')
