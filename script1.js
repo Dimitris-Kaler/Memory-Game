@@ -907,7 +907,7 @@ startGame = () => {
                                 if(foundedInARow<=-5&&foundedInARow%5==0){
                                     console.log(foundedInARow)
                                     play("/Memory-Game/sounds/wahTrumpet.mp3",1)
-                                    baby.style.backgroundImage="url('./images/confusedBaby.png')"
+                                    baby.style.backgroundImage="url('/Memory-Game/images/confusedBaby.png')"
 
                                     calculatePoints(-1000)
                                     baby.classList.add("babyAnimation")
