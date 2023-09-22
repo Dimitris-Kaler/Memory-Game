@@ -97,7 +97,7 @@ if (promise!== undefined) {
 /***STARTING MUSIC WHEN LOAD THE PAGE****************** */
 // window.onload(play("/sounds/gamemusic.mp3"));
 window.addEventListener('load', () => {
-    starterMusic=play("sounds/gamemusic.mp3",1)
+    starterMusic=play("/Memory-Game/sounds/gamemusic.mp3",1)
     console.log(starterMusic)
   });
 
@@ -400,7 +400,7 @@ startGame=()=>{
 
                 card.addEventListener("click", (e) => {
 
-                    play("sounds/flipcard.mp3",1.5);
+                    play("Memory-Game/sounds/flipcard.mp3",1.5);
                     console.log(e.target);
                     let child = card.querySelector('.content')
                     let front = card.querySelector(".front")
