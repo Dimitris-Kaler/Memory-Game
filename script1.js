@@ -549,7 +549,7 @@ startGame = () => {
                     })
                 } else if (type == "personalities") {
                     Array.from(fronts).forEach((front) => {
-                        front.style.backgroundImage = "url('/images/personalitiesCardFront.png')"
+                        front.style.backgroundImage = "url('/Memory-Game/images/personalitiesCardFront.png')"
                         usedArray = personalitiesArray
 
                     })
@@ -907,7 +907,7 @@ startGame = () => {
                                 if(foundedInARow<=-5&&foundedInARow%5==0){
                                     console.log(foundedInARow)
                                     play("/Memory-Game/sounds/wahTrumpet.mp3",1)
-                                    baby.style.backgroundImage="url('/images/confusedBaby.png')"
+                                    baby.style.backgroundImage="url('./images/confusedBaby.png')"
 
                                     calculatePoints(-1000)
                                     baby.classList.add("babyAnimation")
