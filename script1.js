@@ -206,7 +206,7 @@ function play(sound, vol) {
 /***STARTING MUSIC WHEN LOAD THE PAGE****************** */
 // window.onload(play("/sounds/gamemusic.mp3"));
 window.addEventListener('load', () => {
-    starterMusic = play("./sounds/gamemusic.mp3", 1)
+    starterMusic=play("/Memory-Game/sounds/gamemusic.mp3",1)
     console.log(starterMusic)
 });
 
@@ -372,7 +372,7 @@ const calculatePoints=(point)=>{
     function soundChangeScore(time){
      
             console.log(changeScore)
-            let sound=play("./sounds/score.mp3",0.2)
+            let sound=play("/Memory-Game/sounds/score.mp3",0.2)
             sound.loop=true
            setTimeout(()=>{
             sound.pause()
@@ -390,7 +390,7 @@ startGame = () => {
 //    play("/sounds/mainMusic.mp3",0.5)
     pauseBtn.style.display="block";
     gamePreferences.style.display = "none";
-    play("./sounds/menu-button.mp3", 1)
+    play("/Memory-Game/sounds/menu-button.mp3", 1)
     console.log(starterMusic)
     starterMusic.pause();
 
@@ -445,7 +445,7 @@ startGame = () => {
 
 
             function createBoard() {
-                play("./sounds/game-start.mp3", 1);
+                play("/Memory-Game/sounds/game-start.mp3", 1);
                 let resDiv = document.createElement("div");
                 resDiv.id = "results"
                 let pPoints = document.createElement("p")
@@ -682,7 +682,7 @@ startGame = () => {
                 //INSTRUCTIONS AND SELECTIONS TO THE GAME
                 card.addEventListener("click", (e) => {
 
-                    play("./sounds/flipcard.mp3", 1);
+                    play("/Memory-Game/sounds/flipcard.mp3", 1);
                     // console.log(e.target);
                     let child = card.querySelector('.content')
                     let front = card.querySelector(".front")
@@ -770,24 +770,24 @@ startGame = () => {
                                     // bonusGame();
 
                                     game.style.display = "none"
-                                    play("./sounds/heaven.mp3",1)
+                                    play("/Memory-Game/sounds/heaven.mp3",1)
                                     foundedPar.innerHTML = "WELCOME HOME GOD";
                                 }
                                 setTimeout(() => {
-                                    play("./sounds/correct.mp3",1)
+                                    play("/Memory-Game/sounds/correct.mp3",1)
                                     if (foundedInARow == 3) {
-                                        play("./sounds/YES.mp3",1)
+                                        play("/Memory-Game/sounds/YES.mp3",1)
 
                                     }
                                     if (foundedInARow > 3 && foundedInARow <= 5) {
 
-                                        play("./sounds/UNSTOPPABLE.mp3",1)
+                                        play("/Memory-Game/sounds/UNSTOPPABLE.mp3",1)
 
 
 
                                     }
                                     if (foundedInARow >= 6) {
-                                        play("./sounds/god-like.mp3",1)
+                                        play("/Memory-Game/sounds/god-like.mp3",1)
                                     }
 
                                 }, 350);
@@ -848,7 +848,7 @@ startGame = () => {
                                             pauseBtn.style.display="none";
                                             game.style.display = "none";
                                             document.getElementById("message").style.display = "block";
-                                            play("./sounds/successWin.mp3", 1)
+                                            play("/Memory-Game/sounds/successWin.mp3", 1)
                                             document.getElementById("message").innerHTML = "Congratulations you won at " + tries + " moves with "+JSON.parse(localStorage.getItem('score'))+" points";
                                             console.log(difficultyChoice)
                                             startBtn.addEventListener("click", startGame)
@@ -872,7 +872,7 @@ startGame = () => {
                                 setTimeout(() => {
                                     card.classList.add("wrong")
                                     clickedCard.classList.add("wrong")
-                                    play("./sounds/error-sound.mp3",1)
+                                    play("/Memory-Game/sounds/error-sound.mp3",1)
                                     child.classList.remove("contentActive")
                                     clickedCard.querySelector(".content").classList.remove('contentActive')
                                     Array.from(cards).forEach((card) => {
@@ -893,7 +893,7 @@ startGame = () => {
                                 setTimeout(() => {
                                     card.classList.add("wrong")
                                     clickedCard.classList.add("wrong")
-                                    play("./sounds/error-sound.mp3",1)
+                                    play("/Memory-Game/sounds/error-sound.mp3",1)
                                     child.classList.remove("contentActive")
                                     clickedCard.querySelector(".content").classList.remove('contentActive')
                                     
@@ -906,7 +906,7 @@ startGame = () => {
                                 }, 1000)
                                 if(foundedInARow<=-5&&foundedInARow%5==0){
                                     console.log(foundedInARow)
-                                    play("./sounds/wahTrumpet.mp3",1)
+                                    play("/Memory-Game/sounds/wahTrumpet.mp3",1)
                                     baby.style.backgroundImage="url('/images/confusedBaby.png')"
 
                                     calculatePoints(-1000)
@@ -952,7 +952,7 @@ startGame = () => {
 
 
 pauseGame = () => {
-    play("./sounds/menu-button.mp3", 1)
+    play("/Memory-Game/sounds/menu-button.mp3", 1)
     startBtn.innerHTML = "Continue";
     startBtn.addEventListener('click', startGame)
     game.classList.add("disable");
@@ -962,7 +962,7 @@ pauseGame = () => {
 
 
 resetGame = () => {
-    play("./sounds/menu-button.mp3", 1)
+    play("/Memory-Game/sounds/menu-button.mp3", 1)
     document.location.reload(true);
 }
 
@@ -985,7 +985,7 @@ startBonusGame=()=>{
     activeBonus=true
   
    
-   let sound=play("./sounds/HeavenMain.mp3",1)
+   let sound=play("/Memory-Game/sounds/HeavenMain.mp3",1)
    let bonusScore=0;
    bonusBtn.style.display="none"
    countDown.style.display="flex";
@@ -1025,7 +1025,7 @@ startBonusGame=()=>{
                 initialBonusArray.splice(index, 1); // 2nd parameter means remove one item only
             }
             setTimeout(()=>{
-                play("./sounds/correct.mp3",1)
+                play("/Memory-Game/sounds/correct.mp3",1)
                 bonusInput.style.border="5px solid transparent";
                 bonusInput.value="";
                 document.getElementById("bonus-image").classList.remove(item.image)
@@ -1092,7 +1092,7 @@ function inactive(intervalId){
 
 function endBonusGame(sound,bonusScore){
             sound.pause();
-            let godSound=play("./sounds/godSound.mp3",1)
+            let godSound=play("/Memory-Game/sounds/godSound.mp3",1)
             activeBonus=false;
             body.classList.add("miniGameFinished")
             body.classList.add("bodyBackground")
@@ -1122,7 +1122,7 @@ function endBonusGame(sound,bonusScore){
             setTimeout(()=>{
                 calculatePoints(bonusScore)
                 if(bonusScore>0){
-                let sound=play("./sounds/score.mp3",0.2)
+                let sound=play("/Memory-Game/sounds/score.mp3",0.2)
                 sound.loop=true
                setTimeout(()=>{
                 sound.pause()
