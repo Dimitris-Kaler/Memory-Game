@@ -11,6 +11,7 @@ let starterMusic;
 let timeOfFounds;
 let fronts = document.getElementsByClassName("front");
 let backs = document.getElementsByClassName("back");
+let backgroundMusic=document.getElementById("background-music");
 
 
 let leftArrow=document.getElementById("left-arrow")
@@ -97,7 +98,7 @@ if (promise!== undefined) {
 /***STARTING MUSIC WHEN LOAD THE PAGE****************** */
 // window.onload(play("/sounds/gamemusic.mp3"));
 window.addEventListener('load', () => {
-    starterMusic=play("/Memory-Game/sounds/gamemusic.mp3",1)
+    starterMusic=play("sounds/gamemusic.mp3",1)
     console.log(starterMusic)
   });
 
@@ -211,8 +212,9 @@ changerSubjectRadios()
 
 //WHEN PUSH THE START GAME
 startGame=()=>{
+    backgroundMusic.pause();
     gamePreferences.style.display="none";
-    play("/Memory-Game/sounds/menu-button.mp3",1.5)
+    play("sounds/menu-button.mp3",1.5)
     console.log(starterMusic)
     starterMusic.pause();
 
@@ -271,7 +273,7 @@ startGame=()=>{
             console.log(classes)
            
             function createBoard() {
-                 play("/Memory-Game/sounds/game-start.mp3",1.5);
+                 play("sounds/game-start.mp3",1.5);
                 let resDiv = document.createElement("div");
                 resDiv.id = "results"
                 let pMoves = document.createElement("p")
@@ -400,7 +402,7 @@ startGame=()=>{
 
                 card.addEventListener("click", (e) => {
 
-                    play("/Memory-Game/sounds/flipcard.mp3",1.5);
+                    play("sounds/flipcard.mp3",1.5);
                     console.log(e.target);
                     let child = card.querySelector('.content')
                     let front = card.querySelector(".front")
@@ -433,7 +435,7 @@ startGame=()=>{
                                 card.classList.add("founded")
                                 clickedCard.classList.add("founded")
                                 clickedCard = null;
-                                setTimeout(() => {play("/Memory-Game/sounds/correct.mp3") }, 300);
+                                setTimeout(() => {play("sounds/correct.mp3") }, 300);
 
                                 Array.from(cards).forEach((card) => {
                                     let child = card.querySelector('.content')
@@ -453,7 +455,7 @@ startGame=()=>{
                                         if (filterArray.length == 0) {
                                             game.style.display = "none";
                                             document.getElementById("message").style.display = "block";
-                                            play("/Memory-Game/sounds/successWin.mp3",1.5)
+                                            play("sounds/successWin.mp3",1.5)
                                             document.getElementById("message").innerHTML = "Congratulations you won at " + tries + " moves!";
                                         }
 
@@ -471,7 +473,7 @@ startGame=()=>{
                                 setTimeout(() => {
                                     card.classList.add("wrong")
                                     clickedCard.classList.add("wrong")
-                                    play("/Memory-Game/sounds/error-sound.mp3")
+                                    play("sounds/error-sound.mp3")
                                     child.classList.remove("contentActive")
                                     clickedCard.querySelector(".content").classList.remove('contentActive')
                                     Array.from(cards).forEach((card) => {
@@ -508,7 +510,7 @@ startGame=()=>{
 
 
 pauseGame = () => {
-    play("/Memory-Game/sounds/menu-button.mp3",1.5)
+    play("sounds/menu-button.mp3",1.5)
     startBtn.innerHTML = "Continue";
     startBtn.addEventListener('click', startGame)
     game.classList.add("disable");
@@ -516,7 +518,7 @@ pauseGame = () => {
     clock(active)
 }
 resetGame = () => {
-    play("/Memory-Game/sounds/menu-button.mp3",1.5)
+    play("sounds/menu-button.mp3",1.5)
     document.location.reload(true);
 }
 pauseBtn.addEventListener("click", pauseGame)
