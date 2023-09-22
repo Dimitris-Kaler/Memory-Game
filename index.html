@@ -15,16 +15,21 @@
 
 
 <body class="bodyBackground">
+    <audio id="background-music" autoplay>
+        <source src="/sounds/gamemusic.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
     <div id="btns">
         <button class="btn" id="start-game">Start</button>
         <button class="btn" id="pause-game">Pause</button>
         <button class="btn" id="reset">Reset</button>
     </div>
-    <div id="game-preferences">
+    <div id="game-preferences"class="gallery">
         <button id="left-arrow"class="arrow"><</button>
         <div id="choices">
+           
 
-            <fieldset id="field1">
+            <fieldset id="field1" class="gallery_item">
                 <legend>Choose Difficulty:</legend>
             
                 <div>
@@ -45,7 +50,7 @@
                     <label for="expert">Expert</label>
                 </div>
             </fieldset>
-            <fieldset id="field2">
+            <fieldset id="field2" class="gallery_item">
                 <legend>Choose Subject:</legend>
             
                 <div>

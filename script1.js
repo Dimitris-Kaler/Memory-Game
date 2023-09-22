@@ -16,7 +16,7 @@ let game = document.getElementById("game");
 let miniGame=document.getElementById("mini-game")
 let bonusBtn=document.getElementById("bonus-btn");
 let bonusInput=document.getElementById("bonus-input")
-
+let backgroundMusic=document.getElementById("background-music");
 let starterMusic;
 let foundedInARow = 0;
 let foundedPar = document.getElementById("founded_item");
@@ -384,6 +384,7 @@ const calculatePoints=(point)=>{
 
 //WHEN PUSH THE START GAME
 startGame = () => {
+    backgroundMusic.pause();
 
     document.getElementById("message").innerHTML=""
 //    play("/sounds/mainMusic.mp3",0.5)
