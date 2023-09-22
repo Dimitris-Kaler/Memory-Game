@@ -97,7 +97,7 @@ if (promise!== undefined) {
 /***STARTING MUSIC WHEN LOAD THE PAGE****************** */
 // window.onload(play("/sounds/gamemusic.mp3"));
 window.addEventListener('load', () => {
-    starterMusic=play("/sounds/gamemusic.mp3",1)
+    starterMusic=play("sounds/gamemusic.mp3",1)
     console.log(starterMusic)
   });
 
@@ -508,7 +508,7 @@ startGame=()=>{
 
 
 pauseGame = () => {
-    play("/sounds/menu-button.mp3",1.5)
+    play("sounds/menu-button.mp3",1.5)
     startBtn.innerHTML = "Continue";
     startBtn.addEventListener('click', startGame)
     game.classList.add("disable");
@@ -516,7 +516,7 @@ pauseGame = () => {
     clock(active)
 }
 resetGame = () => {
-    play("/sounds/menu-button.mp3",1.5)
+    play("sounds/menu-button.mp3",1.5)
     document.location.reload(true);
 }
 pauseBtn.addEventListener("click", pauseGame)
