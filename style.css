@@ -389,7 +389,7 @@
 
     .benfica {
         /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/SL_Benfica_logo.svg/1200px-SL_Benfica_logo.svg.png"); */
-        background-image: url("/images/football/Benfica.svg.png");
+        background-image: url("images/football/Benfica.svg.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -879,7 +879,7 @@
         background-repeat: no-repeat; 
     }
     .mongolia{
-        background-image: url("images/countries/Belgium.svg.png");
+        background-image: url("images/countries/mongolia.png");
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat; 
