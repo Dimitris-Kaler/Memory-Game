@@ -118,7 +118,7 @@
         left:50%;
 
         /* transform:translate(150%,-50%); */
-       transform:translate(150%,-50%);
+       transform:translate(155%,-50%);
     }
 
     #game {
@@ -1985,6 +1985,10 @@
     min-width:15px;
     min-height:auto;
   }
+
+  #mini-game{
+    width:80%; 
+}
 
   @keyframes rightChoice {
     0% {
