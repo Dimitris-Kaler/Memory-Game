@@ -17,6 +17,7 @@ let miniGame=document.getElementById("mini-game")
 let bonusBtn=document.getElementById("bonus-btn");
 let bonusInput=document.getElementById("bonus-input")
 let backgroundMusic=document.getElementById("background-music");
+
 // backgroundMusic.play();
 let starterMusic;
 let foundedInARow = 0;
@@ -209,13 +210,13 @@ function play(sound, vol) {
 }
 
 /***STARTING MUSIC WHEN LOAD THE PAGE****************** */
-// window.onload = () => {
-//     backgroundMusic.play();
-//   };
-window.addEventListener('load', () => {
-    starterMusic=play("/Memory-Game/sounds/gamemusic.mp3",1)
-    console.log(starterMusic)
-});
+window.onload = () => {
+    backgroundMusic.play();
+  };
+// window.addEventListener('load', () => {
+//     starterMusic=play("/Memory-Game/sounds/gamemusic.mp3",1)
+//     console.log(starterMusic)
+// });
 
 
 
