@@ -17,6 +17,7 @@ let miniGame=document.getElementById("mini-game")
 let bonusBtn=document.getElementById("bonus-btn");
 let bonusInput=document.getElementById("bonus-input")
 let backgroundMusic=document.getElementById("background-music");
+// backgroundMusic.play();
 let starterMusic;
 let foundedInARow = 0;
 let foundedPar = document.getElementById("founded_item");
@@ -204,11 +205,13 @@ function play(sound, vol) {
 }
 
 /***STARTING MUSIC WHEN LOAD THE PAGE****************** */
-// window.onload(play("/sounds/gamemusic.mp3"));
-window.addEventListener('load', () => {
-    starterMusic=play("/Memory-Game/sounds/gamemusic.mp3",1)
-    console.log(starterMusic)
-});
+window.onload = () => {
+    backgroundMusic.play();
+  };
+// window.addEventListener('load', () => {
+//     starterMusic=play("/Memory-Game/sounds/gamemusic.mp3",1)
+//     console.log(starterMusic)
+// });
 
 
 
@@ -391,8 +394,8 @@ startGame = () => {
     pauseBtn.style.display="block";
     gamePreferences.style.display = "none";
     play("/Memory-Game/sounds/menu-button.mp3", 1)
-    console.log(starterMusic)
-    starterMusic.pause();
+    // console.log(starterMusic)
+    backgroundMusic.pause();
 
 
     if (document.getElementById("message").innerHTML.length > 0) {
