@@ -34,7 +34,11 @@ let backs = document.getElementsByClassName("back");
 
 let leftArrow = document.getElementById("left-arrow")
 let rightArrow = document.getElementById("right-arrow");
+// let sameGameSettings={
+//     playedAgain:false,
 
+
+// }
 
 leftArrow.addEventListener("click", () => {
     if(choices.style.transform = "translateX(-75%)"){
@@ -205,13 +209,13 @@ function play(sound, vol) {
 }
 
 /***STARTING MUSIC WHEN LOAD THE PAGE****************** */
-window.onload = () => {
-    backgroundMusic.play();
-  };
-// window.addEventListener('load', () => {
-//     starterMusic=play("/Memory-Game/sounds/gamemusic.mp3",1)
-//     console.log(starterMusic)
-// });
+// window.onload = () => {
+//     backgroundMusic.play();
+//   };
+window.addEventListener('load', () => {
+    starterMusic=play("/Memory-Game/sounds/gamemusic.mp3",1)
+    console.log(starterMusic)
+});
 
 
 
@@ -666,14 +670,16 @@ startGame = () => {
         
 
             function placeTeamRandom(card) {
+                console.log(finalGameArray)
+     
                 let randomTeam = finalGameArray[Math.floor(Math.random() * finalGameArray.length)]
-                console.log(randomTeam.pic)
                 let back = card.querySelector('.back');
                 let front = card.querySelector(".front")
                 back.classList.add(randomTeam.pic);
                 front.dataset.team = randomTeam.name;
                 let randomTeamIndex = finalGameArray.indexOf(randomTeam)
                 finalGameArray.splice(randomTeamIndex, 1);
+                
             }
 
 
@@ -854,7 +860,8 @@ startGame = () => {
                                             play("/Memory-Game/sounds/successWin.mp3", 1)
                                             document.getElementById("message").innerHTML = "Congratulations you won at " + tries + " moves with "+JSON.parse(localStorage.getItem('score'))+" points";
                                             console.log(difficultyChoice)
-                                            startBtn.addEventListener("click", startGame)
+                                            // startBtn.addEventListener("click", startGame)
+                                            startBtn.style.display="none"
                                         }
 
 
