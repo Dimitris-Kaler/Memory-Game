@@ -35,11 +35,17 @@ let backs = document.getElementsByClassName("back");
 
 let leftArrow = document.getElementById("left-arrow")
 let rightArrow = document.getElementById("right-arrow");
-// let sameGameSettings={
-//     playedAgain:false,
+let GameSettings={
+    screenResizing:false,
+    playedAgain:false,
+    boardColumns:4,
+    boardRows:4,
+    difficultyChoice:"easy",
+    subjectChoice:"football"
 
 
-// }
+
+}
 
 leftArrow.addEventListener("click", () => {
     if(choices.style.transform = "translateX(-75%)"){
@@ -388,7 +394,131 @@ const calculatePoints=(point)=>{
                     
     }
 
-   
+    window.addEventListener('resize',()=>{
+        if(GameSettings.difficultyChoice=="hard"){
+            if(window.innerWidth<=720){
+                GameSettings.boardRows =10
+                GameSettings.boardColumns = 5
+              
+
+               
+        }else{
+           GameSettings.boardRows =5
+           GameSettings.boardColumns = 10
+        }
+        
+
+        updateGameGridStructure(GameSettings.boardRows, GameSettings.boardColumns);  
+
+        }
+
+        if(GameSettings.difficultyChoice=="expert"){
+            if(window.innerWidth<=720){
+                GameSettings.boardRows =12
+                GameSettings.boardColumns = 7
+              
+
+               
+        }else{
+           GameSettings.boardRows =6
+           GameSettings.boardColumns = 14
+        }
+        
+
+        updateGameGridStructure(GameSettings.boardRows, GameSettings.boardColumns);  
+
+        }
+         
+    })
+
+    function updateGameGridStructure(rows, columns) {
+        // console.log(rows+" "+columns)
+        // const cardsArray=Array.from(document.querySelectorAll('.card'))
+
+
+        // rowsArray.forEach(row=>{
+        //         game.removeChild(row)
+        // })
+
+        // for(let i=0;i<rows;i++){
+        //     for(let j=0;j<columns;j++){
+        //        let card=cardsArray.shift();
+        //        console.log(card)
+        //         game.appendChild(card)
+        //     }
+        //  }
+
+        const cardsArray = Array.from(document.querySelectorAll('.card'));
+        console.log("Cards ARRAY")
+        if((cardsArray!=null ||cardsArray!=undefined)&&window.innerWidth<=720&&window.innerWidth>=440 ){
+            cardsArray.forEach(card=>{
+                     card.style.height="6.5vh"; 
+            })  
+        }else if(window.innerWidth<=440 && window.innerWidth>=370){
+            cardsArray.forEach(card=>{
+                     card.style.height="6.5vh";
+            })  
+        }else{
+            cardsArray.forEach(card=>{
+                    card.style.height="auto";
+                
+            })
+        }
+        // Calculate the total number of cells in the grid
+        const totalCells = rows * columns;
+    
+        // Remove any excess cards from the grid
+        while (cardsArray.length > totalCells) {
+            cardsArray.pop();
+        }
+    
+        // Remove all rows from the game container
+        Array.from(game.querySelectorAll('.row')).forEach(row => {
+            game.removeChild(row);
+        });
+    
+        // Create and append new rows to the game container
+        for (let i = 0; i < rows; i++) {
+            const row = document.createElement('div');
+            row.classList.add('row');
+    
+            // Distribute cards to columns
+            for (let j = 0; j < columns; j++) {
+                const card = cardsArray.shift();
+                row.appendChild(card);
+            }
+    
+            game.appendChild(row);
+        }
+        
+
+
+       
+    }
+       
+       
+
+
+ 
+
+    
+     
+    
+
+    // tableResizing=()=>{
+    //     window.onresize=()=>{
+    //         GameSettings.screenResizing=true;
+    //         if(window.innerWidth<=720){
+    //             GameSettings.boardRows =12
+    //             GameSettings.boardColumns = 7
+            
+    //     }
+    //     console.log(GameSettings.boardRows+" "+GameSettings.boardColumns)
+    //     }
+        
+
+    // }
+    // tableResizing();
 
 //WHEN PUSH THE START GAME
 startGame = () => {
@@ -424,32 +554,51 @@ startGame = () => {
 
 
 
-            let difficultyChoice = document.querySelector('input[name="difficulty"]:checked').value
-            let subjectChoice = document.querySelector('input[name="subject"]:checked').value
+            GameSettings.difficultyChoice = document.querySelector('input[name="difficulty"]:checked').value
+            GameSettings.subjectChoice = document.querySelector('input[name="subject"]:checked').value
 
 
             let rows, columns
             function findRowColumns() {
-                if (difficultyChoice == "easy") {
-                    rows = 4
-                    columns = 4
-                } else if (difficultyChoice == "medium") {
-                    rows = 5
-                    columns = 6
+                if (GameSettings.difficultyChoice == "easy") {
+                    GameSettings.boardRows = 4
+                    GameSettings.boardColumns = 4
+                } else if (GameSettings.difficultyChoice == "medium") {
+                    
 
-                } else if (difficultyChoice == "hard") {
-                    rows = 5
-                    columns = 10
+                    GameSettings.boardRows = 5
+                    GameSettings.boardColumns = 6
+
+                } else if (GameSettings.difficultyChoice == "hard") {
+                    if(window.innerWidth<=720){
+                        GameSettings.boardRows = 10
+                        GameSettings.boardColumns = 5
+                       }else{
+                        GameSettings.boardRows = 5
+                        GameSettings.boardColumns = 10
+                       }
+                   
+                    
                     // classes = classesHard
                 } else {
-                    rows = 6
-                    columns = 14
+                   if(window.innerWidth<=720){
+                    GameSettings.boardRows =12
+                    GameSettings.boardColumns = 7
+                   }else{
+                    GameSettings.boardRows =6
+                    GameSettings.boardColumns = 14
+                   }
+
                 }
 
 
             }
+
+           
             findRowColumns()
             createBoard();
+
+            
 
 
             function createBoard() {
@@ -504,13 +653,22 @@ startGame = () => {
 
 
 
-                for (i = 0; i < rows; i++) {
+                for (i = 0; i < GameSettings.boardRows; i++) {
 
                     let div = document.createElement("div");
                     div.className = "row";
-                    for (j = 0; j < columns; j++) {
+                    for (j = 0; j < GameSettings.boardColumns; j++) {
                         let cardDiv = document.createElement("div")
                         cardDiv.className = "card";
+                        if(GameSettings.difficultyChoice=="expert"&& window.innerWidth<=720 && window.innerWidth>=440){
+                            console.log("fuck you fro start")
+                             cardDiv.style.height="6.5vh";
+                        }
+                        if(GameSettings.difficultyChoice=="hard"&& window.innerWidth<=440 && window.innerWidth>=370){
+                            console.log("fuck you fro start")
+                             cardDiv.style.height="6.5vh";
+                        }
+
                         let contentDiv = document.createElement("div");
                         contentDiv.className = "content"
                         let frontDiv = document.createElement("div");
@@ -523,6 +681,7 @@ startGame = () => {
                         cardDiv.appendChild(contentDiv)
                         div.appendChild(cardDiv);
                     }
+                   
                     game.appendChild(div)
 
                 }
@@ -618,8 +777,8 @@ startGame = () => {
 
 
             //THE LAST ARRAY WHICH CREATED FROM THE SELECTION CHOICES
-            let finalGameArray = setTheGame(subjectChoice, difficultyChoice)
-            console.log(subjectChoice)
+            let finalGameArray = setTheGame(GameSettings.subjectChoice, GameSettings.difficultyChoice)
+           
 
 
 
@@ -685,6 +844,7 @@ startGame = () => {
 
 
             Array.from(cards).forEach((card) => {
+                
 
                 placeTeamRandom(card)
 
@@ -1145,6 +1305,8 @@ function endBonusGame(sound,bonusScore){
                 
             },6000)
 }
+
+
 
 
 bonusBtn.addEventListener("click",startBonusGame)

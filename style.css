@@ -8,6 +8,9 @@
 
         
     }
+    * {
+        box-sizing: border-box;
+      }
     .bodyBackground{
         background: url("https://i.pinimg.com/736x/41/b7/07/41b707b7632118fd15807ed0bc9c85bc.jpg") no-repeat fixed center center;
         /* background: url("/images/godlike.jpg") no-repeat fixed top center; */
@@ -124,7 +127,7 @@
     #game {
         margin: auto;
         /* overflow: hidden; */
-        width:100%;
+        width:85%;
         height:100%;
         /* min-width:410px; */
         position:relative;
@@ -1943,9 +1946,14 @@
 
 /*Responsiveness*/
 
-@media only screen and (max-width: 810px) {
+
+@media only screen and (max-width: 720px) {
+  
     #results{
         width:100%;
+    }
+    #game{
+        width:80%;
     }
     #game-preferences{
             
@@ -1981,9 +1989,11 @@
         width:100%;
     }
   .card {
-    width:100%;
-    min-width:15px;
-    min-height:auto;
+    
+    
+    /* height:auto; */
+    /* min-width:15px;
+    min-height:5px; */
   }
 
   #mini-game{
@@ -2021,4 +2031,21 @@
     }
 }
 }
+/*720px*/
+
+@media only screen and (min-width:800px) and (max-height:700px) {
+    .card{
+         height:11vh; 
+    }
+
+}
+
+@media only screen and (max-width:340px) and (max-height:700px) {
+    .card{
+         height:6.5vh; 
+    }
+
+}
+
+
 
