@@ -39,7 +39,7 @@ let backs = document.getElementsByClassName("back");
 let GameSettings={
     screenResizing:false,
     bonusTemplate:{name:"heaven",pic:"/images/heaven.webp"},
-    backgroundTemplates:[{name :"forest",pic:"/images/forest6.webp"},{name:"pyramid",pic:"/images/pyramids1.webp"},{name:"bigben",pic:"/images/big-ben.webp"},{name:"space",pic:"/images/space2.webp"},{name:"north-pole",pic:"/images/ice1.webp"},{name:"underwater",pic:"/images/buble.webp"}],
+    backgroundTemplates:[{name :"forest",pic:"/Memory-Game/images/forest6.webp"},{name:"pyramid",pic:"/Memory-Game/images/pyramids1.webp"},{name:"bigben",pic:"/Memory-Game/images/big-ben.webp"},{name:"space",pic:"/Memory-Game/images/space2.webp"},{name:"north-pole",pic:"/Memory-Game/images/ice1.webp"},{name:"underwater",pic:"/Memory-Game/images/buble.webp"}],
     playedAgain:false,
     boardColumns:4,
     boardRows:4,
