@@ -29,7 +29,7 @@ body {
         /* animation:infinite 35s linear infinite;
         width:100%;s
         height:100%; */
-    background-image: url('Memory-Game/images/logo.webp');
+    background-image: url('/Memory-Game/images/logo.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -475,7 +475,7 @@ input[type="radio"] {
     background-color: rgb(253, 247, 247);
     /* background-color: rgb(105, 105, 105); */
     /* background-image: url("https://cdn.britannica.com/68/195168-050-BBAE019A/football.jpg"); */
-    background-image: url("Memory-Game/images/football.webp");
+    background-image: url("/Memory-Game/images/football.webp");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
