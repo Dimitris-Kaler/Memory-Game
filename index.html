@@ -14,7 +14,12 @@
 </head>
 
 
-<body class="bodyBackground">
+<body class="bodyBackground hidden-mode">
+    <div id="start-page">
+        <img src="/images/logo_bg.webp" id="game-logo" class="logo shine-effect" alt="Memory Game Logo">
+        <button id="enter-btn"class ="glowBtn">ENTER</button>
+    </div>
+    
     <audio id="background-music">
         <source src="/Memory-Game/sounds/gamemusic.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -29,10 +34,9 @@
         <button class="btn" id="reset">Reset</button>
     </div>
     <div id="game-preferences"class="gallery">
-        <button id="left-arrow"class="arrow"><</button>
+        <!-- <button id="left-arrow"class="arrow"><</button> -->
         <div id="choices">
-           
-
+        
             <fieldset id="field1" class="gallery_item">
                 <legend>Difficulty:</legend>
             
@@ -74,13 +78,11 @@
                     <input type="radio" id="expert" name="subject" value="personalities">
                     <label for="expert">Personalities</label>
                 </div>
-            </fieldset>
-            
-            
+            </fieldset>  
         </div>
-        <button id="right-arrow"class="arrow">></button>
+        <!-- <button id="right-arrow"class="arrow">></button> -->
     </div>
-    <p id="message"class="animate_animated animate__zoomIn"></p>
+    <p id="message"class="animate_animated animate__zoomIn glowMsg win"></p>
 
     <!-- <div id="results">
         <p>Moves:<span>0</span></p>
@@ -106,11 +108,22 @@
     
 
     </div>
+    <!---baby Animation-->
     <div id="baby_appear"></div>
+    <!--background-card animation-->
+    <div id="card-background"></div>
+<!--- Loading --->
+    <div id="loading-screen">
+        <img src="/images/logo_bg.webp" id="loading-logo" alt="Loading Logo">
+        <p id="loading-text">Loading<span class="dots"></span></p>
+    </div>
+
+    <footer id = "credits">
+        <p>&#169; <span id="year"></span> Created by Dimitris Kalerantes</p>
+    </footer>
     <script src="script1.js"></script>
        
 
-  
 
 </body>
 

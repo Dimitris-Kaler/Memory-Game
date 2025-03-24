@@ -1,14 +1,18 @@
-
-
 // let difficultyChoice = document.querySelector('input[name="difficulty"]:checked').value
 
-//static variable for game paused
-// let gamePaused = false;
-// let backgroundStage=undefined;
+
+
 // let subjectChoice = document.querySelector('input[name="subject"]:checked').value
 const body = document.getElementsByTagName("body")[0];
+
+///twra prostethikan
+let gamePaused = false;
+let backgroundStage=undefined;
 const entryBtn = document.getElementById("enter-btn");
 const entryContainer=document.getElementById("start-page")
+let backgroundTemplates = [{name :"forest",pic:"/images/forest6.webp"},{name:"pyramid",pic:"/images/pyramids1.webp"},{name:"bigben",pic:"/images/big-ben.webp"},{name:"space",pic:"/images/space2.webp"},{name:"north-pole",pic:"/images/ice1.webp"},{name:"underwater",pic:"/images/buble.webp"}]
+
+
 const choices = document.getElementById("choices");
 const gamePreferences = document.getElementById("game-preferences");
 const startBtn = document.getElementById("start-game");
@@ -20,7 +24,6 @@ let miniGame=document.getElementById("mini-game")
 let bonusBtn=document.getElementById("bonus-btn");
 let bonusInput=document.getElementById("bonus-input")
 let backgroundMusic=document.getElementById("background-music");
-// let backgroundTemplates = [{name :"forest",pic:"/images/forest6.webp"},{name:"pyramid",pic:"/images/pyramids1.webp"},{name:"bigben",pic:"/images/big-ben.webp"},{name:"space",pic:"/images/space2.webp"},{name:"north-pole",pic:"/images/ice1.webp"},{name:"underwater",pic:"/images/buble.webp"}]
 
 // backgroundMusic.play();
 let starterMusic;
@@ -36,28 +39,40 @@ let godMsg=document.getElementById("godMsg")
 let fronts = document.getElementsByClassName("front");
 let backs = document.getElementsByClassName("back");
 
+
+let leftArrow = document.getElementById("left-arrow")
+let rightArrow = document.getElementById("right-arrow");
 let GameSettings={
     screenResizing:false,
-    bonusTemplate:{name:"heaven",pic:"/images/heaven.webp"},
-    backgroundTemplates:[{name :"forest",pic:"/images/forest6.webp"},{name:"pyramid",pic:"/images/pyramids1.webp"},{name:"bigben",pic:"/images/big-ben.webp"},{name:"space",pic:"/images/space2.webp"},{name:"north-pole",pic:"/images/ice1.webp"},{name:"underwater",pic:"/images/buble.webp"}],
     playedAgain:false,
     boardColumns:4,
     boardRows:4,
     difficultyChoice:"easy",
-    subjectChoice:"football",
-    gamePaused:false,
-    backgroundStage:undefined,
-    gameState:"BasicGame",
+    subjectChoice:"football"
 
-    get score(){
-        return JSON.parse(localStorage.getItem("score")) || 0; 
-    },
-    set score(value){
-        localStorage.setItem("score",JSON.stringify(value))
 
-    }
 
 }
+
+// leftArrow.addEventListener("click", () => {
+//     if(choices.style.transform = "translateX(-75%)"){
+//         leftArrow.style.display="none"
+//         rightArrow.style.display="block"
+//     }else{
+//     choices.style.transform = "translateX(-75%)"
+//     }
+// })
+
+// rightArrow.addEventListener("click", () => {
+//     if(choices.style.transform = "translateX(0%)"){
+//         rightArrow.style.display="none"
+//         leftArrow.style.display="block"
+//     }else{
+         
+    
+//     choices.style.transform = "translateX(0%)"
+//     }
+// })
 
 
 let footballArray = [{ pic: "real", name: "Real Madrid" }, { pic: "barcelona", name: "Barcelona" }, { pic: "juve", name: "Juventus" }, { pic: "manunited", name: "Manchester United" },
@@ -110,84 +125,6 @@ let personalitiesArray = [{ pic: "hitler", name: "Adolf Hitler" }, { pic: "stali
 { pic: "voltaire", name: "Voltaire" }, { pic: "heisenberg", name: "Werner Karl Heisenberg" }, { pic: "vasco", name: "Vasco Da Gama" }, { pic: "putin", name: "Vladimir Putin" },
 { pic: "freud", name: "Sigmund Freud" }, { pic: "monroe", name: "Marylin Monroe" }, { pic: "mendeleev", name: "Dmitriy Mendeleyev" }]
 
-
-
-
-
-// cardsAtStart = (event)=>{
-//     console.log(event);
-//     const cardContainer = document.getElementById("card-background");
-// // document.getElementById("card-background").innerHTML = "";
-//    cardContainer.replaceChildren();
-//     const backgroundNumCards = 8; 
-//     let picArray;
-//     console.log("CLICKED ONCHANHE");
-//     switch (event.target.value) {
-//         case "football":
-//             picArray = footballArray
-//             break;
-//         case "jungle":
-//             picArray = jungleArray
-//             break;
-//         case "countries":
-//             picArray = countriesArray
-//             break;
-//         case "personalities":
-//             picArray = personalitiesArray
-//             break;
-//         default:
-//             picArray = footballArray
-//     }
-
-//     for (let i = 0; i < backgroundNumCards; i++) {
-//         const backgroundCard = document.createElement("div");
-//         // backgroundCard.classList.add("card")
-//         backgroundCard.classList.add("backgroundCard")
-       
-
-       
-//         const randomIndex = Math.floor(Math.random() * picArray.length);
-//         const randomClass = picArray.splice(randomIndex, 1)[0].pic;
-
-//         backgroundCard.classList.add(randomClass);
-
-//         // setTimeout(() => {
-//         //     backgroundCard.style.opacity = "0.5";
-//         // }, i * 300); 
-
-//         // setTimeout(() => {
-//         // }, 5000 + (backgroundNumCards - i) * 300);
-
-//         cardContainer.appendChild(backgroundCard);
-//     }
-
-// }
-
-/********ENTER BUTTON */
-entryBtn.addEventListener("click",(event)=>{
-    entryContainer.style.display = "none"; 
-    document.body.classList.remove("hidden-mode"); 
-// cardsAtStart(event);
-});
-
-
-
-
-//****MENU ONCHANGE ANIMATION */
-  
-    // document.querySelectorAll('input[name="subject"]').forEach((radio) => {
-    //     radio.addEventListener("change", (event) => {
-    //        // cardsAtStart(event)
-    //     });
-    // });
-
-
-
-
-
-    
-
-    
 
 
 // function setTheGame(type, difficulty) {
@@ -243,12 +180,86 @@ entryBtn.addEventListener("click",(event)=>{
 
 // setTheGame(footballArray, expert)
 
-/*********************************END ONCHANGE SECTION ************************/
 
 
 
 
-//***********************AUDIO FUNCTION**********************8 */
+
+
+
+
+
+
+
+
+///Arrays for quizzes
+//Football
+//Easy
+
+
+entryBtn.addEventListener("click",(event)=>{
+    entryContainer.style.display = "none"; 
+    document.body.classList.remove("hidden-mode"); 
+//  cardsAtStart(event);
+});
+
+
+// cardsAtStart = (event)=>{
+//     console.log(event);
+//     const cardContainer = document.getElementById("card-background");
+// // document.getElementById("card-background").innerHTML = "";
+//    cardContainer.replaceChildren();
+//     const backgroundNumCards = 8; 
+//     let picArray;
+//     console.log("CLICKED ONCHANHE");
+//     switch (event.target.value) {
+//         case "football":
+//             picArray = footballArray
+//             break;
+//         case "jungle":
+//             picArray = jungleArray
+//             break;
+//         case "countries":
+//             picArray = countriesArray
+//             break;
+//         case "personalities":
+//             picArray = personalitiesArray
+//             break;
+//         default:
+//             picArray = footballArray
+//     }
+
+//     for (let i = 0; i < backgroundNumCards; i++) {
+//         const backgroundCard = document.createElement("div");
+//         // backgroundCard.classList.add("card")
+//         backgroundCard.classList.add("backgroundCard")
+       
+
+       
+//         const randomIndex = Math.floor(Math.random() * picArray.length);
+//         const randomClass = picArray.splice(randomIndex, 1)[0].pic;
+
+//         backgroundCard.classList.add(randomClass);
+
+//         setTimeout(() => {
+//             backgroundCard.style.opacity = "0.5";
+//         }, i * 300); 
+
+//         // setTimeout(() => {
+//         // }, 5000 + (backgroundNumCards - i) * 300);
+
+//         cardContainer.appendChild(backgroundCard);
+//     }
+
+// }
+
+
+
+// let classesEasy = easyFootball
+// let classesMedium = mediumFootball
+// let classesHard = hardFootball
+// let classesExpert = expertFootball
+//***********************AUDIO FUNTION**********************8 */
 function play(sound, vol) {
     let audio = new Audio(sound);
     audio.volume = vol;
@@ -271,7 +282,6 @@ function play(sound, vol) {
 window.onload = () => {
     backgroundMusic.play();
   };
-
 // window.addEventListener('load', () => {
 //     starterMusic=play("/Memory-Game/sounds/gamemusic.mp3",1)
 //     console.log(starterMusic)
@@ -344,6 +354,45 @@ function clock(active) {
     }
 }
 /****************************************************************END CLOCK********************************** */
+const subjectRadios = document.getElementsByName("subject")
+
+function changerSubjectRadios() {
+    Array.from(subjectRadios).forEach((radio) => {
+        radio.addEventListener("change", () => {
+            console.log(radio.value);
+            if (radio.value == "football") {
+                body.style.backgroundImage = 'url("https://i.pinimg.com/736x/41/b7/07/41b707b7632118fd15807ed0bc9c85bc.jpg")'
+                // classesEasy = easyFootball
+                // classesMedium = mediumFootball
+                // classesHard = hardFootball
+                // classesExpert = expertFootball
+
+
+            } else if (radio.value == "countries") {
+                body.style.backgroundImage = 'url("https://w0.peakpx.com/wallpaper/395/226/HD-wallpaper-world-map-world-worldview-flags-map.jpg")'
+                // classesEasy = easyCountries
+                // classesMedium = mediumCountries
+                // classesHard = hardCountries
+                // classesExpert = expertFootball
+
+            } else if (radio.value == "jungle") {
+                body.style.backgroundImage = 'url("https://thumbs.dreamstime.com/b/deep-jungle-southeast-asia-dense-vegetation-southeast-asian-deep-jungle-128947163.jpg")'
+                // classesEasy = easyJungle
+                // classesMedium = mediumJungle
+                // classesHard = hardJungle
+                // classesExpert = expertJungle
+            } else {
+                body.style.backgroundImage = 'url("https://www.bestfunquiz.com/docs/14317992.jpg")'
+                // classesEasy = easyPersonalities
+                // classesMedium = mediumPersonalities
+                // classesHard = hardPersonalities
+                // classesExpert = expertPersonalities
+            }
+
+        })
+    })
+}
+changerSubjectRadios()
 
 
 //CALCULATEPOINTS() OUTSIDE START GAME()
@@ -355,20 +404,10 @@ const calculatePoints=(point)=>{
     //    let addingPoints=false;
        new Promise((resolve,reject)=>{
         
-    //    let addedPoint= JSON.parse(localStorage.getItem('score'));
-        let addedPoint = GameSettings.score
+       let addedPoint= JSON.parse(localStorage.getItem('score'));
         let totalPoints = addedPoint + point
-
-         // Prevent score from going negative
-         if (totalPoints < 0) {
-            totalPoints = 0;
-        }
-
-        // JSON.stringify(localStorage.setItem("score",totalPoints))
-        // localStorage.setItem("score",totalPoints)
-
-        GameSettings.score = totalPoints;
-
+        JSON.stringify(localStorage.setItem("score",totalPoints))
+        localStorage.setItem("score",totalPoints)
         
         let addPoints = setInterval(() => {
             
@@ -407,7 +446,6 @@ const calculatePoints=(point)=>{
     
 
     };
-
     function soundChangeScore(time){
      
             console.log(changeScore)
@@ -419,218 +457,234 @@ const calculatePoints=(point)=>{
                     
     }
 
-    // window.addEventListener('resize',()=>{
-    //     if(GameSettings.difficultyChoice=="hard"){
-    //         if(window.innerWidth<=720){
-    //             GameSettings.boardRows =10
-    //             GameSettings.boardColumns = 5
+    window.addEventListener('resize',()=>{
+        if(GameSettings.difficultyChoice=="hard"){
+            if(window.innerWidth<=720){
+                GameSettings.boardRows =10
+                GameSettings.boardColumns = 5
               
 
                
-    //     }else{
-    //        GameSettings.boardRows =5
-    //        GameSettings.boardColumns = 10
-    //     }
+        }else{
+           GameSettings.boardRows =5
+           GameSettings.boardColumns = 10
+        }
         
 
-    //     updateGameGridStructure(GameSettings.boardRows, GameSettings.boardColumns);  
+        updateGameGridStructure(GameSettings.boardRows, GameSettings.boardColumns);  
 
-    //     }
+        }
 
-    //     if(GameSettings.difficultyChoice=="expert"){
-    //         if(window.innerWidth<=720){
-    //             GameSettings.boardRows =12
-    //             GameSettings.boardColumns = 7
+        if(GameSettings.difficultyChoice=="expert"){
+            if(window.innerWidth<=720){
+                GameSettings.boardRows =12
+                GameSettings.boardColumns = 7
               
 
                
-    //     }else{
-    //        GameSettings.boardRows =6
-    //        GameSettings.boardColumns = 14
-    //     }
+        }else{
+           GameSettings.boardRows =6
+           GameSettings.boardColumns = 14
+        }
         
 
-    //     updateGameGridStructure(GameSettings.boardRows, GameSettings.boardColumns);  
+        updateGameGridStructure(GameSettings.boardRows, GameSettings.boardColumns);  
 
-    //     }
+        }
          
-    // })
+    })
 
-    // function updateGameGridStructure(rows, columns) {
-    //     // console.log(rows+" "+columns)
-    //     // const cardsArray=Array.from(document.querySelectorAll('.card'))
+    function updateGameGridStructure(rows, columns) {
+        // console.log(rows+" "+columns)
+        // const cardsArray=Array.from(document.querySelectorAll('.card'))
 
 
-    //     // rowsArray.forEach(row=>{
-    //     //         game.removeChild(row)
-    //     // })
+        // rowsArray.forEach(row=>{
+        //         game.removeChild(row)
+        // })
 
-    //     // for(let i=0;i<rows;i++){
-    //     //     for(let j=0;j<columns;j++){
-    //     //        let card=cardsArray.shift();
-    //     //        console.log(card)
-    //     //         game.appendChild(card)
-    //     //     }
-    //     //  }
+        // for(let i=0;i<rows;i++){
+        //     for(let j=0;j<columns;j++){
+        //        let card=cardsArray.shift();
+        //        console.log(card)
+        //         game.appendChild(card)
+        //     }
+        //  }
 
-    //     const cardsArray = Array.from(document.querySelectorAll('.card'));
-    //     console.log("Cards ARRAY")
-    //     if((cardsArray!=null ||cardsArray!=undefined)&&window.innerWidth<=720&&window.innerWidth>=440 ){
-    //         cardsArray.forEach(card=>{
-    //                  card.style.height="6.5vh"; 
-    //         })  
-    //     }else if(window.innerWidth<=440 && window.innerWidth>=370){
-    //         cardsArray.forEach(card=>{
-    //                  card.style.height="6.5vh";
-    //         })  
-    //     }else{
-    //         cardsArray.forEach(card=>{
-    //                 card.style.height="auto";
+        const cardsArray = Array.from(document.querySelectorAll('.card'));
+        console.log("Cards ARRAY")
+        if((cardsArray!=null ||cardsArray!=undefined)&&window.innerWidth<=720&&window.innerWidth>=440 ){
+            cardsArray.forEach(card=>{
+                     card.style.height="6.5vh"; 
+            })  
+        }else if(window.innerWidth<=440 && window.innerWidth>=370){
+            cardsArray.forEach(card=>{
+                     card.style.height="6.5vh";
+            })  
+        }else{
+            cardsArray.forEach(card=>{
+                    card.style.height="auto";
                 
-    //         })
-    //     }
-    //     // Calculate the total number of cells in the grid
-    //     const totalCells = rows * columns;
+            })
+        }
+        // Calculate the total number of cells in the grid
+        const totalCells = rows * columns;
     
-    //     // Remove any excess cards from the grid
-    //     while (cardsArray.length > totalCells) {
-    //         cardsArray.pop();
-    //     }
+        // Remove any excess cards from the grid
+        while (cardsArray.length > totalCells) {
+            cardsArray.pop();
+        }
     
-    //     // Remove all rows from the game container
-    //     Array.from(game.querySelectorAll('.row')).forEach(row => {
-    //         game.removeChild(row);
-    //     });
+        // Remove all rows from the game container
+        Array.from(game.querySelectorAll('.row')).forEach(row => {
+            game.removeChild(row);
+        });
     
-    //     // Create and append new rows to the game container
-    //     for (let i = 0; i < rows; i++) {
-    //         const row = document.createElement('div');
-    //         row.classList.add('row');
+        // Create and append new rows to the game container
+        for (let i = 0; i < rows; i++) {
+            const row = document.createElement('div');
+            row.classList.add('row');
     
-    //         // Distribute cards to columns
-    //         for (let j = 0; j < columns; j++) {
-    //             const card = cardsArray.shift();
-    //             row.appendChild(card);
-    //             requestAnimationFrame(card);
-    //         }
+            // Distribute cards to columns
+            for (let j = 0; j < columns; j++) {
+                const card = cardsArray.shift();
+                row.appendChild(card);
+            }
     
-    //         game.appendChild(row);
-    //     }
+            game.appendChild(row);
+        }
         
 
 
        
-    // }
-
-
-
-    //BACKGROUNDS ANIMATIONS
-
-
-    function createStars(count) {
-        console.log("runstarts functions")
-        for (let i = 0; i < count; i++) {
-            let star = document.createElement("div");
-            star.classList.add("star");
-            star.style.left = Math.random() * window.innerWidth + "px";
-            star.style.top = Math.random() * window.innerHeight + "px";
-            star.style.animationDelay = Math.random() * 3 + "s";
-            star.style.width = star.style.height = (Math.random() * 3 + 2) + "px";
-            document.body.appendChild(star);
-        }
     }
-
-
-    function createBubbles(count) {
-        console.log("run bubble functions")
-        for (let i = 0; i < count; i++) {
-            let bubble = document.createElement("div");
-            bubble.classList.add("bubble");
-            bubble.style.left = Math.random() * window.innerWidth + "px";
-            bubble.style.bottom = "-10px";
-            bubble.style.animationDuration = (Math.random() * 3 + 3) + "s";
-            bubble.style.animationDelay = Math.random() * 5 + "s";
-            bubble.style.width = bubble.style.height = (Math.random() * 20 + 5) + "px";
-            document.body.appendChild(bubble);
-        }
-    }
-
-    function createSandstorm(count) {
-        console.log("run sand functions")
-        for (let i = 0; i < count; i++) {
-            let particle = document.createElement("div");
-            particle.classList.add("sand-particle");
-            particle.style.left = Math.random() * window.innerWidth + "px";
-            particle.style.top = Math.random() * window.innerHeight + "px";
-            particle.style.animationDuration = (Math.random() * 3 + 2) + "s";
-            particle.style.animationDelay = Math.random() * 3 + "s";
-            document.body.appendChild(particle);
-        }
-    }
-
-
-    function createMagicParticles(count) {
-        console.log("run magic particles functions")
-        for (let i = 0; i < count; i++) {
-            let particle = document.createElement("div");
-            particle.classList.add("magic-particle");
-            particle.style.left = Math.random() * window.innerWidth + "px";
-            particle.style.top = Math.random() * window.innerHeight + "px";
-            particle.style.animationDelay = Math.random() * 3 + "s";
-            document.body.appendChild(particle);
-        }
-    }
-
-    function createHeavenParticles(count) {
-        console.log("run magic particles functions")
-        for (let i = 0; i < count; i++) {
-            let particle = document.createElement("div");
-            particle.classList.add("heaven-particle");
-            particle.style.left = Math.random() * window.innerWidth + "px";
-            particle.style.top = Math.random() * window.innerHeight + "px";
-            particle.style.animationDelay = Math.random() * 3 + "s";
-            document.body.appendChild(particle);
-        }
-    }
-
-    function createRain(count) {
-        console.log("run rain functions")
-        for (let i = 0; i < count; i++) {
-            let drop = document.createElement("div");
-            drop.classList.add("raindrop");
-            drop.style.left = Math.random() * window.innerWidth + "px";
-            drop.style.top = Math.random() * -100 + "px";
-            drop.style.animationDuration = (Math.random() * 1.5 + 0.5) + "s";
-            drop.style.animationDelay = Math.random() * 2 + "s";
-            document.body.appendChild(drop);
-        }
-    }
-
-
-    function createSnowflakes() {
-        console.log("run snow flakes functions")
-        const snowContainer = document.body;
-        for (let i = 0; i < 180; i++) {  // Increased number of snowflakes
-            let snowflake = document.createElement("div");
-            snowflake.classList.add("snowflake");
-            let size = Math.random() * 6 + 2;
-            let duration = Math.random() * 8 + 3; // More variation in animation duration
-            snowflake.style.width = `${size}px`;
-            snowflake.style.height = `${size}px`;
-            snowflake.style.left = `${Math.random() * 100}vw`;
-            snowflake.style.animationDuration = `${duration}s`;
-            snowflake.style.animationDelay = `${Math.random() * 5}s`;
-            snowflake.style.opacity = Math.random() * 0.6 + 0.4; // Varying opacity
-            snowContainer.appendChild(snowflake);
-        }
-    }
-
        
        
 
 
  
+        ///ANIMATION NEW INTOTO THE SCRIPT
+        function createStars(count) {
+            console.log("runstarts functions")
+            for (let i = 0; i < count; i++) {
+                let star = document.createElement("div");
+                star.classList.add("star");
+                star.style.left = Math.random() * window.innerWidth + "px";
+                star.style.top = Math.random() * window.innerHeight + "px";
+                star.style.animationDelay = Math.random() * 3 + "s";
+                star.style.width = star.style.height = (Math.random() * 3 + 2) + "px";
+                document.body.appendChild(star);
+            }
+        }
+    
+    
+        function createBubbles(count) {
+            console.log("run bubble functions")
+            for (let i = 0; i < count; i++) {
+                let bubble = document.createElement("div");
+                bubble.classList.add("bubble");
+                bubble.style.left = Math.random() * window.innerWidth + "px";
+                bubble.style.bottom = "-10px";
+                bubble.style.animationDuration = (Math.random() * 3 + 3) + "s";
+                bubble.style.animationDelay = Math.random() * 5 + "s";
+                bubble.style.width = bubble.style.height = (Math.random() * 20 + 5) + "px";
+                document.body.appendChild(bubble);
+            }
+        }
+    
+        function createSandstorm(count) {
+            console.log("run sand functions")
+            for (let i = 0; i < count; i++) {
+                let particle = document.createElement("div");
+                particle.classList.add("sand-particle");
+                particle.style.left = Math.random() * window.innerWidth + "px";
+                particle.style.top = Math.random() * window.innerHeight + "px";
+                particle.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                particle.style.animationDelay = Math.random() * 3 + "s";
+                document.body.appendChild(particle);
+            }
+        }
+    
+    
+        function createMagicParticles(count) {
+            console.log("run magic particles functions")
+            for (let i = 0; i < count; i++) {
+                let particle = document.createElement("div");
+                particle.classList.add("magic-particle");
+                particle.style.left = Math.random() * window.innerWidth + "px";
+                particle.style.top = Math.random() * window.innerHeight + "px";
+                particle.style.animationDelay = Math.random() * 3 + "s";
+                document.body.appendChild(particle);
+            }
+        }
+    
+        function createRain(count) {
+            console.log("run rain functions")
+            for (let i = 0; i < count; i++) {
+                let drop = document.createElement("div");
+                drop.classList.add("raindrop");
+                drop.style.left = Math.random() * window.innerWidth + "px";
+                drop.style.top = Math.random() * -100 + "px";
+                drop.style.animationDuration = (Math.random() * 1.5 + 0.5) + "s";
+                drop.style.animationDelay = Math.random() * 2 + "s";
+                document.body.appendChild(drop);
+            }
+        }
+    
+    
+        function createSnowflakes() {
+            console.log("run snow flakes functions")
+            const snowContainer = document.body;
+            for (let i = 0; i < 180; i++) {  // Increased number of snowflakes
+                let snowflake = document.createElement("div");
+                snowflake.classList.add("snowflake");
+                let size = Math.random() * 6 + 2;
+                let duration = Math.random() * 8 + 3; // More variation in animation duration
+                snowflake.style.width = `${size}px`;
+                snowflake.style.height = `${size}px`;
+                snowflake.style.left = `${Math.random() * 100}vw`;
+                snowflake.style.animationDuration = `${duration}s`;
+                snowflake.style.animationDelay = `${Math.random() * 5}s`;
+                snowflake.style.opacity = Math.random() * 0.6 + 0.4; // Varying opacity
+                snowContainer.appendChild(snowflake);
+            }
+        }
 
+
+        function randomBackground(backgroundName){
+    
+            console.log(backgroundName)
+          
+        
+        
+            let randomNum= Math.floor(Math.random()*backgroundTemplates.length)
+             body.style.backgroundImage = `url(${backgroundTemplates[randomNum].pic})`
+             let templateName = backgroundName == undefined ? backgroundTemplates[randomNum].name :backgroundName
+         
+             switch (templateName) {
+                 case "forest":
+                     createMagicParticles(300);
+                     break;
+                 case "pyramid":
+                     createSandstorm(1500);
+                     break;
+                 case "bigben":
+                     createRain(150);
+                     break;
+                 case "space":
+                     createStars(350);
+                     break;
+                 case "north-pole":
+                     createSnowflakes();
+                     break;
+                 case "underwater":
+                     createBubbles(30);
+                     break;
+                 default:
+                     console.log("No matching background found.");
+             }
+             return templateName;
+         }
     
      
     
@@ -650,128 +704,34 @@ const calculatePoints=(point)=>{
     // }
     // tableResizing();
 
-
-  beginGame = ()=>{
-    if(GameSettings.gamePaused){
-        console.log("BackgroundStage: "+GameSettings.backgroundStage)
-        startGame()
-    }else{
-    // document.getElementById("card-background").remove();
-     document.getElementById("loading-screen").style.display = "flex";
-
-    // Έλεγχος αν το document είναι ήδη πλήρως φορτωμένο
-    if (document.readyState === "complete") {
-        console.log("INSIDE COMPLET");
-        const elementsToRemove = document.querySelectorAll('.star, .snowflake, .magic-particle, .heaven-particle, .sand-particle, .bubble,.raindrop');
-
-// Loop through the selected elements and remove each one
-elementsToRemove.forEach(element => {
-    // console.log(element +"removed")
-  element.remove();
-});
-        setTimeout(()=>{
-            document.getElementById("loading-screen").style.display = "none";
-            GameSettings.backgroundStage=randomBackground();
-            console.log("backgroundStage: "+GameSettings.backgroundStage)
-            startGame();
-        },10)
-            
-            
-    
-    } else {
-        const elementsToRemove = document.querySelectorAll('.star, .snowflake, .magic-particle, .sand-particle, .bubble,.raindrop');
-
-        // Loop through the selected elements and remove each one
-        elementsToRemove.forEach(element => {
-            // console.log(element +"removed")
-          element.remove();
-        });
-        window.onload = () => {
-        
-            document.getElementById("loading-screen").style.display = "none";
-            GameSettings.backgroundStage=randomBackground()
-            console.log("backgroundStage: "+GameSettings.backgroundStage)
-            startGame();
-            // randomBackground()
-        };
-    }
-}
- }   
-
-
-function randomBackground(backgroundName){
-    
-    console.log(backgroundName)
-
-    if(GameSettings.gameState="BonusGame"){
-        body.style.backgroundImage = `url(${GameSettings.bonusTemplate.pic})`
-        createHeavenParticles(300);
-    }
-  
-
-
-    let randomNum= Math.floor(Math.random()*GameSettings.backgroundTemplates.length)
-    let templateName = backgroundName == undefined ? GameSettings.backgroundTemplates[randomNum].name :backgroundName
-    console.log("TemplaetName: "+templateName)
-    let selectedTemplate = GameSettings.backgroundTemplates.find(template => template.name == templateName)
-    console.log("SELECTED TEMPLATE: "+selectedTemplate.pic)
-
-
-     body.style.backgroundImage = selectedTemplate ? `url(${selectedTemplate.pic})`:`url(${GameSettings.backgroundTemplates[randomNum].pic})`;
- console.log("TEMPLATE: "+templateName)
-     switch (templateName) {
-         case "forest":
-             createMagicParticles(300);
-             break;
-         case "pyramid":
-             createSandstorm(1000);
-             break;
-         case "bigben":
-             createRain(150);
-             break;
-         case "space":
-             createStars(350);
-             break;
-         case "north-pole":
-             createSnowflakes();
-             break;
-         case "underwater":
-             createBubbles(30);
-             break;
-         default:
-             console.log("No matching background found.");
-     }
-     return templateName;
- }
-
-
-
 //WHEN PUSH THE START GAME
 startGame = () => {
-    if(!GameSettings.gamePaused){
-    game.innerHTML=""
-    // localStorage.setItem("score",0)
-    GameSettings.score = 0;
 
-    }
-//     document.getElementById("message").style.display = "none";
-console.log("Game begun")
-GameSettings.gamePaused = false
-//clean the board after restart
-game.style.display="block"
-// document.getElementById("card-background").replaceChildren(); //
-document.getElementById("message").style.display="none"
-body.style.backgroundColor="transparent"
+    //**************************************************************
+
+    console.log("Game begun")
+    gamePaused = false
+    //clean the board after restart
+    game.style.display="block"
+    document.getElementById("card-background").replaceChildren(); //
+    document.getElementById("message").style.display="none"
+    localStorage.setItem("score",0)
+    body.style.backgroundColor="transparent"
+    
+    const elementsToRemove = document.querySelectorAll('.star, .snowflake, .magic-particle, .sand-particle, .bubble,.raindrop');
+    
+    // Loop through the selected elements and remove each one
+    elementsToRemove.forEach(element => {
+        console.log(element +"removed")
+      element.remove();
+    });
+    
+    
+    
+    randomBackground()
 
 
-
-console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
-
-// if(!GameSettings.bonusGamestate){
- randomBackground(GameSettings.backgroundStage)
-// }
-
-
+    /********************************************************************* */
     backgroundMusic.pause();
 
     document.getElementById("message").innerHTML=""
@@ -785,7 +745,6 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
 
     if (document.getElementById("message").innerHTML.length > 0) {
         startGame()
-        console.log("GAMESETTING.backgroundSettings: "+GameSettings.backgroundStage)
     } else {
 
         startBtn.removeEventListener("click", startGame);
@@ -807,8 +766,6 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
 
             GameSettings.difficultyChoice = document.querySelector('input[name="difficulty"]:checked').value
             GameSettings.subjectChoice = document.querySelector('input[name="subject"]:checked').value
-
-            console.log("Difficulty choices: "+GameSettings.difficultyChoice+ " GameSettings.subjectChoice : "+GameSettings.subjectChoice)
 
 
             let rows, columns
@@ -903,7 +860,7 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
                 resDiv.appendChild(pMoves)
                 resDiv.appendChild(pTime)
                 statsFragment.appendChild(resDiv)
-                game.appendChild(statsFragment);
+                game.appendChild(resDiv);
 
 
                 const cardFragment = document.createDocumentFragment();
@@ -915,13 +872,14 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
                     for (j = 0; j < GameSettings.boardColumns; j++) {
                         let cardDiv = document.createElement("div")
                         cardDiv.className = "card";
-                        // console.log(cardDiv)
-                        // if(GameSettings.difficultyChoice=="expert"&& window.innerWidth<=720 && window.innerWidth>=440){
-                        //      cardDiv.style.height="6.5vh";
-                        // }
-                        // if(GameSettings.difficultyChoice=="hard"&& window.innerWidth<=440 && window.innerWidth>=370){
-                        //      cardDiv.style.height="6.5vh";
-                        // }
+                        if(GameSettings.difficultyChoice=="expert"&& window.innerWidth<=720 && window.innerWidth>=440){
+                            console.log("fuck you fro start")
+                             cardDiv.style.height="6.5vh";
+                        }
+                        if(GameSettings.difficultyChoice=="hard"&& window.innerWidth<=440 && window.innerWidth>=370){
+                            console.log("fuck you fro start")
+                             cardDiv.style.height="6.5vh";
+                        }
 
                         let contentDiv = document.createElement("div");
                         contentDiv.className = "content"
@@ -934,16 +892,14 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
                         contentDiv.appendChild(backDiv)
                         cardDiv.appendChild(contentDiv)
                         div.appendChild(cardDiv);
+                        // cardFragment.appendChild(div)
                     }
-                    cardFragment.appendChild(div)
                    
+                    cardFragment.appendChild(div)
+                    // game.appendChild(cardFragment)
 
                 }
-                // if(GameSettings.bonusGamestate){
-                //     miniGame.appendChild(cardFragment)
-                // }else{
                 game.appendChild(cardFragment)
-                //  }
             }
 
 
@@ -964,12 +920,12 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
                 let usedArray = footballArray
                 if (type == "countries") {
                     Array.from(fronts).forEach((front) => {
-                        front.style.backgroundImage = "url('/Memory-Game/images/flags-removebg-preview.png')"
+                        front.style.backgroundImage = "url('https://static01.nyt.com/images/2016/05/03/world/what-in-the-world/WITW-PROMO/WITW-PROMO-videoSixteenByNineJumbo1600.jpg')"
                         usedArray = countriesArray
                     })
                 } else if (type == "jungle") {
                     Array.from(fronts).forEach((front) => {
-                        front.style.backgroundImage = "url('/Memory-Game/images/jungle.png')"
+                        front.style.backgroundImage = "url('https://www.citypng.com/public/uploads/preview/wild-animals-zoo-badge-transparent-background-11582128549srkj07rmqg.png')"
                         usedArray = jungleArray
                         console.log(usedArray)
                     })
@@ -1029,7 +985,7 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
                 finalArray.sort(function () {
                     return Math.random() - 0.5;
                 })
-                console.log("Final-Array: "+finalArray)
+
                 return finalArray;
 
             };
@@ -1038,12 +994,11 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
             //THE LAST ARRAY WHICH CREATED FROM THE SELECTION CHOICES
             let finalGameArray = setTheGame(GameSettings.subjectChoice, GameSettings.difficultyChoice)
            
-            console.log("Final Game Array: "+finalGameArray )
+
 
 
             //PLACE RANDOM THE VALUES OF THE ARRAY TO THE CARDS
             const cards = document.getElementsByClassName("card");
-            console.log(cards.length)
             let clickedCard = null;
             let tries = 0;
             let span = document.querySelector(".spanMoves");
@@ -1090,28 +1045,19 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
         
 
             function placeTeamRandom(card) {
-                // finalGameArray.forEach((game)=>{
-                //     console.log(game+" "+game.pic+" "+game.name)
-                // })
-                
+                console.log(finalGameArray)
      
                 let randomTeam = finalGameArray[Math.floor(Math.random() * finalGameArray.length)]
-                // console.log("randomTeam: "+randomTeam)
-                // console.log("PIC: "+randomTeam.pic)
-                if(randomTeam){
                 let back = card.querySelector('.back');
                 let front = card.querySelector(".front")
                 back.classList.add(randomTeam.pic);
                 front.dataset.team = randomTeam.name;
-                }else{
-                    console.log("Error:random teeam is undefined")
-                }
                 let randomTeamIndex = finalGameArray.indexOf(randomTeam)
                 finalGameArray.splice(randomTeamIndex, 1);
                 
             }
 
-           function basicGameLogic(){
+
             Array.from(cards).forEach((card) => {
                 
 
@@ -1194,28 +1140,27 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
                                     body.classList.add("unstoppable_animation");
                                 }
 
-                                if (foundedInARow >= 6) {
+                                if (foundedInARow == 6) {
                                     calculatePoints(5000)
                                     body.classList.add("godlike")
                                     game.style.display = "none"
                                     foundedPar.innerHTML = "GODLIKE";
                                     // body.style.background='url("/images/god.png")no-repeat fixed center center'
                                 }
-                                //TODO BONUSGAME
-                                // if (foundedInARow >= 1) {
-                                //     calculatePoints(10000)
-                                //     body.classList.remove("bodyBackground")
-                                //   initialBonusArray=[...bonusGameArray];
-                                //      body.classList.add("heavenBackground")
+                                if (foundedInARow >= 7) {
+                                    calculatePoints(10000)
+                                    body.classList.remove("bodyBackground")
+                                    // body.style.backgroundImage="url('/images/heaven.jpg')"
+                                    // body.style.backgroundRepeat="no-repeat"
+                                  initialBonusArray=[...bonusGameArray];
+                                    body.classList.add("heavenBackground")
+                                    body.classList.add("heaven_animation")
+                                    // bonusGame();
 
-                                //     // body.classList.add("paradise-background")
-                                //      body.classList.add("heaven_animation")
-                                //     //bonusGame();
-
-                                //     game.style.display = "none"
-                                //     play("/Memory-Game/sounds/heaven.mp3",1)
-                                //     foundedPar.innerHTML = "WELCOME HOME GOD";
-                                // }
+                                    game.style.display = "none"
+                                    play("/Memory-Game/sounds/heaven.mp3",1)
+                                    foundedPar.innerHTML = "WELCOME HOME GOD";
+                                }
                                 setTimeout(() => {
                                     play("/Memory-Game/sounds/correct.mp3",1)
                                     if (foundedInARow == 3) {
@@ -1225,6 +1170,8 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
                                     if (foundedInARow > 3 && foundedInARow <= 5) {
 
                                         play("/Memory-Game/sounds/UNSTOPPABLE.mp3",1)
+
+
 
                                     }
                                     if (foundedInARow >= 6) {
@@ -1255,7 +1202,7 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
                                     }, 3000);
                                 }
                                 if (body.classList.contains("heaven_animation")) {
-                                   body.classList.add('mini-game-animation')
+                                    // body.classList.add('mini-game-animation')
                                     setTimeout(() => {
                                         body.classList.remove("heaven_animation")
 
@@ -1284,30 +1231,28 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
                                 }
 
                                 function endGame() {
-                                    console.log("inside endgame")
                                     setTimeout(() => {
                                         if (filterArray.length == 0) {
+                                            /***************************************** */
                                             console.log("REMOVED THE CHILDS")
                                             while(game.firstChild){
                                                 console.log("REMOVED THE CHILDS ONE BY ONE")
                                                 game.removeChild(game.firstChild);
                                             }
+                                            /**************************************** */
                                             startBtn.addEventListener("click", startGame)
                                             pauseBtn.style.display="none";
                                             game.style.display = "none";
                                             document.getElementById("message").style.display = "block";
                                             play("/Memory-Game/sounds/successWin.mp3", 1)
-                                            // document.getElementById("message").innerHTML =  "Moves: "+ tries + " <br>Score: "+JSON.parse(localStorage.getItem('score'));
-                                            document.getElementById("message").innerHTML =`Moves: ${tries} <br>Score: ${GameSettings.score}`;
-
+                                            document.getElementById("message").innerHTML = "Congratulations you won at " + tries + " moves with "+JSON.parse(localStorage.getItem('score'))+" points";
                                             console.log(difficultyChoice)
-                                            
-                                            console.log("inside endgame")
-                                            // startBtn.style.display="none"
+                                            // startBtn.addEventListener("click", startGame)
+                                            startBtn.style.display="none"
                                         }
 
+
                                     }, 1500)
-                                    console.log("endgame")
                                 }
                                 endGame()
 
@@ -1316,6 +1261,8 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
                                 if(foundedInARow>0){
                                 foundedInARow = -1;
                                 calculatePoints(-15)
+                                // console.log(e.target + " " + clickedCard)
+                                // console.log(e.target.getAttribute('data-team') + " " + clickedCard.getAttribute("data-team"));
                                 console.log(false)
 
                                 span.innerHTML = ++tries;
@@ -1328,6 +1275,7 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
                                     Array.from(cards).forEach((card) => {
                                         card.classList.remove("disable");
                                     })
+
 
                                     clickedCard = null;
                                 }, 1000)
@@ -1376,6 +1324,11 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
 
 
 
+
+
+
+
+
                             }
 
 
@@ -1387,51 +1340,6 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
 
 
             })
-        }
-
-        gameLogic = ()=>{
-            //  if(GameSettings.gameState == "BasicGame"){
-                basicGameLogic()
-            //  }else if(GameSettings.gameState == "BonusGame"){
-            //      bonusGameLogic();
-            //  }
-        }
-        gameLogic();
-
-        // function bonusGameLogic(){
-        //     Array.from(cards).forEach((card) => {
-        //         placeTeamRandom(card)
-        //         play("/Memory-Game/sounds/flipcard.mp3", 1);
-        //         // console.log(e.target);
-        //         setTimeout(()=>{
-
-        //             let child = card.querySelector('.content')
-        //             let front = card.querySelector(".front")
-        //             let back=card.querySelector(".back")
-        //             child.classList.add("contentActive")
-        //         },2000)
-                
-
-        //         if (!clickedCard) {
-        //             Array.from(cards).forEach((card) => {
-        //                 // card.classList.remove("disable");
-        //                 card.classList.remove("wrong");
-        //             })
-                    
-        //             // let target = e.currentTarget;
-        //             // child.classList.add("contentActive")
-        //             card.classList.add("disable")
-        //             // clickedCard = target
-        //             console.log(clickedCard)
-
-        //         // card.addEventListener("click", (e) => {
-        //         }
-        //         // })
-
-                
-        //     })
-
-        // }
 
 
         }
@@ -1442,17 +1350,9 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
 
 pauseGame = () => {
     play("/Memory-Game/sounds/menu-button.mp3", 1)
-    GameSettings.gamePaused = true;
-    const elementsToRemove = document.querySelectorAll('.star, .snowflake, .magic-particle, .heaven-particle, .sand-particle, .bubble,.raindrop');
-
-    // Loop through the selected elements and remove each one
-    elementsToRemove.forEach(element => {
-        // console.log(element +"removed")
-      element.remove();
-    });
-    console.log("From PAUSEGAME FUNCTION gamePaused: "+GameSettings.gamePaused)
-    startBtn.innerHTML = "Resume";
-    startBtn.addEventListener('click', beginGame)
+    gamePaused = true;
+    startBtn.innerHTML = "Continue";
+    startBtn.addEventListener('click', startGame)
     game.classList.add("disable");
     active = false;
     clock(active)
@@ -1461,7 +1361,7 @@ pauseGame = () => {
 
 resetGame = () => {
     play("/Memory-Game/sounds/menu-button.mp3", 1)
-    GameSettings.gamePaused=false
+    gamePaused=false
     document.location.reload(true);
 }
 
@@ -1472,7 +1372,6 @@ resetGame = () => {
 let countDown=document.getElementById("countDown");
 let numberDisplay=document.getElementById("numberSquare")
 let activeBonus=false;
-// GameSettings.bonusGamestate=false
 
 
 
@@ -1482,15 +1381,13 @@ let activeBonus=false;
 
 
 startBonusGame=()=>{
-GameSettings.gameState = "BonusGame";
-   activeBonus=true
-    
+    activeBonus=true
+  
+   
    let sound=play("/Memory-Game/sounds/HeavenMain.mp3",1)
    let bonusScore=0;
    bonusBtn.style.display="none"
    countDown.style.display="flex";
-//    startGame();
-//    countDownActivated(sound,bonusScore)
    
    
     let item;
@@ -1560,8 +1457,7 @@ GameSettings.gameState = "BonusGame";
 
 function countDownActivated(sound,bonusScore){
     intervalId= setInterval(() => {
-       if(!activeBonus){
-    //    if(GameSettings.bonusGamestate == false){
+        if(!activeBonus){
             clearInterval(intervalId)
         }else{
         let parsedNumber = parseInt(numberDisplay.innerHTML);
@@ -1596,8 +1492,6 @@ function inactive(intervalId){
 function endBonusGame(sound,bonusScore){
             sound.pause();
             let godSound=play("/Memory-Game/sounds/godSound.mp3",1)
-            // GameSettings.bonusGamestate=false
-
             activeBonus=false;
             body.classList.add("miniGameFinished")
             body.classList.add("bodyBackground")
@@ -1611,6 +1505,7 @@ function endBonusGame(sound,bonusScore){
             numberDisplay.innerHTML="59"
 
             setTimeout(()=>{
+                
                 godSound.pause();
                 body.classList.remove("miniGameFinished")
                 body.classList.remove("heavenBackground")
@@ -1640,11 +1535,9 @@ function endBonusGame(sound,bonusScore){
 }
 
 
-///Copyrights:
-document.getElementById("year").innerText = new Date().getFullYear();
 
 
 bonusBtn.addEventListener("click",startBonusGame)
 pauseBtn.addEventListener("click", pauseGame)
-startBtn.addEventListener("click",beginGame);
+startBtn.addEventListener("click", startGame)
 resetBtn.addEventListener("click", resetGame)
