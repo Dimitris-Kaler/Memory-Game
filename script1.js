@@ -1292,7 +1292,7 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
                                                 console.log("REMOVED THE CHILDS ONE BY ONE")
                                                 game.removeChild(game.firstChild);
                                             }
-                                            startBtn.addEventListener("click", startGame)
+                                            startBtn.addEventListener("click", beginGame)
                                             pauseBtn.style.display="none";
                                             game.style.display = "none";
                                             document.getElementById("message").style.display = "block";
