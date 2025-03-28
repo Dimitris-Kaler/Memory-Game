@@ -694,7 +694,7 @@ beginGame = () => {
         // Έλεγχος αν το document είναι ήδη πλήρως φορτωμένο
         if (document.readyState === "complete") {
             console.log("INSIDE COMPLET");
-            const elementsToRemove = document.querySelectorAll('.star, .snowflake, .magic-particle, .heaven-particle, .sand-particle, .bubble,.raindrop','.particle','..light-beam');
+            const elementsToRemove = document.querySelectorAll('.star, .snowflake, .magic-particle, .heaven-particle, .sand-particle, .bubble, .raindrop, .particle, .light-beam');
 
             // Loop through the selected elements and remove each one
             elementsToRemove.forEach(element => {
@@ -711,7 +711,7 @@ beginGame = () => {
 
 
         } else {
-            const elementsToRemove = document.querySelectorAll('.star, .snowflake, .magic-particle, .sand-particle, .bubble,.raindrop','.light-beam','.particle');
+            const elementsToRemove = document.querySelectorAll('.star, .snowflake, .magic-particle, .sand-particle, .bubble,.raindrop, .light-beam, .particle');
 
             // Loop through the selected elements and remove each one
             elementsToRemove.forEach(element => {
@@ -1479,7 +1479,7 @@ startGame = () => {
 pauseGame = () => {
     play("/Memory-Game/sounds/menu-button.mp3", 1)
     GameSettings.gamePaused = true;
-    const elementsToRemove = document.querySelectorAll('.star, .snowflake, .magic-particle, .heaven-particle, .sand-particle, .bubble,.raindrop','.light-beam','.particle');
+    const elementsToRemove = document.querySelectorAll('.star, .snowflake, .magic-particle, .heaven-particle, .sand-particle, .bubble, .raindrop , .light-beam,.particle');
 
     // Loop through the selected elements and remove each one
     elementsToRemove.forEach(element => {
