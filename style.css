@@ -1990,7 +1990,7 @@ input[type="radio"] {
 
 
 #baby_appear {
-    display:none;
+    /* display:none; */
     margin: auto;
     position: absolute;
     right: 50%;
@@ -2139,19 +2139,12 @@ input[type="radio"] {
 
 @keyframes babyAppear {
 
-    0%{
-        display:block;
-    }
-
     30% {
         top: 89%
     }
 
     70% {
         top: 89%
-    }
-    100%{
-        display:none;
     }
 
 
