@@ -8,18 +8,18 @@
 // let subjectChoice = document.querySelector('input[name="subject"]:checked').value
 const body = document.getElementsByTagName("body")[0];
 const entryBtn = document.getElementById("enter-btn");
-const entryContainer=document.getElementById("start-page")
+const entryContainer = document.getElementById("start-page")
 const choices = document.getElementById("choices");
 const gamePreferences = document.getElementById("game-preferences");
 const startBtn = document.getElementById("start-game");
 const pauseBtn = document.getElementById('pause-game');
-pauseBtn.style.display="none";
+pauseBtn.style.display = "none";
 const resetBtn = document.getElementById("reset")
 let game = document.getElementById("game");
-let miniGame=document.getElementById("mini-game")
-let bonusBtn=document.getElementById("bonus-btn");
-let bonusInput=document.getElementById("bonus-input")
-let backgroundMusic=document.getElementById("background-music");
+let miniGame = document.getElementById("mini-game")
+let bonusBtn = document.getElementById("bonus-btn");
+let bonusInput = document.getElementById("bonus-input")
+let backgroundMusic = document.getElementById("background-music");
 // let backgroundTemplates = [{name :"forest",pic:"/images/forest6.webp"},{name:"pyramid",pic:"/images/pyramids1.webp"},{name:"bigben",pic:"/images/big-ben.webp"},{name:"space",pic:"/images/space2.webp"},{name:"north-pole",pic:"/images/ice1.webp"},{name:"underwater",pic:"/images/buble.webp"}]
 
 // backgroundMusic.play();
@@ -27,33 +27,33 @@ let starterMusic;
 let foundedInARow = 0;
 let foundedPar = document.getElementById("founded_item");
 let baby = document.getElementById("baby_appear");
-localStorage.setItem("score",0)
-let bonusGameArray=[];
+localStorage.setItem("score", 0)
+let bonusGameArray = [];
 let initialBonusArray;
-let bonusMsg=document.getElementById("messageBonus");
-let godMsg=document.getElementById("godMsg")
+let bonusMsg = document.getElementById("messageBonus");
+let godMsg = document.getElementById("godMsg")
 
 let fronts = document.getElementsByClassName("front");
 let backs = document.getElementsByClassName("back");
 
-let GameSettings={
-    screenResizing:false,
-    bonusTemplate:{name:"heaven",pic:"/images/heaven.webp"},
-    backgroundTemplates:[{name :"forest",pic:"/Memory-Game/images/forest6.webp"},{name:"pyramid",pic:"/Memory-Game/images/pyramids1.webp"},{name:"bigben",pic:"/Memory-Game/images/big-ben.webp"},{name:"space",pic:"/Memory-Game/images/space2.webp"},{name:"north-pole",pic:"/Memory-Game/images/ice1.webp"},{name:"underwater",pic:"/Memory-Game/images/buble.webp"}],
-    playedAgain:false,
-    boardColumns:4,
-    boardRows:4,
-    difficultyChoice:"easy",
-    subjectChoice:"football",
-    gamePaused:false,
-    backgroundStage:undefined,
-    gameState:"BasicGame",
+let GameSettings = {
+    screenResizing: false,
+    bonusTemplate: { name: "heaven", pic: "/images/heaven.webp" },
+    backgroundTemplates: [{ name: "forest", pic: "/Memory-Game/images/forest6.webp" }, { name: "pyramid", pic: "/Memory-Game/images/pyramids1.webp" }, { name: "bigben", pic: "/Memory-Game/images/big-ben.webp" }, { name: "space", pic: "/Memory-Game/images/space2.webp" }, { name: "north-pole", pic: "/Memory-Game/images/ice3.webp" }, { name: "underwater", pic: "/Memory-Game/images/buble.webp" }, { name: "futuristic-city", pic: "/Memory-Game/images/futuristic-city.webp" }],
+    playedAgain: false,
+    boardColumns: 4,
+    boardRows: 4,
+    difficultyChoice: "easy",
+    subjectChoice: "football",
+    gamePaused: false,
+    backgroundStage: undefined,
+    gameState: "BasicGame",
 
-    get score(){
-        return JSON.parse(localStorage.getItem("score")) || 0; 
+    get score() {
+        return JSON.parse(localStorage.getItem("score")) || 0;
     },
-    set score(value){
-        localStorage.setItem("score",JSON.stringify(value))
+    set score(value) {
+        localStorage.setItem("score", JSON.stringify(value))
 
     }
 
@@ -143,9 +143,9 @@ let personalitiesArray = [{ pic: "hitler", name: "Adolf Hitler" }, { pic: "stali
 //         const backgroundCard = document.createElement("div");
 //         // backgroundCard.classList.add("card")
 //         backgroundCard.classList.add("backgroundCard")
-       
 
-       
+
+
 //         const randomIndex = Math.floor(Math.random() * picArray.length);
 //         const randomClass = picArray.splice(randomIndex, 1)[0].pic;
 
@@ -164,30 +164,30 @@ let personalitiesArray = [{ pic: "hitler", name: "Adolf Hitler" }, { pic: "stali
 // }
 
 /********ENTER BUTTON */
-entryBtn.addEventListener("click",(event)=>{
-    entryContainer.style.display = "none"; 
-    document.body.classList.remove("hidden-mode"); 
-// cardsAtStart(event);
+entryBtn.addEventListener("click", (event) => {
+    entryContainer.style.display = "none";
+    document.body.classList.remove("hidden-mode");
+    // cardsAtStart(event);
 });
 
 
 
 
 //****MENU ONCHANGE ANIMATION */
-  
-    // document.querySelectorAll('input[name="subject"]').forEach((radio) => {
-    //     radio.addEventListener("change", (event) => {
-    //        // cardsAtStart(event)
-    //     });
-    // });
+
+// document.querySelectorAll('input[name="subject"]').forEach((radio) => {
+//     radio.addEventListener("change", (event) => {
+//        // cardsAtStart(event)
+//     });
+// });
 
 
 
 
 
-    
 
-    
+
+
 
 
 // function setTheGame(type, difficulty) {
@@ -270,7 +270,7 @@ function play(sound, vol) {
 /***STARTING MUSIC WHEN LOAD THE PAGE****************** */
 window.onload = () => {
     backgroundMusic.play();
-  };
+};
 
 // window.addEventListener('load', () => {
 //     starterMusic=play("/Memory-Game/sounds/gamemusic.mp3",1)
@@ -348,19 +348,19 @@ function clock(active) {
 
 //CALCULATEPOINTS() OUTSIDE START GAME()
 
-let changeScore=false;
-const calculatePoints=(point)=>{
-    
+let changeScore = false;
+const calculatePoints = (point) => {
+
     let points = document.getElementsByClassName("spanPoints")[0];
     //    let addingPoints=false;
-       new Promise((resolve,reject)=>{
-        
-    //    let addedPoint= JSON.parse(localStorage.getItem('score'));
+    new Promise((resolve, reject) => {
+
+        //    let addedPoint= JSON.parse(localStorage.getItem('score'));
         let addedPoint = GameSettings.score
         let totalPoints = addedPoint + point
 
-         // Prevent score from going negative
-         if (totalPoints < 0) {
+        // Prevent score from going negative
+        if (totalPoints < 0) {
             totalPoints = 0;
         }
 
@@ -369,414 +369,450 @@ const calculatePoints=(point)=>{
 
         GameSettings.score = totalPoints;
 
-        
+
         let addPoints = setInterval(() => {
-            
+
             if (point > 0) {
                 if (addedPoint < totalPoints) {
                     // console.log(addedPoint + " " + point + " " + points.innerHTML)
-                    addedPoint+=10
+                    addedPoint += 10
                     // changeScore=true
-                    
+
                     // addingPoints=true;
-                
-                    
+
+
                     points.innerHTML = addedPoint
 
                 } else {
-               
+
                     clearInterval(addPoints)
                 }
             } else {
                 if (addedPoint > totalPoints) {
-                    
+
                     addedPoint--
                     points.innerHTML = addedPoint
                 }
 
             }
-           
+
         }, 2)
 
-        
 
-        
 
-          
+
+
+
     })
-    
-
-    };
-
-    function soundChangeScore(time){
-     
-            console.log(changeScore)
-            let sound=play("/Memory-Game/sounds/score.mp3",0.2)
-            sound.loop=true
-           setTimeout(()=>{
-            sound.pause()
-           },time)
-                    
-    }
-
-    // window.addEventListener('resize',()=>{
-    //     if(GameSettings.difficultyChoice=="hard"){
-    //         if(window.innerWidth<=720){
-    //             GameSettings.boardRows =10
-    //             GameSettings.boardColumns = 5
-              
-
-               
-    //     }else{
-    //        GameSettings.boardRows =5
-    //        GameSettings.boardColumns = 10
-    //     }
-        
-
-    //     updateGameGridStructure(GameSettings.boardRows, GameSettings.boardColumns);  
-
-    //     }
-
-    //     if(GameSettings.difficultyChoice=="expert"){
-    //         if(window.innerWidth<=720){
-    //             GameSettings.boardRows =12
-    //             GameSettings.boardColumns = 7
-              
-
-               
-    //     }else{
-    //        GameSettings.boardRows =6
-    //        GameSettings.boardColumns = 14
-    //     }
-        
-
-    //     updateGameGridStructure(GameSettings.boardRows, GameSettings.boardColumns);  
-
-    //     }
-         
-    // })
-
-    // function updateGameGridStructure(rows, columns) {
-    //     // console.log(rows+" "+columns)
-    //     // const cardsArray=Array.from(document.querySelectorAll('.card'))
 
 
-    //     // rowsArray.forEach(row=>{
-    //     //         game.removeChild(row)
-    //     // })
+};
 
-    //     // for(let i=0;i<rows;i++){
-    //     //     for(let j=0;j<columns;j++){
-    //     //        let card=cardsArray.shift();
-    //     //        console.log(card)
-    //     //         game.appendChild(card)
-    //     //     }
-    //     //  }
+function soundChangeScore(time) {
 
-    //     const cardsArray = Array.from(document.querySelectorAll('.card'));
-    //     console.log("Cards ARRAY")
-    //     if((cardsArray!=null ||cardsArray!=undefined)&&window.innerWidth<=720&&window.innerWidth>=440 ){
-    //         cardsArray.forEach(card=>{
-    //                  card.style.height="6.5vh"; 
-    //         })  
-    //     }else if(window.innerWidth<=440 && window.innerWidth>=370){
-    //         cardsArray.forEach(card=>{
-    //                  card.style.height="6.5vh";
-    //         })  
-    //     }else{
-    //         cardsArray.forEach(card=>{
-    //                 card.style.height="auto";
-                
-    //         })
-    //     }
-    //     // Calculate the total number of cells in the grid
-    //     const totalCells = rows * columns;
-    
-    //     // Remove any excess cards from the grid
-    //     while (cardsArray.length > totalCells) {
-    //         cardsArray.pop();
-    //     }
-    
-    //     // Remove all rows from the game container
-    //     Array.from(game.querySelectorAll('.row')).forEach(row => {
-    //         game.removeChild(row);
-    //     });
-    
-    //     // Create and append new rows to the game container
-    //     for (let i = 0; i < rows; i++) {
-    //         const row = document.createElement('div');
-    //         row.classList.add('row');
-    
-    //         // Distribute cards to columns
-    //         for (let j = 0; j < columns; j++) {
-    //             const card = cardsArray.shift();
-    //             row.appendChild(card);
-    //             requestAnimationFrame(card);
-    //         }
-    
-    //         game.appendChild(row);
-    //     }
-        
+    console.log(changeScore)
+    let sound = play("/Memory-Game/sounds/score.mp3", 0.2)
+    sound.loop = true
+    setTimeout(() => {
+        sound.pause()
+    }, time)
 
+}
 
-       
-    // }
+// window.addEventListener('resize',()=>{
+//     if(GameSettings.difficultyChoice=="hard"){
+//         if(window.innerWidth<=720){
+//             GameSettings.boardRows =10
+//             GameSettings.boardColumns = 5
 
 
 
-    //BACKGROUNDS ANIMATIONS
+//     }else{
+//        GameSettings.boardRows =5
+//        GameSettings.boardColumns = 10
+//     }
 
 
-    function createStars(count) {
-        console.log("runstarts functions")
-        for (let i = 0; i < count; i++) {
-            let star = document.createElement("div");
-            star.classList.add("star");
-            star.style.left = Math.random() * window.innerWidth + "px";
-            star.style.top = Math.random() * window.innerHeight + "px";
-            star.style.animationDelay = Math.random() * 3 + "s";
-            star.style.width = star.style.height = (Math.random() * 3 + 2) + "px";
-            document.body.appendChild(star);
-        }
-    }
+//     updateGameGridStructure(GameSettings.boardRows, GameSettings.boardColumns);  
+
+//     }
+
+//     if(GameSettings.difficultyChoice=="expert"){
+//         if(window.innerWidth<=720){
+//             GameSettings.boardRows =12
+//             GameSettings.boardColumns = 7
 
 
-    function createBubbles(count) {
-        console.log("run bubble functions")
-        for (let i = 0; i < count; i++) {
-            let bubble = document.createElement("div");
-            bubble.classList.add("bubble");
-            bubble.style.left = Math.random() * window.innerWidth + "px";
-            bubble.style.bottom = "-10px";
-            bubble.style.animationDuration = (Math.random() * 3 + 3) + "s";
-            bubble.style.animationDelay = Math.random() * 5 + "s";
-            bubble.style.width = bubble.style.height = (Math.random() * 20 + 5) + "px";
-            document.body.appendChild(bubble);
-        }
-    }
 
-    function createSandstorm(count) {
-        console.log("run sand functions")
-        for (let i = 0; i < count; i++) {
-            let particle = document.createElement("div");
-            particle.classList.add("sand-particle");
-            particle.style.left = Math.random() * window.innerWidth + "px";
-            particle.style.top = Math.random() * window.innerHeight + "px";
-            particle.style.animationDuration = (Math.random() * 3 + 2) + "s";
-            particle.style.animationDelay = Math.random() * 3 + "s";
-            document.body.appendChild(particle);
-        }
-    }
+//     }else{
+//        GameSettings.boardRows =6
+//        GameSettings.boardColumns = 14
+//     }
 
 
-    function createMagicParticles(count) {
-        console.log("run magic particles functions")
-        for (let i = 0; i < count; i++) {
-            let particle = document.createElement("div");
-            particle.classList.add("magic-particle");
-            particle.style.left = Math.random() * window.innerWidth + "px";
-            particle.style.top = Math.random() * window.innerHeight + "px";
-            particle.style.animationDelay = Math.random() * 3 + "s";
-            document.body.appendChild(particle);
-        }
-    }
+//     updateGameGridStructure(GameSettings.boardRows, GameSettings.boardColumns);  
 
-    function createHeavenParticles(count) {
-        console.log("run magic particles functions")
-        for (let i = 0; i < count; i++) {
-            let particle = document.createElement("div");
-            particle.classList.add("heaven-particle");
-            particle.style.left = Math.random() * window.innerWidth + "px";
-            particle.style.top = Math.random() * window.innerHeight + "px";
-            particle.style.animationDelay = Math.random() * 3 + "s";
-            document.body.appendChild(particle);
-        }
-    }
+//     }
 
-    function createRain(count) {
-        console.log("run rain functions")
-        for (let i = 0; i < count; i++) {
-            let drop = document.createElement("div");
-            drop.classList.add("raindrop");
-            drop.style.left = Math.random() * window.innerWidth + "px";
-            drop.style.top = Math.random() * -100 + "px";
-            drop.style.animationDuration = (Math.random() * 1.5 + 0.5) + "s";
-            drop.style.animationDelay = Math.random() * 2 + "s";
-            document.body.appendChild(drop);
-        }
-    }
+// })
+
+// function updateGameGridStructure(rows, columns) {
+//     // console.log(rows+" "+columns)
+//     // const cardsArray=Array.from(document.querySelectorAll('.card'))
 
 
-    function createSnowflakes() {
-        console.log("run snow flakes functions")
-        const snowContainer = document.body;
-        for (let i = 0; i < 180; i++) {  // Increased number of snowflakes
-            let snowflake = document.createElement("div");
-            snowflake.classList.add("snowflake");
-            let size = Math.random() * 6 + 2;
-            let duration = Math.random() * 8 + 3; // More variation in animation duration
-            snowflake.style.width = `${size}px`;
-            snowflake.style.height = `${size}px`;
-            snowflake.style.left = `${Math.random() * 100}vw`;
-            snowflake.style.animationDuration = `${duration}s`;
-            snowflake.style.animationDelay = `${Math.random() * 5}s`;
-            snowflake.style.opacity = Math.random() * 0.6 + 0.4; // Varying opacity
-            snowContainer.appendChild(snowflake);
-        }
-    }
+//     // rowsArray.forEach(row=>{
+//     //         game.removeChild(row)
+//     // })
 
-       
-       
+//     // for(let i=0;i<rows;i++){
+//     //     for(let j=0;j<columns;j++){
+//     //        let card=cardsArray.shift();
+//     //        console.log(card)
+//     //         game.appendChild(card)
+//     //     }
+//     //  }
+
+//     const cardsArray = Array.from(document.querySelectorAll('.card'));
+//     console.log("Cards ARRAY")
+//     if((cardsArray!=null ||cardsArray!=undefined)&&window.innerWidth<=720&&window.innerWidth>=440 ){
+//         cardsArray.forEach(card=>{
+//                  card.style.height="6.5vh"; 
+//         })  
+//     }else if(window.innerWidth<=440 && window.innerWidth>=370){
+//         cardsArray.forEach(card=>{
+//                  card.style.height="6.5vh";
+//         })  
+//     }else{
+//         cardsArray.forEach(card=>{
+//                 card.style.height="auto";
+
+//         })
+//     }
+//     // Calculate the total number of cells in the grid
+//     const totalCells = rows * columns;
+
+//     // Remove any excess cards from the grid
+//     while (cardsArray.length > totalCells) {
+//         cardsArray.pop();
+//     }
+
+//     // Remove all rows from the game container
+//     Array.from(game.querySelectorAll('.row')).forEach(row => {
+//         game.removeChild(row);
+//     });
+
+//     // Create and append new rows to the game container
+//     for (let i = 0; i < rows; i++) {
+//         const row = document.createElement('div');
+//         row.classList.add('row');
+
+//         // Distribute cards to columns
+//         for (let j = 0; j < columns; j++) {
+//             const card = cardsArray.shift();
+//             row.appendChild(card);
+//             requestAnimationFrame(card);
+//         }
+
+//         game.appendChild(row);
+//     }
 
 
- 
-
-    
-     
-    
-
-    // tableResizing=()=>{
-    //     window.onresize=()=>{
-    //         GameSettings.screenResizing=true;
-    //         if(window.innerWidth<=720){
-    //             GameSettings.boardRows =12
-    //             GameSettings.boardColumns = 7
-            
-    //     }
-    //     console.log(GameSettings.boardRows+" "+GameSettings.boardColumns)
-    //     }
-        
-
-    // }
-    // tableResizing();
 
 
-  beginGame = ()=>{
-    if(GameSettings.gamePaused){
-        console.log("BackgroundStage: "+GameSettings.backgroundStage)
-        startGame()
-    }else{
-    // document.getElementById("card-background").remove();
-     document.getElementById("loading-screen").style.display = "flex";
+// }
 
-    // Έλεγχος αν το document είναι ήδη πλήρως φορτωμένο
-    if (document.readyState === "complete") {
-        console.log("INSIDE COMPLET");
-        const elementsToRemove = document.querySelectorAll('.star, .snowflake, .magic-particle, .heaven-particle, .sand-particle, .bubble,.raindrop');
 
-// Loop through the selected elements and remove each one
-elementsToRemove.forEach(element => {
-    // console.log(element +"removed")
-  element.remove();
-});
-        setTimeout(()=>{
-            document.getElementById("loading-screen").style.display = "none";
-            GameSettings.backgroundStage=randomBackground();
-            console.log("backgroundStage: "+GameSettings.backgroundStage)
-            startGame();
-        },10)
-            
-            
-    
-    } else {
-        const elementsToRemove = document.querySelectorAll('.star, .snowflake, .magic-particle, .sand-particle, .bubble,.raindrop');
 
-        // Loop through the selected elements and remove each one
-        elementsToRemove.forEach(element => {
-            // console.log(element +"removed")
-          element.remove();
-        });
-        window.onload = () => {
-        
-            document.getElementById("loading-screen").style.display = "none";
-            GameSettings.backgroundStage=randomBackground()
-            console.log("backgroundStage: "+GameSettings.backgroundStage)
-            startGame();
-            // randomBackground()
-        };
+//BACKGROUNDS ANIMATIONS
+
+function createParticles(count) {
+    for (let i = 0; i < count; i++) {
+        let particle = document.createElement("div");
+        particle.classList.add("particle");
+
+        // Assign colors randomly (half blue, half magenta)
+        let isBlue = Math.random() > 0.5;
+        particle.style.background = isBlue ? 'rgba(0, 255, 255, 0.8)' : 'rgba(255, 0, 150, 0.8)';
+
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.top = `${Math.random() * 100}vh`;
+        particle.style.animationDuration = `${Math.random() * 4 + 2}s`;
+        particle.style.animationDelay = `${Math.random() * 2}s`;
+        document.body.appendChild(particle);
     }
 }
- }   
+
+function createLightBeams(count) {
+    for (let i = 0; i < count; i++) {
+        let beam = document.createElement("div");
+        beam.classList.add("light-beam");
+
+        // Assign colors randomly (half blue, half magenta)
+        let isBlue = Math.random() > 0.5;
+        beam.style.background = isBlue ? 'rgba(0, 255, 255, 0.8)' : 'rgba(255, 0, 150, 0.8)';
+
+        beam.style.top = `${Math.random() * 100}vh`;
+        beam.style.animationDuration = `${Math.random() * 6 + 4}s`;
+        document.body.appendChild(beam);
+    }
+}
 
 
-function randomBackground(backgroundName){
-    
+function createStars(count) {
+    console.log("runstarts functions")
+    for (let i = 0; i < count; i++) {
+        let star = document.createElement("div");
+        star.classList.add("star");
+        star.style.left = Math.random() * window.innerWidth + "px";
+        star.style.top = Math.random() * window.innerHeight + "px";
+        star.style.animationDelay = Math.random() * 3 + "s";
+        star.style.width = star.style.height = (Math.random() * 3 + 2) + "px";
+        document.body.appendChild(star);
+    }
+}
+
+
+function createBubbles(count) {
+    console.log("run bubble functions")
+    for (let i = 0; i < count; i++) {
+        let bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+        bubble.style.left = Math.random() * window.innerWidth + "px";
+        bubble.style.bottom = "-10px";
+        bubble.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        bubble.style.animationDelay = Math.random() * 5 + "s";
+        bubble.style.width = bubble.style.height = (Math.random() * 20 + 5) + "px";
+        document.body.appendChild(bubble);
+    }
+}
+
+function createSandstorm(count) {
+    console.log("run sand functions")
+    for (let i = 0; i < count; i++) {
+        let particle = document.createElement("div");
+        particle.classList.add("sand-particle");
+        particle.style.left = Math.random() * window.innerWidth + "px";
+        particle.style.top = Math.random() * window.innerHeight + "px";
+        particle.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        particle.style.animationDelay = Math.random() * 3 + "s";
+        document.body.appendChild(particle);
+    }
+}
+
+
+function createMagicParticles(count) {
+    console.log("run magic particles functions")
+    for (let i = 0; i < count; i++) {
+        let particle = document.createElement("div");
+        particle.classList.add("magic-particle");
+        particle.style.left = Math.random() * window.innerWidth + "px";
+        particle.style.top = Math.random() * window.innerHeight + "px";
+        particle.style.animationDelay = Math.random() * 3 + "s";
+        document.body.appendChild(particle);
+    }
+}
+
+function createHeavenParticles(count) {
+    console.log("run magic particles functions")
+    for (let i = 0; i < count; i++) {
+        let particle = document.createElement("div");
+        particle.classList.add("heaven-particle");
+        particle.style.left = Math.random() * window.innerWidth + "px";
+        particle.style.top = Math.random() * window.innerHeight + "px";
+        particle.style.animationDelay = Math.random() * 3 + "s";
+        document.body.appendChild(particle);
+    }
+}
+
+function createRain(count) {
+    console.log("run rain functions")
+    for (let i = 0; i < count; i++) {
+        let drop = document.createElement("div");
+        drop.classList.add("raindrop");
+        drop.style.left = Math.random() * window.innerWidth + "px";
+        drop.style.top = Math.random() * -100 + "px";
+        drop.style.animationDuration = (Math.random() * 1.5 + 0.5) + "s";
+        drop.style.animationDelay = Math.random() * 2 + "s";
+        document.body.appendChild(drop);
+    }
+}
+
+
+function createSnowflakes() {
+    console.log("run snow flakes functions")
+    const snowContainer = document.body;
+    for (let i = 0; i < 180; i++) {  // Increased number of snowflakes
+        let snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+        let size = Math.random() * 6 + 2;
+        let duration = Math.random() * 8 + 3; // More variation in animation duration
+        snowflake.style.width = `${size}px`;
+        snowflake.style.height = `${size}px`;
+        snowflake.style.left = `${Math.random() * 100}vw`;
+        snowflake.style.animationDuration = `${duration}s`;
+        snowflake.style.animationDelay = `${Math.random() * 5}s`;
+        snowflake.style.opacity = Math.random() * 0.6 + 0.4; // Varying opacity
+        snowContainer.appendChild(snowflake);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+// tableResizing=()=>{
+//     window.onresize=()=>{
+//         GameSettings.screenResizing=true;
+//         if(window.innerWidth<=720){
+//             GameSettings.boardRows =12
+//             GameSettings.boardColumns = 7
+
+//     }
+//     console.log(GameSettings.boardRows+" "+GameSettings.boardColumns)
+//     }
+
+
+// }
+// tableResizing();
+
+
+beginGame = () => {
+    if (GameSettings.gamePaused) {
+        console.log("BackgroundStage: " + GameSettings.backgroundStage)
+        startGame()
+    } else {
+        // document.getElementById("card-background").remove();
+        document.getElementById("loading-screen").style.display = "flex";
+
+        // Έλεγχος αν το document είναι ήδη πλήρως φορτωμένο
+        if (document.readyState === "complete") {
+            console.log("INSIDE COMPLET");
+            const elementsToRemove = document.querySelectorAll('.star, .snowflake, .magic-particle, .heaven-particle, .sand-particle, .bubble,.raindrop');
+
+            // Loop through the selected elements and remove each one
+            elementsToRemove.forEach(element => {
+                // console.log(element +"removed")
+                element.remove();
+            });
+            setTimeout(() => {
+                document.getElementById("loading-screen").style.display = "none";
+                GameSettings.backgroundStage = randomBackground();
+                console.log("backgroundStage: " + GameSettings.backgroundStage)
+                startGame();
+            }, 10)
+
+
+
+        } else {
+            const elementsToRemove = document.querySelectorAll('.star, .snowflake, .magic-particle, .sand-particle, .bubble,.raindrop');
+
+            // Loop through the selected elements and remove each one
+            elementsToRemove.forEach(element => {
+                // console.log(element +"removed")
+                element.remove();
+            });
+            window.onload = () => {
+
+                document.getElementById("loading-screen").style.display = "none";
+                GameSettings.backgroundStage = randomBackground()
+                console.log("backgroundStage: " + GameSettings.backgroundStage)
+                startGame();
+                // randomBackground()
+            };
+        }
+    }
+}
+
+
+function randomBackground(backgroundName) {
+
     console.log(backgroundName)
 
-    if(GameSettings.gameState="BonusGame"){
+    if (GameSettings.gameState = "BonusGame") {
         body.style.backgroundImage = `url(${GameSettings.bonusTemplate.pic})`
         createHeavenParticles(300);
     }
-  
 
 
-    let randomNum= Math.floor(Math.random()*GameSettings.backgroundTemplates.length)
-    let templateName = backgroundName == undefined ? GameSettings.backgroundTemplates[randomNum].name :backgroundName
-    console.log("TemplaetName: "+templateName)
+
+    let randomNum = Math.floor(Math.random() * GameSettings.backgroundTemplates.length)
+    let templateName = backgroundName == undefined ? GameSettings.backgroundTemplates[randomNum].name : backgroundName
+    console.log("TemplaetName: " + templateName)
     let selectedTemplate = GameSettings.backgroundTemplates.find(template => template.name == templateName)
-    console.log("SELECTED TEMPLATE: "+selectedTemplate.pic)
+    console.log("SELECTED TEMPLATE: " + selectedTemplate.pic)
 
 
-     body.style.backgroundImage = selectedTemplate ? `url(${selectedTemplate.pic})`:`url(${GameSettings.backgroundTemplates[randomNum].pic})`;
- console.log("TEMPLATE: "+templateName)
-     switch (templateName) {
-         case "forest":
-             createMagicParticles(300);
-             break;
-         case "pyramid":
-             createSandstorm(500);
-             break;
-         case "bigben":
-             createRain(150);
-             break;
-         case "space":
-             createStars(350);
-             break;
-         case "north-pole":
-             createSnowflakes();
-             break;
-         case "underwater":
-             createBubbles(30);
-             break;
-         default:
-             console.log("No matching background found.");
-     }
-     return templateName;
- }
+    body.style.backgroundImage = selectedTemplate ? `url(${selectedTemplate.pic})` : `url(${GameSettings.backgroundTemplates[randomNum].pic})`;
+    console.log("TEMPLATE: " + templateName)
+    switch (templateName) {
+        case "forest":
+            createMagicParticles(300);
+            break;
+        case "pyramid":
+            createSandstorm(500);
+            break;
+        case "bigben":
+            createRain(150);
+            break;
+        case "space":
+            createStars(350);
+            break;
+        case "north-pole":
+            createSnowflakes();
+            break;
+        case "underwater":
+            createBubbles(30);
+            break;
+        case "futuristic-city":
+            createParticles(300);
+            createLightBeams(5);
+            break;
+        default:
+            console.log("No matching background found.");
+    }
+    return templateName;
+}
 
 
 
 //WHEN PUSH THE START GAME
 startGame = () => {
-    if(!GameSettings.gamePaused){
-    game.innerHTML=""
-    // localStorage.setItem("score",0)
-    GameSettings.score = 0;
+    if (!GameSettings.gamePaused) {
+        game.innerHTML = ""
+        // localStorage.setItem("score",0)
+        GameSettings.score = 0;
 
     }
-//     document.getElementById("message").style.display = "none";
-console.log("Game begun")
-GameSettings.gamePaused = false
-//clean the board after restart
-game.style.display="block"
-// document.getElementById("card-background").replaceChildren(); //
-document.getElementById("message").style.display="none"
-body.style.backgroundColor="transparent"
+    //     document.getElementById("message").style.display = "none";
+    console.log("Game begun")
+    GameSettings.gamePaused = false
+    //clean the board after restart
+    game.style.display = "block"
+    // document.getElementById("card-background").replaceChildren(); //
+    document.getElementById("message").style.display = "none"
+    body.style.backgroundColor = "transparent"
 
 
 
-console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
+    console.log("GameSettings.backgroundStage: " + GameSettings.backgroundStage)
 
-// if(!GameSettings.bonusGamestate){
- randomBackground(GameSettings.backgroundStage)
-// }
+    // if(!GameSettings.bonusGamestate){
+    randomBackground(GameSettings.backgroundStage)
+    // }
 
 
     backgroundMusic.pause();
 
-    document.getElementById("message").innerHTML=""
-//    play("/sounds/mainMusic.mp3",0.5)
-    pauseBtn.style.display="block";
+    document.getElementById("message").innerHTML = ""
+    //    play("/sounds/mainMusic.mp3",0.5)
+    pauseBtn.style.display = "block";
     gamePreferences.style.display = "none";
     play("/Memory-Game/sounds/menu-button.mp3", 1)
     // console.log(starterMusic)
@@ -785,7 +821,7 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
 
     if (document.getElementById("message").innerHTML.length > 0) {
         startGame()
-        console.log("GAMESETTING.backgroundSettings: "+GameSettings.backgroundStage)
+        console.log("GAMESETTING.backgroundSettings: " + GameSettings.backgroundStage)
     } else {
 
         startBtn.removeEventListener("click", startGame);
@@ -808,7 +844,7 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
             GameSettings.difficultyChoice = document.querySelector('input[name="difficulty"]:checked').value
             GameSettings.subjectChoice = document.querySelector('input[name="subject"]:checked').value
 
-            console.log("Difficulty choices: "+GameSettings.difficultyChoice+ " GameSettings.subjectChoice : "+GameSettings.subjectChoice)
+            console.log("Difficulty choices: " + GameSettings.difficultyChoice + " GameSettings.subjectChoice : " + GameSettings.subjectChoice)
 
 
             let rows, columns
@@ -817,46 +853,46 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
                     GameSettings.boardRows = 4
                     GameSettings.boardColumns = 4
                 } else if (GameSettings.difficultyChoice == "medium") {
-                    
+
 
                     GameSettings.boardRows = 5
                     GameSettings.boardColumns = 6
 
                 } else if (GameSettings.difficultyChoice == "hard") {
-                    if(window.innerWidth<=720){
+                    if (window.innerWidth <= 720) {
                         GameSettings.boardRows = 10
                         GameSettings.boardColumns = 5
-                       }else{
+                    } else {
                         GameSettings.boardRows = 5
                         GameSettings.boardColumns = 10
-                       }
-                   
-                    
+                    }
+
+
                     // classes = classesHard
                 } else {
-                   if(window.innerWidth<=720){
-                    GameSettings.boardRows =12
-                    GameSettings.boardColumns = 7
-                   }else{
-                    GameSettings.boardRows =6
-                    GameSettings.boardColumns = 14
-                   }
+                    if (window.innerWidth <= 720) {
+                        GameSettings.boardRows = 12
+                        GameSettings.boardColumns = 7
+                    } else {
+                        GameSettings.boardRows = 6
+                        GameSettings.boardColumns = 14
+                    }
 
                 }
 
 
             }
 
-           
+
             findRowColumns()
             createBoard();
 
-            
+
 
 
             function createBoard() {
                 play("/Memory-Game/sounds/game-start.mp3", 1);
-                const statsFragment =document.createDocumentFragment()
+                const statsFragment = document.createDocumentFragment()
                 let resDiv = document.createElement("div");
                 resDiv.id = "results"
                 let pPoints = document.createElement("p")
@@ -936,7 +972,7 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
                         div.appendChild(cardDiv);
                     }
                     cardFragment.appendChild(div)
-                   
+
 
                 }
                 // if(GameSettings.bonusGamestate){
@@ -1029,7 +1065,7 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
                 finalArray.sort(function () {
                     return Math.random() - 0.5;
                 })
-                console.log("Final-Array: "+finalArray)
+                console.log("Final-Array: " + finalArray)
                 return finalArray;
 
             };
@@ -1037,8 +1073,8 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
 
             //THE LAST ARRAY WHICH CREATED FROM THE SELECTION CHOICES
             let finalGameArray = setTheGame(GameSettings.subjectChoice, GameSettings.difficultyChoice)
-           
-            console.log("Final Game Array: "+finalGameArray )
+
+            console.log("Final Game Array: " + finalGameArray)
 
 
             //PLACE RANDOM THE VALUES OF THE ARRAY TO THE CARDS
@@ -1049,8 +1085,8 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
             let span = document.querySelector(".spanMoves");
             // let points = document.getElementsByClassName("spanPoints")[0];
 
-                
-            
+
+
             // const calculatePoints=(point)=>{
             // //    let addingPoints=false;
             //    new Promise((resolve,reject)=>{
@@ -1058,14 +1094,14 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
             //     let totalPoints = addedPoint + point
             //     JSON.stringify(localStorage.setItem("score",totalPoints))
             //     localStorage.setItem("score",totalPoints)
-                
+
             //     let addPoints = setInterval(() => {
             //         if (point > 0) {
             //             if (addedPoint < totalPoints) {
             //                 // console.log(addedPoint + " " + point + " " + points.innerHTML)
             //                 addedPoint+=10
             //                 // addingPoints=true;
-                            
+
             //                 points.innerHTML = addedPoint
 
             //             } else {
@@ -1082,356 +1118,356 @@ console.log("GameSettings.backgroundStage: "+GameSettings.backgroundStage)
             //         }
             //     }, 1)
 
-                  
+
             // })
-        
+
             // };
 
-        
+
 
             function placeTeamRandom(card) {
                 // finalGameArray.forEach((game)=>{
                 //     console.log(game+" "+game.pic+" "+game.name)
                 // })
-                
-     
+
+
                 let randomTeam = finalGameArray[Math.floor(Math.random() * finalGameArray.length)]
                 // console.log("randomTeam: "+randomTeam)
                 // console.log("PIC: "+randomTeam.pic)
-                if(randomTeam){
-                let back = card.querySelector('.back');
-                let front = card.querySelector(".front")
-                back.classList.add(randomTeam.pic);
-                front.dataset.team = randomTeam.name;
-                }else{
+                if (randomTeam) {
+                    let back = card.querySelector('.back');
+                    let front = card.querySelector(".front")
+                    back.classList.add(randomTeam.pic);
+                    front.dataset.team = randomTeam.name;
+                } else {
                     console.log("Error:random teeam is undefined")
                 }
                 let randomTeamIndex = finalGameArray.indexOf(randomTeam)
                 finalGameArray.splice(randomTeamIndex, 1);
-                
+
             }
 
-           function basicGameLogic(){
-            Array.from(cards).forEach((card) => {
-                
-
-                placeTeamRandom(card)
+            function basicGameLogic() {
+                Array.from(cards).forEach((card) => {
 
 
-                //INSTRUCTIONS AND SELECTIONS TO THE GAME
-                card.addEventListener("click", (e) => {
-
-                    play("/Memory-Game/sounds/flipcard.mp3", 1);
-                    // console.log(e.target);
-                    let child = card.querySelector('.content')
-                    let front = card.querySelector(".front")
-                    let back=card.querySelector(".back")
-
-                    if (!clickedCard) {
-                        Array.from(cards).forEach((card) => {
-                            // card.classList.remove("disable");
-                            card.classList.remove("wrong");
-                        })
-                        let target = e.currentTarget;
-                        child.classList.add("contentActive")
-                        card.classList.add("disable")
-                        clickedCard = target
-                        console.log(clickedCard)
+                    placeTeamRandom(card)
 
 
-                    } else
-                        if (clickedCard) {
+                    //INSTRUCTIONS AND SELECTIONS TO THE GAME
+                    card.addEventListener("click", (e) => {
+
+                        play("/Memory-Game/sounds/flipcard.mp3", 1);
+                        // console.log(e.target);
+                        let child = card.querySelector('.content')
+                        let front = card.querySelector(".front")
+                        let back = card.querySelector(".back")
+
+                        if (!clickedCard) {
                             Array.from(cards).forEach((card) => {
-                                card.classList.add("disable");
+                                // card.classList.remove("disable");
+                                card.classList.remove("wrong");
                             })
-
+                            let target = e.currentTarget;
                             child.classList.add("contentActive")
-                            if (front.getAttribute('data-team') == clickedCard.querySelector(".front").getAttribute("data-team") && !clickedCard.classList.contains("disabled")) {
-                                const item=new Object({
-                                    image:clickedCard.querySelector('.back').classList[1],
-                                    name:clickedCard.querySelector(".front").getAttribute("data-team")
-                                })
-                                bonusGameArray.push(item)
-                                console.log(bonusGameArray)
-                                // console.log(front.getAttribute('data-team') + " " + clickedCard.querySelector(".front").getAttribute("data-team"));
-                                // console.log(true)
-                                // calculatePoints(1000)
-                            soundChangeScore(1000);
-                                if(foundedInARow<0){
-                                    foundedInARow=1;
-                                }else{
-                                    foundedInARow++
-                                }
-                                
-                                calculatePoints(500);
-                                // play("/sounds/score.mp3")
-                                // console.log(points.innerHTML)
-                                span.innerHTML = ++tries;
-
-                                card.classList.add("founded")
-                                clickedCard.classList.add("founded")
-                                foundedPar.style.display = "block";
-                                foundedPar.innerHTML = front.getAttribute('data-team')
-                                // foundedPar.classList.add("animate__zoomIn")
-                                foundedPar.classList.add('textAnimation')
-                                card.classList.add("explode")
-                                clickedCard.classList.add("explode")
-
-                                clickedCard = null;
-                                if (foundedInARow == 3) {
-                                    calculatePoints(1000)
-                                    baby.style.backgroundImage="url('./images/baby.png')"
-                                    baby.classList.add("babyAnimation")
+                            card.classList.add("disable")
+                            clickedCard = target
+                            console.log(clickedCard)
 
 
-
-                                }
-
-                                if (foundedInARow > 3 && foundedInARow <= 5) {
-                                    calculatePoints(3000)
-                                    foundedPar.innerHTML = "UNSTOPPABLE";
-
-                                    body.classList.add("unstoppable_animation");
-                                }
-
-                                if (foundedInARow >= 6) {
-                                    calculatePoints(5000)
-                                    body.classList.add("godlike")
-                                    game.style.display = "none"
-                                    foundedPar.innerHTML = "GODLIKE";
-                                    // body.style.background='url("/images/god.png")no-repeat fixed center center'
-                                }
-                                //TODO BONUSGAME
-                                // if (foundedInARow >= 1) {
-                                //     calculatePoints(10000)
-                                //     body.classList.remove("bodyBackground")
-                                //   initialBonusArray=[...bonusGameArray];
-                                //      body.classList.add("heavenBackground")
-
-                                //     // body.classList.add("paradise-background")
-                                //      body.classList.add("heaven_animation")
-                                //     //bonusGame();
-
-                                //     game.style.display = "none"
-                                //     play("/Memory-Game/sounds/heaven.mp3",1)
-                                //     foundedPar.innerHTML = "WELCOME HOME GOD";
-                                // }
-                                setTimeout(() => {
-                                    play("/Memory-Game/sounds/correct.mp3",1)
-                                    if (foundedInARow == 3) {
-                                        play("/Memory-Game/sounds/YES.mp3",1)
-
-                                    }
-                                    if (foundedInARow > 3 && foundedInARow <= 5) {
-
-                                        play("/Memory-Game/sounds/UNSTOPPABLE.mp3",1)
-
-                                    }
-                                    if (foundedInARow >= 6) {
-                                        play("/Memory-Game/sounds/god-like.mp3",1)
-                                    }
-
-                                }, 350);
-                                setTimeout(() => {
-                                    // play("/sounds/correct.mp3")
-                                    foundedPar.innerHTML = "";
-                                    // foundedPar.classList.remove("animate__zoomIn")
-                                    foundedPar.classList.remove('textAnimation')
-                                    body.classList.remove("unstoppable_animation");
-                                    foundedPar.style.display = "none";
-                                    baby.classList.remove("babyAnimation")
-                                    changeScore=false;
-                                }, 1200);
-                                setTimeout(() => {
-                                    baby.classList.remove("babyAnimation")
-                                }, 1500);
-
-                                if (body.classList.contains("godlike")) {
-                                    setTimeout(() => {
-                                        body.classList.remove("godlike")
-                                        game.style.display = "block"
-                                        foundedPar.innerHTML = "";
-                                        // body.style.background='url("https://i.pinimg.com/736x/41/b7/07/41b707b7632118fd15807ed0bc9c85bc.jpg") no-repeat fixed center center'
-                                    }, 3000);
-                                }
-                                if (body.classList.contains("heaven_animation")) {
-                                   body.classList.add('mini-game-animation')
-                                    setTimeout(() => {
-                                        body.classList.remove("heaven_animation")
-
-                                        foundedPar.innerHTML = "";
-                                        body.classList.add("bodyBackground")
-                                        // body.classList.remove("heavenBackground")
-                                        body.classList.add("mini-game-animation");
-                                        miniGame.style.display = "flex"
-                                    }, 8000);
-                                }
-
-
-
-
+                        } else
+                            if (clickedCard) {
                                 Array.from(cards).forEach((card) => {
-                                    let child = card.querySelector('.content')
-                                    if (!child.classList.contains('contentActive')) {
-                                        card.classList.remove("disable");
-                                    }
+                                    card.classList.add("disable");
                                 })
 
-                                filterArray = Array.from(cards).filter(foundedCards)
-                                function foundedCards(card) {
-                                    return !(card.classList.contains("founded"))
+                                child.classList.add("contentActive")
+                                if (front.getAttribute('data-team') == clickedCard.querySelector(".front").getAttribute("data-team") && !clickedCard.classList.contains("disabled")) {
+                                    const item = new Object({
+                                        image: clickedCard.querySelector('.back').classList[1],
+                                        name: clickedCard.querySelector(".front").getAttribute("data-team")
+                                    })
+                                    bonusGameArray.push(item)
+                                    console.log(bonusGameArray)
+                                    // console.log(front.getAttribute('data-team') + " " + clickedCard.querySelector(".front").getAttribute("data-team"));
+                                    // console.log(true)
+                                    // calculatePoints(1000)
+                                    soundChangeScore(1000);
+                                    if (foundedInARow < 0) {
+                                        foundedInARow = 1;
+                                    } else {
+                                        foundedInARow++
+                                    }
 
-                                }
+                                    calculatePoints(500);
+                                    // play("/sounds/score.mp3")
+                                    // console.log(points.innerHTML)
+                                    span.innerHTML = ++tries;
 
-                                function endGame() {
-                                    console.log("inside endgame")
+                                    card.classList.add("founded")
+                                    clickedCard.classList.add("founded")
+                                    foundedPar.style.display = "block";
+                                    foundedPar.innerHTML = front.getAttribute('data-team')
+                                    // foundedPar.classList.add("animate__zoomIn")
+                                    foundedPar.classList.add('textAnimation')
+                                    card.classList.add("explode")
+                                    clickedCard.classList.add("explode")
+
+                                    clickedCard = null;
+                                    if (foundedInARow == 3) {
+                                        calculatePoints(1000)
+                                        baby.style.backgroundImage = "url('./images/baby.png')"
+                                        baby.classList.add("babyAnimation")
+
+
+
+                                    }
+
+                                    if (foundedInARow > 3 && foundedInARow <= 5) {
+                                        calculatePoints(3000)
+                                        foundedPar.innerHTML = "UNSTOPPABLE";
+
+                                        body.classList.add("unstoppable_animation");
+                                    }
+
+                                    if (foundedInARow >= 6) {
+                                        calculatePoints(5000)
+                                        body.classList.add("godlike")
+                                        game.style.display = "none"
+                                        foundedPar.innerHTML = "GODLIKE";
+                                        // body.style.background='url("/images/god.png")no-repeat fixed center center'
+                                    }
+                                    //TODO BONUSGAME
+                                    // if (foundedInARow >= 1) {
+                                    //     calculatePoints(10000)
+                                    //     body.classList.remove("bodyBackground")
+                                    //   initialBonusArray=[...bonusGameArray];
+                                    //      body.classList.add("heavenBackground")
+
+                                    //     // body.classList.add("paradise-background")
+                                    //      body.classList.add("heaven_animation")
+                                    //     //bonusGame();
+
+                                    //     game.style.display = "none"
+                                    //     play("/Memory-Game/sounds/heaven.mp3",1)
+                                    //     foundedPar.innerHTML = "WELCOME HOME GOD";
+                                    // }
                                     setTimeout(() => {
-                                        if (filterArray.length == 0) {
-                                            console.log("REMOVED THE CHILDS")
-                                            while(game.firstChild){
-                                                console.log("REMOVED THE CHILDS ONE BY ONE")
-                                                game.removeChild(game.firstChild);
-                                            }
-                                            startBtn.addEventListener("click", beginGame)
-                                            pauseBtn.style.display="none";
-                                            game.style.display = "none";
-                                            document.getElementById("message").style.display = "block";
-                                            play("/Memory-Game/sounds/successWin.mp3", 1)
-                                            // document.getElementById("message").innerHTML =  "Moves: "+ tries + " <br>Score: "+JSON.parse(localStorage.getItem('score'));
-                                            document.getElementById("message").innerHTML =`Moves: ${tries} <br>Score: ${GameSettings.score}`;
+                                        play("/Memory-Game/sounds/correct.mp3", 1)
+                                        if (foundedInARow == 3) {
+                                            play("/Memory-Game/sounds/YES.mp3", 1)
 
-                                            console.log(difficultyChoice)
-                                            
-                                            console.log("inside endgame")
-                                            // startBtn.style.display="none"
+                                        }
+                                        if (foundedInARow > 3 && foundedInARow <= 5) {
+
+                                            play("/Memory-Game/sounds/UNSTOPPABLE.mp3", 1)
+
+                                        }
+                                        if (foundedInARow >= 6) {
+                                            play("/Memory-Game/sounds/god-like.mp3", 1)
                                         }
 
-                                    }, 1500)
-                                    console.log("endgame")
-                                }
-                                endGame()
+                                    }, 350);
+                                    setTimeout(() => {
+                                        // play("/sounds/correct.mp3")
+                                        foundedPar.innerHTML = "";
+                                        // foundedPar.classList.remove("animate__zoomIn")
+                                        foundedPar.classList.remove('textAnimation')
+                                        body.classList.remove("unstoppable_animation");
+                                        foundedPar.style.display = "none";
+                                        baby.classList.remove("babyAnimation")
+                                        changeScore = false;
+                                    }, 1200);
+                                    setTimeout(() => {
+                                        baby.classList.remove("babyAnimation")
+                                    }, 1500);
+
+                                    if (body.classList.contains("godlike")) {
+                                        setTimeout(() => {
+                                            body.classList.remove("godlike")
+                                            game.style.display = "block"
+                                            foundedPar.innerHTML = "";
+                                            // body.style.background='url("https://i.pinimg.com/736x/41/b7/07/41b707b7632118fd15807ed0bc9c85bc.jpg") no-repeat fixed center center'
+                                        }, 3000);
+                                    }
+                                    if (body.classList.contains("heaven_animation")) {
+                                        body.classList.add('mini-game-animation')
+                                        setTimeout(() => {
+                                            body.classList.remove("heaven_animation")
+
+                                            foundedPar.innerHTML = "";
+                                            body.classList.add("bodyBackground")
+                                            // body.classList.remove("heavenBackground")
+                                            body.classList.add("mini-game-animation");
+                                            miniGame.style.display = "flex"
+                                        }, 8000);
+                                    }
 
 
-                            } else {
-                                if(foundedInARow>0){
-                                foundedInARow = -1;
-                                calculatePoints(-15)
-                                console.log(false)
 
-                                span.innerHTML = ++tries;
-                                setTimeout(() => {
-                                    card.classList.add("wrong")
-                                    clickedCard.classList.add("wrong")
-                                    play("/Memory-Game/sounds/error-sound.mp3",1)
-                                    child.classList.remove("contentActive")
-                                    clickedCard.querySelector(".content").classList.remove('contentActive')
+
                                     Array.from(cards).forEach((card) => {
-                                        card.classList.remove("disable");
+                                        let child = card.querySelector('.content')
+                                        if (!child.classList.contains('contentActive')) {
+                                            card.classList.remove("disable");
+                                        }
                                     })
 
-                                    clickedCard = null;
-                                }, 1000)
-                            }else{
-                                foundedInARow--;
-                                calculatePoints(-15)
-                            
-                                
+                                    filterArray = Array.from(cards).filter(foundedCards)
+                                    function foundedCards(card) {
+                                        return !(card.classList.contains("founded"))
+
+                                    }
+
+                                    function endGame() {
+                                        console.log("inside endgame")
+                                        setTimeout(() => {
+                                            if (filterArray.length == 0) {
+                                                console.log("REMOVED THE CHILDS")
+                                                while (game.firstChild) {
+                                                    console.log("REMOVED THE CHILDS ONE BY ONE")
+                                                    game.removeChild(game.firstChild);
+                                                }
+                                                startBtn.addEventListener("click", beginGame)
+                                                pauseBtn.style.display = "none";
+                                                game.style.display = "none";
+                                                document.getElementById("message").style.display = "block";
+                                                play("/Memory-Game/sounds/successWin.mp3", 1)
+                                                // document.getElementById("message").innerHTML =  "Moves: "+ tries + " <br>Score: "+JSON.parse(localStorage.getItem('score'));
+                                                document.getElementById("message").innerHTML = `Moves: ${tries} <br>Score: ${GameSettings.score}`;
+
+                                                console.log(difficultyChoice)
+
+                                                console.log("inside endgame")
+                                                // startBtn.style.display="none"
+                                            }
+
+                                        }, 1500)
+                                        console.log("endgame")
+                                    }
+                                    endGame()
 
 
-                                span.innerHTML = ++tries;
-                                setTimeout(() => {
-                                    card.classList.add("wrong")
-                                    clickedCard.classList.add("wrong")
-                                    play("/Memory-Game/sounds/error-sound.mp3",1)
-                                    child.classList.remove("contentActive")
-                                    clickedCard.querySelector(".content").classList.remove('contentActive')
-                                    
-                                    Array.from(cards).forEach((card) => {
-                                        card.classList.remove("disable");
-                                    })
+                                } else {
+                                    if (foundedInARow > 0) {
+                                        foundedInARow = -1;
+                                        calculatePoints(-15)
+                                        console.log(false)
+
+                                        span.innerHTML = ++tries;
+                                        setTimeout(() => {
+                                            card.classList.add("wrong")
+                                            clickedCard.classList.add("wrong")
+                                            play("/Memory-Game/sounds/error-sound.mp3", 1)
+                                            child.classList.remove("contentActive")
+                                            clickedCard.querySelector(".content").classList.remove('contentActive')
+                                            Array.from(cards).forEach((card) => {
+                                                card.classList.remove("disable");
+                                            })
+
+                                            clickedCard = null;
+                                        }, 1000)
+                                    } else {
+                                        foundedInARow--;
+                                        calculatePoints(-15)
 
 
-                                    clickedCard = null;
-                                }, 1000)
-                                if(foundedInARow<=-5&&foundedInARow%5==0){
-                                    console.log(foundedInARow)
-                                    play("/Memory-Game/sounds/wahTrumpet.mp3",1)
-                                    baby.style.backgroundImage="url('/Memory-Game/images/confusedBaby.png')"
 
-                                    calculatePoints(-1000)
-                                    baby.classList.add("babyAnimation")
+
+                                        span.innerHTML = ++tries;
+                                        setTimeout(() => {
+                                            card.classList.add("wrong")
+                                            clickedCard.classList.add("wrong")
+                                            play("/Memory-Game/sounds/error-sound.mp3", 1)
+                                            child.classList.remove("contentActive")
+                                            clickedCard.querySelector(".content").classList.remove('contentActive')
+
+                                            Array.from(cards).forEach((card) => {
+                                                card.classList.remove("disable");
+                                            })
+
+
+                                            clickedCard = null;
+                                        }, 1000)
+                                        if (foundedInARow <= -5 && foundedInARow % 5 == 0) {
+                                            console.log(foundedInARow)
+                                            play("/Memory-Game/sounds/wahTrumpet.mp3", 1)
+                                            baby.style.backgroundImage = "url('/Memory-Game/images/confusedBaby.png')"
+
+                                            calculatePoints(-1000)
+                                            baby.classList.add("babyAnimation")
+                                        }
+                                        setTimeout(() => {
+                                            // play("/sounds/correct.mp3")
+                                            foundedPar.innerHTML = "";
+                                            // foundedPar.classList.remove("animate__zoomIn")
+                                            foundedPar.classList.remove('textAnimation')
+                                            body.classList.remove("unstoppable_animation");
+                                            foundedPar.style.display = "none";
+                                            baby.classList.remove("babyAnimation")
+                                        }, 1200);
+
+                                    }
+
+
+
+
                                 }
-                                setTimeout(() => {
-                                    // play("/sounds/correct.mp3")
-                                    foundedPar.innerHTML = "";
-                                    // foundedPar.classList.remove("animate__zoomIn")
-                                    foundedPar.classList.remove('textAnimation')
-                                    body.classList.remove("unstoppable_animation");
-                                    foundedPar.style.display = "none";
-                                    baby.classList.remove("babyAnimation")
-                                }, 1200);
-                                
-                            }
-
 
 
 
                             }
 
+                    })
 
 
-                        }
 
                 })
+            }
 
-
-
-            })
-        }
-
-        gameLogic = ()=>{
-            //  if(GameSettings.gameState == "BasicGame"){
+            gameLogic = () => {
+                //  if(GameSettings.gameState == "BasicGame"){
                 basicGameLogic()
-            //  }else if(GameSettings.gameState == "BonusGame"){
-            //      bonusGameLogic();
-            //  }
-        }
-        gameLogic();
+                //  }else if(GameSettings.gameState == "BonusGame"){
+                //      bonusGameLogic();
+                //  }
+            }
+            gameLogic();
 
-        // function bonusGameLogic(){
-        //     Array.from(cards).forEach((card) => {
-        //         placeTeamRandom(card)
-        //         play("/Memory-Game/sounds/flipcard.mp3", 1);
-        //         // console.log(e.target);
-        //         setTimeout(()=>{
+            // function bonusGameLogic(){
+            //     Array.from(cards).forEach((card) => {
+            //         placeTeamRandom(card)
+            //         play("/Memory-Game/sounds/flipcard.mp3", 1);
+            //         // console.log(e.target);
+            //         setTimeout(()=>{
 
-        //             let child = card.querySelector('.content')
-        //             let front = card.querySelector(".front")
-        //             let back=card.querySelector(".back")
-        //             child.classList.add("contentActive")
-        //         },2000)
-                
+            //             let child = card.querySelector('.content')
+            //             let front = card.querySelector(".front")
+            //             let back=card.querySelector(".back")
+            //             child.classList.add("contentActive")
+            //         },2000)
 
-        //         if (!clickedCard) {
-        //             Array.from(cards).forEach((card) => {
-        //                 // card.classList.remove("disable");
-        //                 card.classList.remove("wrong");
-        //             })
-                    
-        //             // let target = e.currentTarget;
-        //             // child.classList.add("contentActive")
-        //             card.classList.add("disable")
-        //             // clickedCard = target
-        //             console.log(clickedCard)
 
-        //         // card.addEventListener("click", (e) => {
-        //         }
-        //         // })
+            //         if (!clickedCard) {
+            //             Array.from(cards).forEach((card) => {
+            //                 // card.classList.remove("disable");
+            //                 card.classList.remove("wrong");
+            //             })
 
-                
-        //     })
+            //             // let target = e.currentTarget;
+            //             // child.classList.add("contentActive")
+            //             card.classList.add("disable")
+            //             // clickedCard = target
+            //             console.log(clickedCard)
 
-        // }
+            //         // card.addEventListener("click", (e) => {
+            //         }
+            //         // })
+
+
+            //     })
+
+            // }
 
 
         }
@@ -1448,9 +1484,9 @@ pauseGame = () => {
     // Loop through the selected elements and remove each one
     elementsToRemove.forEach(element => {
         // console.log(element +"removed")
-      element.remove();
+        element.remove();
     });
-    console.log("From PAUSEGAME FUNCTION gamePaused: "+GameSettings.gamePaused)
+    console.log("From PAUSEGAME FUNCTION gamePaused: " + GameSettings.gamePaused)
     startBtn.innerHTML = "Resume";
     startBtn.addEventListener('click', beginGame)
     game.classList.add("disable");
@@ -1461,7 +1497,7 @@ pauseGame = () => {
 
 resetGame = () => {
     play("/Memory-Game/sounds/menu-button.mp3", 1)
-    GameSettings.gamePaused=false
+    GameSettings.gamePaused = false
     document.location.reload(true);
 }
 
@@ -1469,9 +1505,9 @@ resetGame = () => {
 //BONUS GAME
 
 
-let countDown=document.getElementById("countDown");
-let numberDisplay=document.getElementById("numberSquare")
-let activeBonus=false;
+let countDown = document.getElementById("countDown");
+let numberDisplay = document.getElementById("numberSquare")
+let activeBonus = false;
 // GameSettings.bonusGamestate=false
 
 
@@ -1481,162 +1517,162 @@ let activeBonus=false;
 
 
 
-startBonusGame=()=>{
-GameSettings.gameState = "BonusGame";
-   activeBonus=true
-    
-   let sound=play("/Memory-Game/sounds/HeavenMain.mp3",1)
-   let bonusScore=0;
-   bonusBtn.style.display="none"
-   countDown.style.display="flex";
-//    startGame();
-//    countDownActivated(sound,bonusScore)
-   
-   
+startBonusGame = () => {
+    GameSettings.gameState = "BonusGame";
+    activeBonus = true
+
+    let sound = play("/Memory-Game/sounds/HeavenMain.mp3", 1)
+    let bonusScore = 0;
+    bonusBtn.style.display = "none"
+    countDown.style.display = "flex";
+    //    startGame();
+    //    countDownActivated(sound,bonusScore)
+
+
     let item;
-    function newImage(){
-        if(initialBonusArray.length>0){
-    item=initialBonusArray[Math.floor(Math.random() * initialBonusArray.length)]
-    document.getElementById("bonus-image").classList.add(item.image)
-        }else{
-            endBonusGame(sound,bonusScore)
+    function newImage() {
+        if (initialBonusArray.length > 0) {
+            item = initialBonusArray[Math.floor(Math.random() * initialBonusArray.length)]
+            document.getElementById("bonus-image").classList.add(item.image)
+        } else {
+            endBonusGame(sound, bonusScore)
             console.log(bonusGameArray)
 
         }
-            
-                    
-        
+
+
+
     }
-    
+
     newImage();
-   
-    bonusInput.addEventListener("input",(event)=>{
+
+    bonusInput.addEventListener("input", (event) => {
         // console.log(event.target)
         // console.log(event.target.value)
         // console.log(bonusGameArray)
         console.log(item)
-        if(event.target.value==item.name){
+        if (event.target.value == item.name) {
             console.log(true);
-            bonusScore+=8000
-            bonusMsg.style.display="block"
-            bonusMsg.innerHTML="+8000"
+            bonusScore += 8000
+            bonusMsg.style.display = "block"
+            bonusMsg.innerHTML = "+8000"
             bonusMsg.classList.add("textAnimation")
-            bonusInput.style.border="5px solid green";
+            bonusInput.style.border = "5px solid green";
             const index = initialBonusArray.indexOf(item);
             if (index > -1) { // only splice array when item is found
                 initialBonusArray.splice(index, 1); // 2nd parameter means remove one item only
             }
-            setTimeout(()=>{
-                play("/Memory-Game/sounds/correct.mp3",1)
-                bonusInput.style.border="5px solid transparent";
-                bonusInput.value="";
+            setTimeout(() => {
+                play("/Memory-Game/sounds/correct.mp3", 1)
+                bonusInput.style.border = "5px solid transparent";
+                bonusInput.value = "";
                 document.getElementById("bonus-image").classList.remove(item.image)
-              
+
                 newImage()
-            
-               
-        },500)
 
-        setTimeout(()=>{
-            bonusMsg.style.display="none";
-            bonusMsg.classList.remove("textAnimation")
-            bonusMsg.innerHTML=""
-        },1200)
-    }
-        
-    
-       
 
-        
+            }, 500)
+
+            setTimeout(() => {
+                bonusMsg.style.display = "none";
+                bonusMsg.classList.remove("textAnimation")
+                bonusMsg.innerHTML = ""
+            }, 1200)
+        }
+
+
+
+
+
     })
 
-    
-    countDownActivated(sound,bonusScore)
-   
-   
+
+    countDownActivated(sound, bonusScore)
+
+
 
 }
 
 
-function countDownActivated(sound,bonusScore){
-    intervalId= setInterval(() => {
-       if(!activeBonus){
-    //    if(GameSettings.bonusGamestate == false){
+function countDownActivated(sound, bonusScore) {
+    intervalId = setInterval(() => {
+        if (!activeBonus) {
+            //    if(GameSettings.bonusGamestate == false){
             clearInterval(intervalId)
-        }else{
-        let parsedNumber = parseInt(numberDisplay.innerHTML);
-        parsedNumber -= 1
-        if(parsedNumber<=3){
-            numberDisplay.style.color="red";
-        }
-        if (parsedNumber < 0) {
-            numberDisplay.innerHTML = 0;
-            numberDisplay.style.color="white"
-            inactive(intervalId);
-            endBonusGame(sound,bonusScore);
-            
-
         } else {
-            
-            countDown.style.setProperty('--animationToPseudoElement', 'rotate 1s linear infinite')
-            numberDisplay.innerHTML = parsedNumber
+            let parsedNumber = parseInt(numberDisplay.innerHTML);
+            parsedNumber -= 1
+            if (parsedNumber <= 3) {
+                numberDisplay.style.color = "red";
+            }
+            if (parsedNumber < 0) {
+                numberDisplay.innerHTML = 0;
+                numberDisplay.style.color = "white"
+                inactive(intervalId);
+                endBonusGame(sound, bonusScore);
+
+
+            } else {
+
+                countDown.style.setProperty('--animationToPseudoElement', 'rotate 1s linear infinite')
+                numberDisplay.innerHTML = parsedNumber
+            }
         }
-    }
 
     }, 1000)
 
 }
 
-function inactive(intervalId){
+function inactive(intervalId) {
     countDown.style.setProperty('--animationToPseudoElement', 'none');
     clearInterval(intervalId);
 }
 
 
-function endBonusGame(sound,bonusScore){
-            sound.pause();
-            let godSound=play("/Memory-Game/sounds/godSound.mp3",1)
-            // GameSettings.bonusGamestate=false
+function endBonusGame(sound, bonusScore) {
+    sound.pause();
+    let godSound = play("/Memory-Game/sounds/godSound.mp3", 1)
+    // GameSettings.bonusGamestate=false
 
-            activeBonus=false;
-            body.classList.add("miniGameFinished")
-            body.classList.add("bodyBackground")
-            godMsg.style.display="block";
-            godMsg.classList.add("textAnimation")
-            godMsg.innerHTML="Time To Return Earth Memory-God"
-            miniGame.style.display="none";
-            bonusBtn.style.display="block"
-            countDown.style.display="none";
-            document.getElementById("bonus-image").classList.remove(...document.getElementById("bonus-image").classList)
-            numberDisplay.innerHTML="59"
+    activeBonus = false;
+    body.classList.add("miniGameFinished")
+    body.classList.add("bodyBackground")
+    godMsg.style.display = "block";
+    godMsg.classList.add("textAnimation")
+    godMsg.innerHTML = "Time To Return Earth Memory-God"
+    miniGame.style.display = "none";
+    bonusBtn.style.display = "block"
+    countDown.style.display = "none";
+    document.getElementById("bonus-image").classList.remove(...document.getElementById("bonus-image").classList)
+    numberDisplay.innerHTML = "59"
 
-            setTimeout(()=>{
-                godSound.pause();
-                body.classList.remove("miniGameFinished")
-                body.classList.remove("heavenBackground")
-                godMsg.classList.remove("textAnimation")
-                godMsg.style.display="none";
-                // body.classList.add("bodyBackground")
-                
-                body.classList.remove('mini-game-animation')
-                
-                game.style.display="block";
-                
-            },5000)
-            setTimeout(()=>{
-                calculatePoints(bonusScore)
-                if(bonusScore>0){
-                let sound=play("/Memory-Game/sounds/score.mp3",0.2)
-                sound.loop=true
-               setTimeout(()=>{
+    setTimeout(() => {
+        godSound.pause();
+        body.classList.remove("miniGameFinished")
+        body.classList.remove("heavenBackground")
+        godMsg.classList.remove("textAnimation")
+        godMsg.style.display = "none";
+        // body.classList.add("bodyBackground")
+
+        body.classList.remove('mini-game-animation')
+
+        game.style.display = "block";
+
+    }, 5000)
+    setTimeout(() => {
+        calculatePoints(bonusScore)
+        if (bonusScore > 0) {
+            let sound = play("/Memory-Game/sounds/score.mp3", 0.2)
+            sound.loop = true
+            setTimeout(() => {
                 sound.pause()
-               },6000)
-            }
-                    
-                
-                
-                
-            },6000)
+            }, 6000)
+        }
+
+
+
+
+    }, 6000)
 }
 
 
@@ -1644,7 +1680,7 @@ function endBonusGame(sound,bonusScore){
 document.getElementById("year").innerText = new Date().getFullYear();
 
 
-bonusBtn.addEventListener("click",startBonusGame)
+bonusBtn.addEventListener("click", startBonusGame)
 pauseBtn.addEventListener("click", pauseGame)
-startBtn.addEventListener("click",beginGame);
+startBtn.addEventListener("click", beginGame);
 resetBtn.addEventListener("click", resetGame)
