@@ -771,7 +771,7 @@ function randomBackground(backgroundName) {
             createBubbles(30);
             break;
         case "futuristic-city":
-            createParticles(300);
+            createParticles(100);
             createLightBeams(5);
             break;
         default:
