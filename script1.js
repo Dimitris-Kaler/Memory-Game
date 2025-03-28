@@ -724,7 +724,7 @@ function randomBackground(backgroundName){
              createMagicParticles(300);
              break;
          case "pyramid":
-             createSandstorm(1000);
+             createSandstorm(500);
              break;
          case "bigben":
              createRain(150);
