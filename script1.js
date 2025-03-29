@@ -1,4 +1,4 @@
-import { footballArray,countriesArray,jungleArray,personalitiesArray } from "./data";
+// import { footballArray,countriesArray,jungleArray,personalitiesArray } from "./data.js";
 
 // let difficultyChoice = document.querySelector('input[name="difficulty"]:checked').value
 
@@ -39,7 +39,7 @@ let backs = document.getElementsByClassName("back");
 let GameSettings = {
     screenResizing: false,
     bonusTemplate: { name: "heaven", pic: "/images/heaven.webp" },
-    backgroundTemplates: [{ name: "forest", pic: "/Memory-Game/images/forest6.webp" }, { name: "pyramid", pic: "/Memory-Game/images/pyramids1.webp" }, { name: "bigben", pic: "/Memory-Game/images/big-ben.webp" }, { name: "space", pic: "/Memory-Game/images/space2.webp" }, { name: "north-pole", pic: "/Memory-Game/images/ice3.webp" }, { name: "underwater", pic: "/Memory-Game/images/buble.webp" }, { name: "futuristic-city", pic: "/Memory-Game/images/futuristic-city.webp" }],
+    backgroundTemplates: [{ name: "forest", pic: "/images/forest6.webp" }, { name: "pyramid", pic: "/images/pyramids1.webp" }, { name: "bigben", pic: "/images/big-ben.webp" }, { name: "space", pic: "/images/space2.webp" }, { name: "north-pole", pic: "/images/ice3.webp" }, { name: "underwater", pic: "/images/buble.webp" }, { name: "futuristic-city", pic: "/images/futuristic-city.webp" }],
     playedAgain: false,
     boardColumns: 4,
     boardRows: 4,
@@ -58,6 +58,57 @@ let GameSettings = {
     }
 
 }
+
+ let footballArray = [{ pic: "real", name: "Real Madrid" }, { pic: "barcelona", name: "Barcelona" }, { pic: "juve", name: "Juventus" }, { pic: "manunited", name: "Manchester United" },
+    { pic: "liverpool", name: "Liverpool" }, { pic: "milan", name: "Milan" }, { pic: "inter", name: "Internazionale" }, { pic: "bayern", name: "Bayern Munich" },
+    { pic: "chelsea", name: "Chelsea" }, { pic: "dortmund", name: "Borussia Dortmund" }, { pic: "atletico", name: "Atletico Madrid" }, { pic: "porto", name: "Porto" }, { pic: "ajax", name: "Ajax" },
+    { pic: "benfica", name: "Benfica" }, { pic: "arsenal", name: "Arsenal" }, { pic: "psg", name: "Paris St. Germain" }, { pic: "pao", name: "Panathinaikos" }, { pic: "osfp", name: "Olympiakos" },
+    { pic: "dinamo", name: "Dinamo Kiev" }, { pic: "city", name: "Manchester City" }, { pic: "marseille", name: "Marseille" }, { pic: "galata", name: "Galatasaray" },
+    { pic: "celtic", name: "Celtic" }, { pic: "rangers", name: "Glascow Rangers" }, { pic: "anderlecht", name: "Anderlecht" }, { pic: "aek", name: "AEK" }, { pic: "lyon", name: "Lyon" },
+    { pic: "eindhoven", name: "PSV Eindhoven" }, { pic: "napoli", name: "Napoli" }, { pic: "leverkusen", name: "Bayer Leverkusen" }, { pic: "leipzig", name: "Leipzig" },
+    { pic: "roma", name: "Roma" }, { pic: "valencia", name: 'Valenica' }, { pic: "fener", name: "Fenerbahche" }, { pic: "feyen", name: "Feyenoord" }, { pic: "zvezda", name: "Red Star" },
+    { pic: "monaco", name: "Monaco" }, { pic: "totthenham", name: "Totthenham" }, { pic: "rosenborg", name: "Rosenborg" }, { pic: "lazio", name: "Lazio" }, { pic: "sparta", name: "Sparta Prague" }
+        , { pic: "spartak", name: "Spartak Moscow" }]
+    
+    
+    
+    
+   let countriesArray = [{ pic: "greece", name: "Greece" }, { pic: "germany", name: "Germany" }, { pic: "italy", name: "Italy" }, { pic: "france", name: "France" }, { pic: "usa", name: "USA" },
+    { pic: "spain", name: "Spain" }, { pic: "russia", name: "Russia" }, { pic: "china", name: "China" }, { pic: "brazil", name: "Brazil" }, { pic: "portugal", name: "Portugal" }, { pic: "norway", name: "Norway" }, { pic: "turkey", name: "Turkey" },
+    { pic: "southafrica", name: "South Africa" }, { pic: "saudi", name: "Saudi Arabia" }, { pic: "grbritain", name: "Great Britain" }, { pic: "sweden", name: "Sweden" },
+    { pic: "finland", name: "Finland" }, { pic: "denmark", name: "Denmark" }, { pic: "argentina", name: "Argentina" }, { pic: "japan", name: "Japan" }, { pic: "cuba", name: "Cuba" },
+    { pic: "newzeeland", name: "New Zeeland" }, { pic: "mexico", name: "Mexico" }, { pic: "chile", name: "Chile" }, { pic: "canada", name: "Canada" }, { pic: "austria", name: "Austria" },
+    { pic: "romania", name: "Romania" }, { pic: "bulgaria", name: "Bulgaria" }, { pic: "albania", name: "Albania" }, { pic: "croatia", name: "Croatia" }, { pic: "india", name: "India" },
+    { pic: "cameroon", name: "Cameroon" }, { pic: "morocco", name: "Morocco" }, { pic: "egypt", name: "Egypt" }, { pic: "iraq", name: "Iraq" }, { pic: "switzerland", name: "Switzerland" },
+    { pic: "poland", name: "Poland" }, { pic: "czech", name: "Czech Republic" }, { pic: "hungary", name: 'Hungary' }, { pic: "northkorea", name: "North Korea" }, { pic: "belgium", name: "Belgium" },
+    { pic: "mongolia", name: "Mongolia" }]
+    
+    
+    
+   let jungleArray = [{ pic: "lion", name: "Lion" }, { pic: "tiger", name: "Tiger" }, { pic: "elephant", name: "Elephant" }, { pic: "parrot", name: "Parrot" }, { pic: "bear", name: "Bear" },
+    { pic: "hippo", name: "Hippo" }, { pic: "monkey", name: "Monkey" }, { pic: "snake", name: "Snake" }, { pic: "lemur", name: "Lemur" }, { pic: "gorilla", name: "Gorilla" }, { pic: "tapir", name: "Tapir" },
+    { pic: "armadillo", name: "Armadillo" }, { pic: "giraffe", name: "Girrafe" }, { pic: "leopard", name: "Leopard" }, { pic: "wolf", name: "Wolf" }, { pic: "fox", name: "Fox" },
+    { pic: "goose", name: "Goose" }, { pic: "deer", name: "Deer" }, { pic: "kangaroo", name: "Kangaroo" }, { pic: "spider", name: "Spider" }, { pic: "turtle", name: "Turtle" }, { pic: "camel", name: "Camel" },
+    { pic: "frogey", name: "Frogey" }, { pic: "lizard", name: "Lizard" }, { pic: "rabbit", name: "Rabbit" }, { pic: "crocodile", name: "Crocodile" }, { pic: "goat", name: "Goat" }, { pic: "bull", name: "Bull" },
+    { pic: "horse", name: "Horse" }, { pic: "whiteHorse", name: "White Horse" }, { pic: "hedgehog", name: "Hedgehog" }, { pic: "kitten", name: "Cat" }, { pic: "polarBear", name: "Polar Bear" },
+    { pic: "mamba", name: "Mamba" }, { pic: "labradorDog", name: "Labrador" }, { pic: "mouse", name: "Mouse" }, { pic: "whiteDuck", name: "White Duck" }, { pic: "anteater", name: "Anteater" },
+    { pic: "duck", name: "Duck" }, { pic: "blackPanther", name: "Black Panther" }, { pic: "jaguar", name: "Jaguar" }, { pic: "pitbull", name: "Pitbull" }];
+    
+    
+    
+    
+let personalitiesArray = [{ pic: "hitler", name: "Adolf Hitler" }, { pic: "stalin", name: "Joseph Stalin" }, { pic: "lenin", name: "Vladimir Lenin" }, { pic: "churchill", name: "Winston Churchill" },
+    { pic: "motherTeresa", name: "Mother Teresa" }, { pic: "einstein", name: "Albert Einstein" }, { pic: "gandhi", name: "Mahatma Gandhi" }, { pic: "lama", name: "Dalai Lama" },
+    { pic: "aristotle", name: "Aristotle" }, { pic: "beethoven", name: "Ludwig van Beethoven" }, { pic: "elizabeth", name: "Elizabeth II" }, { pic: "marx", name: "Karl Marx" },
+    { pic: "licoln", name: "Abraham Licoln" }, { pic: "napoleon", name: "Napoleon Bonaparte" }, { pic: "newton", name: "Isaac Newton" }, { pic: "alexander", name: "Alexander The Great" },
+    { pic: "tesla", name: "Nikola Tesla" }, { pic: "mandela", name: "Nelson Mandela" }, { pic: "shakespeare", name: "William Shakespeare" }, { pic: "che", name: "Ernesto Guevara" },
+    { pic: "chaplin", name: "Charlie Chaplin" }, { pic: "curie", name: "Marie Curie" }, { pic: "luther", name: "Martin Luther King" }, { pic: "schrodinger", name: "Erwin Schrödinger" },
+    { pic: "galileo", name: "Galileo Galilei" }, { pic: "colombus", name: "Christopher Columbus" }, { pic: "mozart", name: "Wolfgang Amadeus Mozart" },
+    { pic: "charlemagne", name: "Charlemagne or Charles" }, { pic: "planck", name: "Max Planck" }, { pic: "mao", name: "Mao Zedong" }, { pic: "ali", name: "Muhammad Ali" },
+    { pic: "roosevelt", name: "Franklin D. Roosevelt" }, { pic: "plato", name: "Plato" }, { pic: "senna", name: "Ayrton Senna" }, { pic: "darwin", name: "Charles Darwin" },
+    { pic: "voltaire", name: "Voltaire" }, { pic: "heisenberg", name: "Werner Karl Heisenberg" }, { pic: "vasco", name: "Vasco Da Gama" }, { pic: "putin", name: "Vladimir Putin" },
+    { pic: "freud", name: "Sigmund Freud" }, { pic: "monroe", name: "Marylin Monroe" }, { pic: "mendeleev", name: "Dmitriy Mendeleyev" }]
+    
 
 
 
@@ -224,7 +275,7 @@ window.onload = () => {
 };
 
 // window.addEventListener('load', () => {
-//     starterMusic=play("/Memory-Game/sounds/gamemusic.mp3",1)
+//     starterMusic=play("/sounds/gamemusic.mp3",1)
 //     console.log(starterMusic)
 // });
 
@@ -362,7 +413,7 @@ const calculatePoints = (point) => {
 function soundChangeScore(time) {
 
     console.log(changeScore)
-    let sound = play("/Memory-Game/sounds/score.mp3", 0.2)
+    let sound = play("/sounds/score.mp3", 0.2)
     sound.loop = true
     setTimeout(() => {
         sound.pause()
@@ -613,27 +664,6 @@ function createSnowflakes() {
 
 
 
-
-
-
-
-
-// tableResizing=()=>{
-//     window.onresize=()=>{
-//         GameSettings.screenResizing=true;
-//         if(window.innerWidth<=720){
-//             GameSettings.boardRows =12
-//             GameSettings.boardColumns = 7
-
-//     }
-//     console.log(GameSettings.boardRows+" "+GameSettings.boardColumns)
-//     }
-
-
-// }
-// tableResizing();
-
-
 beginGame = () => {
     if (GameSettings.gamePaused) {
         console.log("BackgroundStage: " + GameSettings.backgroundStage)
@@ -765,7 +795,7 @@ startGame = () => {
     //    play("/sounds/mainMusic.mp3",0.5)
     pauseBtn.style.display = "block";
     gamePreferences.style.display = "none";
-    play("/Memory-Game/sounds/menu-button.mp3", 1)
+    play("/sounds/menu-button.mp3", 1)
     // console.log(starterMusic)
     backgroundMusic.pause();
 
@@ -842,7 +872,7 @@ startGame = () => {
 
 
             function createBoard() {
-                play("/Memory-Game/sounds/game-start.mp3", 1);
+                play("/sounds/game-start.mp3", 1);
                 const statsFragment = document.createDocumentFragment()
                 let resDiv = document.createElement("div");
                 resDiv.id = "results"
@@ -951,18 +981,18 @@ startGame = () => {
                 let usedArray = footballArray
                 if (type == "countries") {
                     Array.from(fronts).forEach((front) => {
-                        front.style.backgroundImage = "url('/Memory-Game/images/flags-removebg-preview.png')"
+                        front.style.backgroundImage = "url('/images/flags-removebg-preview.png')"
                         usedArray = countriesArray
                     })
                 } else if (type == "jungle") {
                     Array.from(fronts).forEach((front) => {
-                        front.style.backgroundImage = "url('/Memory-Game/images/jungle.png')"
+                        front.style.backgroundImage = "url('/images/jungle.png')"
                         usedArray = jungleArray
                         console.log(usedArray)
                     })
                 } else if (type == "personalities") {
                     Array.from(fronts).forEach((front) => {
-                        front.style.backgroundImage = "url('/Memory-Game/images/personalitiesCardFront.png')"
+                        front.style.backgroundImage = "url('/images/personalitiesCardFront.png')"
                         usedArray = personalitiesArray
 
                     })
@@ -1108,7 +1138,7 @@ startGame = () => {
                     //INSTRUCTIONS AND SELECTIONS TO THE GAME
                     card.addEventListener("click", (e) => {
 
-                        play("/Memory-Game/sounds/flipcard.mp3", 1);
+                        play("/sounds/flipcard.mp3", 1);
                         // console.log(e.target);
                         let child = card.querySelector('.content')
                         let front = card.querySelector(".front")
@@ -1200,22 +1230,22 @@ startGame = () => {
                                     //     //bonusGame();
 
                                     //     game.style.display = "none"
-                                    //     play("/Memory-Game/sounds/heaven.mp3",1)
+                                    //     play("/sounds/heaven.mp3",1)
                                     //     foundedPar.innerHTML = "WELCOME HOME GOD";
                                     // }
                                     setTimeout(() => {
-                                        play("/Memory-Game/sounds/correct.mp3", 1)
+                                        play("/sounds/correct.mp3", 1)
                                         if (foundedInARow == 3) {
-                                            play("/Memory-Game/sounds/YES.mp3", 1)
+                                            play("/sounds/YES.mp3", 1)
 
                                         }
                                         if (foundedInARow > 3 && foundedInARow <= 5) {
 
-                                            play("/Memory-Game/sounds/UNSTOPPABLE.mp3", 1)
+                                            play("/sounds/UNSTOPPABLE.mp3", 1)
 
                                         }
                                         if (foundedInARow >= 6) {
-                                            play("/Memory-Game/sounds/god-like.mp3", 1)
+                                            play("/sounds/god-like.mp3", 1)
                                         }
 
                                     }, 350);
@@ -1283,7 +1313,7 @@ startGame = () => {
                                                 pauseBtn.style.display = "none";
                                                 game.style.display = "none";
                                                 document.getElementById("message").style.display = "block";
-                                                play("/Memory-Game/sounds/successWin.mp3", 1)
+                                                play("/sounds/successWin.mp3", 1)
                                                 // document.getElementById("message").innerHTML =  "Moves: "+ tries + " <br>Score: "+JSON.parse(localStorage.getItem('score'));
                                                 document.getElementById("message").innerHTML = `Moves: ${tries} <br>Score: ${GameSettings.score}`;
 
@@ -1309,7 +1339,7 @@ startGame = () => {
                                         setTimeout(() => {
                                             card.classList.add("wrong")
                                             clickedCard.classList.add("wrong")
-                                            play("/Memory-Game/sounds/error-sound.mp3", 1)
+                                            play("/sounds/error-sound.mp3", 1)
                                             child.classList.remove("contentActive")
                                             clickedCard.querySelector(".content").classList.remove('contentActive')
                                             Array.from(cards).forEach((card) => {
@@ -1329,7 +1359,7 @@ startGame = () => {
                                         setTimeout(() => {
                                             card.classList.add("wrong")
                                             clickedCard.classList.add("wrong")
-                                            play("/Memory-Game/sounds/error-sound.mp3", 1)
+                                            play("/sounds/error-sound.mp3", 1)
                                             child.classList.remove("contentActive")
                                             clickedCard.querySelector(".content").classList.remove('contentActive')
 
@@ -1342,8 +1372,8 @@ startGame = () => {
                                         }, 1000)
                                         if (foundedInARow <= -5 && foundedInARow % 5 == 0) {
                                             console.log(foundedInARow)
-                                            play("/Memory-Game/sounds/wahTrumpet.mp3", 1)
-                                            baby.style.backgroundImage = "url('/Memory-Game/images/confusedBaby.png')"
+                                            play("/sounds/wahTrumpet.mp3", 1)
+                                            baby.style.backgroundImage = "url('/images/confusedBaby.png')"
 
                                             calculatePoints(-1000)
                                             baby.classList.add("babyAnimation")
@@ -1388,7 +1418,7 @@ startGame = () => {
             // function bonusGameLogic(){
             //     Array.from(cards).forEach((card) => {
             //         placeTeamRandom(card)
-            //         play("/Memory-Game/sounds/flipcard.mp3", 1);
+            //         play("/sounds/flipcard.mp3", 1);
             //         // console.log(e.target);
             //         setTimeout(()=>{
 
@@ -1428,7 +1458,7 @@ startGame = () => {
 
 
 pauseGame = () => {
-    play("/Memory-Game/sounds/menu-button.mp3", 1)
+    play("/sounds/menu-button.mp3", 1)
     GameSettings.gamePaused = true;
     const elementsToRemove = document.querySelectorAll('.star, .snowflake, .magic-particle, .heaven-particle, .sand-particle, .bubble, .raindrop , .light-beam,.particle');
 
@@ -1447,7 +1477,7 @@ pauseGame = () => {
 
 
 resetGame = () => {
-    play("/Memory-Game/sounds/menu-button.mp3", 1)
+    play("/sounds/menu-button.mp3", 1)
     GameSettings.gamePaused = false
     document.location.reload(true);
 }
@@ -1472,7 +1502,7 @@ startBonusGame = () => {
     GameSettings.gameState = "BonusGame";
     activeBonus = true
 
-    let sound = play("/Memory-Game/sounds/HeavenMain.mp3", 1)
+    let sound = play("/sounds/HeavenMain.mp3", 1)
     let bonusScore = 0;
     bonusBtn.style.display = "none"
     countDown.style.display = "flex";
@@ -1514,7 +1544,7 @@ startBonusGame = () => {
                 initialBonusArray.splice(index, 1); // 2nd parameter means remove one item only
             }
             setTimeout(() => {
-                play("/Memory-Game/sounds/correct.mp3", 1)
+                play("/sounds/correct.mp3", 1)
                 bonusInput.style.border = "5px solid transparent";
                 bonusInput.value = "";
                 document.getElementById("bonus-image").classList.remove(item.image)
@@ -1582,7 +1612,7 @@ function inactive(intervalId) {
 
 function endBonusGame(sound, bonusScore) {
     sound.pause();
-    let godSound = play("/Memory-Game/sounds/godSound.mp3", 1)
+    let godSound = play("/sounds/godSound.mp3", 1)
     // GameSettings.bonusGamestate=false
 
     activeBonus = false;
@@ -1613,7 +1643,7 @@ function endBonusGame(sound, bonusScore) {
     setTimeout(() => {
         calculatePoints(bonusScore)
         if (bonusScore > 0) {
-            let sound = play("/Memory-Game/sounds/score.mp3", 0.2)
+            let sound = play("/sounds/score.mp3", 0.2)
             sound.loop = true
             setTimeout(() => {
                 sound.pause()
