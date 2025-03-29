@@ -1,174 +1,403 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 
-    html,
-    body {
-        margin:0;
-        height: 100%;
-       
-        overflow: hidden;
+    overflow: hidden;
+
+
+}
+
+.hidden-mode *:not(#start-page, #game-logo, #enter-btn) {
+    display: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.bodyBackground {
+    /*  background: url("https://i.pinimg.com/736x/41/b7/07/41b707b7632118fd15807ed0bc9c85bc.jpg") no-repeat fixed center center; */
+    /*  background: url("/images/logo5_cleanup.jpg") no-repeat fixed center center; 
+        /* background: url("/images/godlike.jpg") no-repeat fixed top center; */
+    /*  background-size: cover;
         
 
-        
-    }
-    .bodyBackground{
-        background: url("https://i.pinimg.com/736x/41/b7/07/41b707b7632118fd15807ed0bc9c85bc.jpg") no-repeat fixed center center;
-        /* background: url("/images/godlike.jpg") no-repeat fixed top center; */
-        background-size: cover;
+        background-color:rgba(0, 0, 0, 0.47);
+        background-blend-mode: multiply;
+        /* animation:infinite 35s linear infinite;
+        width:100%;s
+        height:100%; */
+    background-image: url('/Memory-Game/images/logo.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color:rgba(226, 49, 18, 0.377);
+    background-blend-mode: multiply;
 
+}
+
+/* #game-logo {
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    top: 0%;
+    left: 5%;
+    transform: translateX(-50%);
+    animation: glow 2s infinite alternate;
+
+} */
+
+#start-page {
+    position: absolute;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: transparent; /* Προαιρετικό */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0);
+    overflow:hidden;
+}
+
+#start-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 70%);
+    animation: shine 12.5s infinite linear;
+    animation-delay:3s;
+    pointer-events: none; 
+}
+
+/* Animation στο logo */
+#game-logo {
+    width: 100%; /* Ρύθμιση μεγέθους */
+    opacity: 0;
+    animation: fadeInScale 1.5s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
     }
-    .heavenBackground{
-        background: url("/images/heaven.jpg") no-repeat fixed center center;
-        /* background: url("/images/godlike.jpg") no-repeat fixed top center; */
-        background-size: cover;
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
+}
 
 
-    #game-preferences {
-        /* position: absolute;
+@keyframes shine {
+    0% { left: -100%; }
+    20% { left: 100%; } 
+    100% { left: 100%; } 
+}
+
+/* @keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+} */
+
+#enter-btn,.btn{
+    text-align: center;
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ff3b00; /* Warm red */
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark */
+    border: 2px solid #ff3b00; /* Matching border */
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px); /* Glass effect */
+    box-shadow: 0 4px 15px rgba(255, 59, 0, 0.3);
+    white-space: nowrap; /* Αποτρέπει το σπάσιμο της λέξης */
+    overflow: hidden; 
+}
+
+#enter-btn:hover,.btn:hover{
+    transform: scale(1);
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 6px 20px rgba(255, 59, 0, 0.5);
+    color: white;
+}
+#enter-btn:active,.btn:active{
+    /* transform: scale(0.95); */
+    box-shadow: 0 2px 5px rgba(255, 59, 0, 0.5);
+}
+
+@keyframes glowBtn {
+    0% { box-shadow: 0 0 10px rgba(255, 59, 0, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(255, 59, 0, 0.8); }
+    100% { box-shadow: 0 0 10px rgba(255, 59, 0, 0.5); }
+}
+
+.glowBtn {
+    animation: glow 1.5s infinite alternate;
+}
+
+
+.menu button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background: #ffcc00;
+    transition: 0.3s;
+}
+.menu button:hover {
+    background: #ffaa00;
+}
+
+/* Glow effect */
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.2));
+    }
+
+    100% {
+        filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 1));
+    }
+}
+
+
+
+@keyframes infinite {
+    0% {
+        background-position: 50% 0;
+    }
+
+    50% {
+        background-position: 50% -150%;
+    }
+
+    100% {
+        background-position: 50% -300%;
+    }
+}
+
+.heavenBackground {
+    background: url("images/heaven.webp") no-repeat fixed center center;
+    /* background: url("/images/godlike.jpg") no-repeat fixed top center; */
+    background-size: cover;
+}
+
+
+#game-preferences {
+    /* position: absolute;
         top: 50%;
         transform: translate(0, -50%); */
-        text-align: center;
-        color: white;
-        margin: auto;
-        width: 100%;
-        display:flex;
-        flex-direction:row;
-        justify-content:center;
-        align-items:flex-start;
-        overflow-y: hidden;
-        height:100%;
-    }
+    text-align: center;
+    color: white;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: hidden;
+    height: 100%;
+}
 
-    .arrow{
-        display:block;
-        width:50px;
-        height:100px;
-        margin:0 auto;
-        color:white;
-        background-color:transparent;
-        font-size:2rem;
-        border:2px solid white;
+/* .arrow {
+    display: block;
+    width: 50px;
+    height: 100px;
+    margin: 0 auto;
+    color: white;
+    background-color: transparent;
+    font-size: 2rem;
+    border: 2px solid white;
 
-    }
+}
 
-    .arrow:hover{
-        cursor: pointer;
-        background-color: rgb(78, 78, 136);
-        box-shadow: 0px 0px 10px 5px rgb(78, 78, 136);
-    }
-    
+.arrow:hover {
+    cursor: pointer;
+    background-color: rgb(78, 78, 136);
+    box-shadow: 0px 0px 10px 5px rgb(78, 78, 136);
+} */
 
-    #choices {
-
-        position:relative;
-        width: 250%;
-        height:60%;
-        text-align: center;
-        display:flex;
-        flex-direction:row;
-        justify-content:center; 
-        align-items:center;
-        transition: transform 1s; 
-        /* position:relative;
-        width: 100%;
-        text-align: center;
-        display:flex;
-        flex-direction:row; 
-        transition: transform 1s; */
-        /* animation:flow 1s ease-in-out; */
-   }
+#choices {
+    position: relative;
+    width: 250%;
+    height: 60%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:5%;
+    transition: transform 1s;
+    /* animation:flow 1s ease-in-out; */
+}
 
 
-    fieldset {
-        
-        /* width:500px;
-        margin:20% 0; */
-        /* width:35%; */
-        border: 3px solid white;
-        /* margin-top: 30%; */
-        height: 40vh;
-        font-weight: bold;
-        font-size: 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-    }
 
-    fieldset div {
-        width: 445px;
-        text-align: start;
-        /* display:flex;
+fieldset {
+    /* border: 3px solid white;
+    height: 40vh;
+    font-weight: bold;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center; */
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 59, 0, 0.5);
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 59, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+
+    width: 10vw;
+    height: 30vh;
+    /* background: rgba(255, 255, 255, 0.2); */
+    /* backdrop-filter: blur(10px); */
+    /* border-radius: 15px; */
+    display: flex;
+    flex-direction:column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    font-size: 1rem;
+    /* font-size: 22px; */
+    font-weight: bold;
+    color: #ff3b00;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 59, 0, 0.6);
+    cursor: pointer;
+    /* transition: transform 0.3s ease, background 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3); */
+}
+
+fieldset:hover {
+     transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.4);
+}
+
+fieldset div {
+    width: 300px;
+    text-align: start;
+    /* display:flex;
         flex-direction:row;
         justify-content:center; */
-    }
+}
 
-    fieldset div input,
-    fieldset div label {
-        margin: auto;
-        accent-color: black;
-    }
-
-    input[type="radio"] {
-        cursor: pointer;
-        transform: scale(2);
+ input[type="radio"] {
+    accent-color: #ff3b00;
+    transform: scale(1.2);
+    margin-right: 5px;
+} 
 
 
-    }
+/* fieldset div label {
+    margin: auto;
+    accent-color: rgb(228, 26, 26);
+} */
+label {
+    font-size: 18px;
+    color: white;
+    padding: 5px;
+    white-space: nowrap; /* Αποτρέπει το σπάσιμο της λέξης */
+    overflow: hidden; 
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
 
-    #field1{
-        position:absolute;
-        top:50%;
-        left:50%;
-        transform:translate(-50%,-50%);
+input[type="radio"] {
+    cursor: pointer;
+    transform: scale(2);
 
-    }
-    #field2{
-       
-        position:absolute;
-        top:50%;
-        left:50%;
-        transform:translate(155%,-50%);
-    }
 
-    #game {
-        margin: auto;
-        /* overflow: hidden; */
-        width:100%;
-        height:100%;
-        /* position:relative; */
-        /* display: none; */
-        position:relative;
-        aspect-ratio:1/1;
-    }
+}
 
-    /* #game-board {
+/* #field1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+} */
+
+/* #field2 {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(155%, -50%);
+} */
+
+#game,#mini-game {
+    margin: auto;
+    /* overflow: hidden; */
+    width: 85%;
+    height: 100%;
+    /* min-width:410px; */
+    position: relative;
+    aspect-ratio: 1/1;
+    z-index: 10;
+
+}
+
+/* #game-board {
         margin: auto;
         position:relative; */
-        /* position:absolute;
+/* position:absolute;
         top:50%;
         right:50%;
         transform:translate(-50%,-50%);} */
-    
-    #founded_item{
-        z-index:100;
-        color:green;
-        font-size:70px;
-        display:block;
-        position:absolute;
-        margin: auto;
-        text-align:center;
-        top:50%;
-        left:50%; 
-        transform:translate(-50%,-50%); 
-    }
 
-    .row {
-        text-align: center;
-        display:flex;
-        flex-wrap:nowrap;
-        justify-content:center;
-    }
-    /* #left-arrow:active ~ #choices{
+#founded_item,
+#messageBonus,
+#godMsg {
+    z-index: 100;
+    color: green;
+    font-size: 70px;
+    display: block;
+    position: absolute;
+    margin: auto;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#founded_item{
+    pointer-events: none; 
+}
+
+#godMsg {
+    font-size: 120px;
+}
+
+.row {
+    text-align: center;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+/* #left-arrow:active ~ #choices{
       
         transform: translateX(-75%);
 
@@ -183,1536 +412,1776 @@
         }
     } */
 
-    /* body {
+/* body {
         
     } */
 
-    #results {
-        margin: auto;
-        /* text-align:center; */
-        width: 400px;
-        color: white;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        font-weight: bold;
+#results {
+
+    margin: auto;
+    margin-top: 5px;
+    /* text-align:center; */
+    width: 400px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-weight: bold;
+    opacity: 0.7;
+    background-color: #000000;
+    border-radius: 5px;
 
 
-    }
+}
 
-    .card {
-        position: relative;
-        display: inline-block;
-        width: 100px;
-        height: auto;
-        cursor: pointer;
-        perspective: 500px;
-        aspect-ratio: 1/1;
-    }
+.card,.backgroundCard {
+    will-change: transform, opacity;
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: auto;
+    /* min-width:30px;
+        min-height:30px; */
+    cursor: pointer;
+    perspective: 500px;
+    aspect-ratio: 1/1;
+}
 
-    /* .card:hover{
+/* .card:hover{
   box-shadow:inset 0px 0px 0px 2px red;
   box-sizing:border-box;
   
 } */
-    .content {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        transition: transform 1s;
-        transform-style: preserve-3d;
-    }
+.content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
 
-    .contentActive {
-        transform: rotateY(180deg);
-        transition: transform 0.5s;
-        pointer-events: none;
-    }
+.contentActive {
+    transform: rotateY(180deg);
+    transition: transform 0.5s;
+    pointer-events: none;
+}
 
-    .front,
-    .back {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background-color: rgb(253, 247, 247);
-        background-image: url("https://cdn.britannica.com/68/195168-050-BBAE019A/football.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        line-height: 20px;
-        color: #03446A;
-        text-align: center;
-        font-size: 10px;
-        border-radius: 5px;
-        backface-visibility: hidden;
-    }
+.front,
+.back {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(253, 247, 247);
+    /* background-color: rgb(105, 105, 105); */
+    /* background-image: url("https://cdn.britannica.com/68/195168-050-BBAE019A/football.jpg"); */
+    background-image: url("/Memory-Game/images/football.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    line-height: 20px;
+    color: #03446A;
+    text-align: center;
+    font-size: 10px;
+    border-radius: 5px;
+    backface-visibility: hidden;
+}
 
-    .back {
+.back {
+    color: white;
+    transform: rotateY(180deg);
+}
 
-        color: white;
-        transform: rotateY(180deg);
-    }
+#btns {
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    gap:1%;
+    justify-content: center;
+}
 
-    #btns {
-        margin: auto;
-        text-align: center;
-    }
 
-    
-    .textAnimation{
-       animation:rightChoice 1.2s;
+.textAnimation {
+    animation: rightChoice 1.2s;
 
-    }
-    .unstoppable_animation{
-        background-color:black;
-        animation:bodyBackground 1.5s
-        
-    }
-    .heaven_animation{
-        background-color:white;
-        animation:heaven 8s
-    }
+}
 
-    .real {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/1200px-Real_Madrid_CF.svg.png"); */
-        background-image: url("images/football/Real_Madrid.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        /*   background-color:red; */
-    }
+.unstoppable_animation {
+    background-color: black;
+    animation: bodyBackground 1.5s
+}
 
-    .barcelona {
-        /*   background-color:blue; */
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/1200px-FC_Barcelona_%28crest%29.svg.png"); */
-        background-image:url("images/football/FC_Barcelona.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.heaven_animation {
+    background-color: white;
+    animation: heaven 8s
+}
 
-    .liverpool {
-        /*   background-color:green; */
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/1200px-Liverpool_FC.svg.png"); */
-        background-image:url("images/football/Liverpool_FC.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.real {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/1200px-Real_Madrid_CF.svg.webp"); */
+    background-image: url("images/football/Real_Madrid.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    /*   background-color:red; */
+}
 
-    .bayern {
-        /*   background-color:pink; */
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/1200px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png"); */
-        background-image:url("images/football/FC_Bayern_München.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.barcelona {
+    /*   background-color:blue; */
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/1200px-FC_Barcelona_%28crest%29.svg.webp"); */
+    background-image: url("images/football/FC_Barcelona.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .milan {
-        /*   background-color:cyan; */
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Logo_of_AC_Milan.svg/1200px-Logo_of_AC_Milan.svg.png"); */
-        background-image:url("images/football/Milan.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.liverpool {
+    /*   background-color:green; */
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/1200px-Liverpool_FC.svg.webp"); */
+    background-image: url("images/football/Liverpool_FC.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .juve {
-        /*   background-color:orange; */
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Juventus_FC_2017_icon_%28black%29.svg/1200px-Juventus_FC_2017_icon_%28black%29.svg.png"); */
-        background-image: url("images/football/Juventus.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.bayern {
+    /*   background-color:pink; */
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/1200px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.webp"); */
+    background-image: url("images/football/FC_Bayern_Munchen.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .manunited {
-        /*   background-color:yellow; */
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/800px-Manchester_United_FC_crest.svg.png"); */
-        background-image:url("images/football/Manchester_United.svg.webp");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.milan {
+    /*   background-color:cyan; */
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Logo_of_AC_Milan.svg/1200px-Logo_of_AC_Milan.svg.webp"); */
+    background-image: url("images/football/Milan.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .inter {
-        /*   background-color:teal; */
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/FC_Internazionale_Milano_2021.svg/1200px-FC_Internazionale_Milano_2021.svg.png"); */
-        background-image: url("images/football/Inter.svg.webp");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.juve {
+    /*   background-color:orange; */
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Juventus_FC_2017_icon_%28black%29.svg/1200px-Juventus_FC_2017_icon_%28black%29.svg.webp"); */
+    background-image: url("images/football/Juventus.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .chelsea {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Chelsea_FC.svg/1200px-Chelsea_FC.svg.png"); */
-        background-image: url("images/football/Chelsea.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.manunited {
+    /*   background-color:yellow; */
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/800px-Manchester_United_FC_crest.svg.webp"); */
+    background-image: url("images/football/Manchester_United.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .dortmund {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/1200px-Borussia_Dortmund_logo.svg.png"); */
-        background-image:url("images/football/Dortmund.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.inter {
+    /*   background-color:teal; */
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/FC_Internazionale_Milano_2021.svg/1200px-FC_Internazionale_Milano_2021.svg.webp"); */
+    background-image: url("images/football/Inter.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
+.chelsea {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Chelsea_FC.svg/1200px-Chelsea_FC.svg.webp"); */
+    background-image: url("images/football/Chelsea.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .atletico {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/Atletico_Madrid_2017_logo.svg/1200px-Atletico_Madrid_2017_logo.svg.png"); */
-        background-image:url("images/football/Atletico_Madrid.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.dortmund {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/1200px-Borussia_Dortmund_logo.svg.webp"); */
+    background-image: url("images/football/Dortmund.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    .porto {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/FC_Porto.svg/1200px-FC_Porto.svg.png"); */
-        background-image:url("images/football/Porto.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+}
 
-    .ajax {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/7/79/Ajax_Amsterdam.svg/1200px-Ajax_Amsterdam.svg.png"); */
-        background-image:url("images/football/Ajax.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.atletico {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/Atletico_Madrid_2017_logo.svg/1200px-Atletico_Madrid_2017_logo.svg.webp"); */
+    background-image: url("images/football/Atletico_Madrid.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .benfica {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/SL_Benfica_logo.svg/1200px-SL_Benfica_logo.svg.png"); */
-        background-image: url("images/football/Benfica.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.porto {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/FC_Porto.svg/1200px-FC_Porto.svg.webp"); */
+    background-image: url("images/football/Porto.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .arsenal {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Arsenal_FC.svg/1200px-Arsenal_FC.svg.png"); */
-        background-image:url("images/football/Arsenal.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.ajax {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/7/79/Ajax_Amsterdam.svg/1200px-Ajax_Amsterdam.svg.webp"); */
+    background-image: url("images/football/Ajax.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .psg {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Paris_Saint-Germain_F.C..svg/1200px-Paris_Saint-Germain_F.C..svg.png"); */
-        background-image:url("images/football/PSG.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.benfica {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/a/a2/SL_Benfica_logo.svg/1200px-SL_Benfica_logo.svg.webp"); */
+    background-image: url("images/football/Benfica.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .osfp {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/el/thumb/b/b9/OSFP-logo.svg/2048px-OSFP-logo.svg.png"); */
-        background-image:url("images/football/Olympiakos.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.arsenal {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Arsenal_FC.svg/1200px-Arsenal_FC.svg.webp"); */
+    background-image: url("images/football/Arsenal.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .pao {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/el/thumb/5/56/Panathinaikos_FC_logo.svg/1200px-Panathinaikos_FC_logo.svg.png"); */
-        background-image: url("images/football/Panathinaikos.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.psg {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Paris_Saint-Germain_F.C..svg/1200px-Paris_Saint-Germain_F.C..svg.webp"); */
+    background-image: url("images/football/PSG.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .dinamo {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/FC_Dynamo_Kyiv_logo.svg/1200px-FC_Dynamo_Kyiv_logo.svg.png"); */
-        background-image:url("images/football/Dynamo_Kyiv.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.osfp {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/el/thumb/b/b9/OSFP-logo.svg/2048px-OSFP-logo.svg.webp"); */
+    background-image: url("images/football/Olympiakos.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .city {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/1200px-Manchester_City_FC_badge.svg.png"); */
-        background-image:url("images/football/Manchester_City.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.pao {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/el/thumb/5/56/Panathinaikos_FC_logo.svg/1200px-Panathinaikos_FC_logo.svg.webp"); */
+    background-image: url("images/football/Panathinaikos.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .marseille {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Olympique_Marseille_logo.svg/1200px-Olympique_Marseille_logo.svg.png"); */
-        background-image:url("images/football/Marseille.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.dinamo {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/FC_Dynamo_Kyiv_logo.svg/1200px-FC_Dynamo_Kyiv_logo.svg.webp"); */
+    background-image: url("images/football/Dynamo_Kyiv.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .galata {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Galatasaray_Sports_Club_Logo.png/822px-Galatasaray_Sports_Club_Logo.png"); */
-        background-image: url("images/football/Galatasaray.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.city {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/1200px-Manchester_City_FC_badge.svg.webp"); */
+    background-image: url("images/football/Manchester_City.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .celtic {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/3/35/Celtic_FC.svg/800px-Celtic_FC.svg.png"); */
-        background-image:url("images/football/Celtic.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.marseille {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Olympique_Marseille_logo.svg/1200px-Olympique_Marseille_logo.svg.webp"); */
+    background-image: url("images/football/Marseille.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .rangers {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Rangers_FC.svg/1200px-Rangers_FC.svg.png"); */
-        background-image:url("images/football/Rangers.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.galata {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Galatasaray_Sports_Club_Logo.webp/822px-Galatasaray_Sports_Club_Logo.webp"); */
+    background-image: url("images/football/Galatasaray.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .anderlecht {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/7/71/RSC_Anderlecht_logo.svg/1200px-RSC_Anderlecht_logo.svg.png"); */
-        background-image:url("images/football/Anderlecht.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.celtic {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/3/35/Celtic_FC.svg/800px-Celtic_FC.svg.webp"); */
+    background-image: url("images/football/Celtic.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .aek {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/0/04/AEK_Athens_FC_logo.svg/1200px-AEK_Athens_FC_logo.svg.png"); */
-        background-image: url("images/football/AEK.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.rangers {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Rangers_FC.svg/1200px-Rangers_FC.svg.webp"); */
+    background-image: url("images/football/Rangers.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .lyon {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/1/12/Logo_Olympique_Lyonnais_2022.png"); */
-        background-image:url("images/football/Lyon.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.anderlecht {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/7/71/RSC_Anderlecht_logo.svg/1200px-RSC_Anderlecht_logo.svg.webp"); */
+    background-image: url("images/football/Anderlecht.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .eindhoven {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/0/05/PSV_Eindhoven.svg/1200px-PSV_Eindhoven.svg.png"); */
-        background-image: url("images/football/PSV.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.aek {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/0/04/AEK_Athens_FC_logo.svg/1200px-AEK_Athens_FC_logo.svg.webp"); */
+    background-image: url("images/football/AEK.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .napoli {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/SSC_Neapel.svg/1200px-SSC_Neapel.svg.png"); */
-        background-image:url("images/football/Napoli.svg.webp");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.lyon {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/1/12/Logo_Olympique_Lyonnais_2022.webp"); */
+    background-image: url("images/football/Lyon.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .leverkusen {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/5/59/Bayer_04_Leverkusen_logo.svg/1200px-Bayer_04_Leverkusen_logo.svg.png"); */
-        background-image:url("images/football/Leverkusen.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.eindhoven {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/0/05/PSV_Eindhoven.svg/1200px-PSV_Eindhoven.svg.webp"); */
+    background-image: url("images/football/PSV.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .leipzig {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/0/04/RB_Leipzig_2014_logo.svg/1200px-RB_Leipzig_2014_logo.svg.png"); */
-        background-image:url("images/football/Leipzig.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.napoli {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/SSC_Neapel.svg/1200px-SSC_Neapel.svg.webp"); */
+    background-image: url("images/football/Napoli.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .roma {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/f/f7/AS_Roma_logo_%282017%29.svg/1200px-AS_Roma_logo_%282017%29.svg.png"); */
-        background-image: url("images/football/Roma.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.leverkusen {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/5/59/Bayer_04_Leverkusen_logo.svg/1200px-Bayer_04_Leverkusen_logo.svg.webp"); */
+    background-image: url("images/football/Leverkusen.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .valencia {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/Valenciacf.svg/1200px-Valenciacf.svg.png"); */
-        background-image:url("images/football/Valencia.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.leipzig {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/0/04/RB_Leipzig_2014_logo.svg/1200px-RB_Leipzig_2014_logo.svg.webp"); */
+    background-image: url("images/football/Leipzig.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .fener {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/3/39/Fenerbah%C3%A7e.svg/1200px-Fenerbah%C3%A7e.svg.png"); */
-        background-image: url("images/football/Fenerbahçe.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.roma {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/f/f7/AS_Roma_logo_%282017%29.svg/1200px-AS_Roma_logo_%282017%29.svg.webp"); */
+    background-image: url("images/football/Roma.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .feyen {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/Feyenoord_logo.svg/1200px-Feyenoord_logo.svg.png"); */
-        background-image: url("images/football/Feyenoord.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.valencia {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/Valenciacf.svg/1200px-Valenciacf.svg.webp"); */
+    background-image: url("images/football/Valencia.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .zvezda {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Grb-fk-crvena-zvezda.svg/1200px-Grb-fk-crvena-zvezda.svg.png"); */
-        background-image:url("images/football/redStar.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.fener {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/3/39/Fenerbah%C3%A7e.svg/1200px-Fenerbah%C3%A7e.svg.webp"); */
+    background-image: url("images/football/Fenerbahce.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .monaco {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/AS_Monaco_FC_Logo_2021.svg/800px-AS_Monaco_FC_Logo_2021.svg.png"); */
-        background-image:url("images/football/Monaco.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.feyen {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/e/e3/Feyenoord_logo.svg/1200px-Feyenoord_logo.svg.webp"); */
+    background-image: url("images/football/Feyenoord.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .totthenham {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Tottenham_Hotspur.svg/1200px-Tottenham_Hotspur.svg.png"); */
-        background-image: url("images/football/Tottenham.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.zvezda {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Grb-fk-crvena-zvezda.svg/1200px-Grb-fk-crvena-zvezda.svg.webp"); */
+    background-image: url("images/football/redStar.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .rosenborg {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Rosenborg_Trondheim_logo.svg/1200px-Rosenborg_Trondheim_logo.svg.png"); */
-        background-image: url("images/football/Rosenborg.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.monaco {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/AS_Monaco_FC_Logo_2021.svg/800px-AS_Monaco_FC_Logo_2021.svg.webp"); */
+    background-image: url("images/football/Monaco.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .lazio {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/S.S._Lazio_badge.svg/1200px-S.S._Lazio_badge.svg.png"); */
-        background-image: url("images/football/Lazio.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.totthenham {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Tottenham_Hotspur.svg/1200px-Tottenham_Hotspur.svg.webp"); */
+    background-image: url("images/football/Tottenham.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .sparta {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/el/thumb/a/ae/Sparta_Prague_logo.svg/1200px-Sparta_Prague_logo.svg.png"); */
-        background-image: url("images/football/Sparta_Prague.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.rosenborg {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Rosenborg_Trondheim_logo.svg/1200px-Rosenborg_Trondheim_logo.svg.webp"); */
+    background-image: url("images/football/Rosenborg.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .spartak {
-        /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/FC_Spartak_Moscow_Logotype.png/640px-FC_Spartak_Moscow_Logotype.png"); */
-        background-image: url("images/football/Spartak_Moscow.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    /**************************************************************************************/
+.lazio {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/S.S._Lazio_badge.svg/1200px-S.S._Lazio_badge.svg.webp"); */
+    background-image: url("images/football/Lazio.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.sparta {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/el/thumb/a/ae/Sparta_Prague_logo.svg/1200px-Sparta_Prague_logo.svg.webp"); */
+    background-image: url("images/football/Sparta_Prague.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.spartak {
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/FC_Spartak_Moscow_Logotype.webp/640px-FC_Spartak_Moscow_Logotype.webp"); */
+    background-image: url("images/football/Spartak_Moscow.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/**************************************************************************************/
 
 /*countris-flags*/
-    .greece{
-        background-image: url("images/countries/greece.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .germany{
-        background-image: url("images/countries/germany.svg.webp");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .italy{
-        background-image: url("images/countries/italy.svg.webp");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.greece {
+    background-image: url("images/countries/greece.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .france{
-        background-image: url("images/countries/France.svg.webp");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.germany {
+    background-image: url("images/countries/germany.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .usa{
-        background-image: url("images/countries/usa.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.italy {
+    background-image: url("images/countries/italy.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .spain{
-        background-image: url("images/countries/spain.webp");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .russia{
-        background-image: url("images/countries/Russia.svg.webp");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.france {
+    background-image: url("images/countries/France.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .china{
-        background-image: url("images/countries/China.webp");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .brazil{
-        background-image: url("images/countries/Brazil.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .portugal{
-        background-image: url("images/countries/portugal.jpg");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .norway{
-        background-image: url("images/countries/Norway.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .turkey{
-        background-image: url("images/countries/Turkey.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .southafrica{
-        background-image: url("images/countries/South-Africa.webp");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .saudi{
-        background-image: url("images/countries/Saudi_Arabia.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .grbritain{
-        background-image: url("images/countries/United_Kingdom.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .sweden{
-        background-image: url("images/countries/sweden.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .finland{
-        background-image: url("images/countries/finland.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .denmark{
-        background-image: url("images/countries/denmark.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .argentina{
-        background-image: url("images/countries/Argentina.webp");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .japan{
-        background-image: url("images/countries/Japan.jpg");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .cuba{
-        background-image: url("images/countries/Cuba.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .newzeeland{
-        background-image: url("images/countries/New-Zealand.webp");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .mexico{
-        background-image: url("images/countries/Mexico.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .chile{
-        background-image: url("images/countries/chile.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .canada{
-        background-image: url("images/countries/Canada.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .austria{
-        background-image: url("images/countries/Austria.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .romania{
-        background-image: url("images/countries/Romania.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .bulgaria{
-        background-image: url("images/countries/bulgaria.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .albania{
-        background-image: url("images/countries/Albania.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .croatia{
-        background-image: url("images/countries/croatia.jpg");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .india{
-        background-image: url("images/countries/india.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .cameroon{
-        background-image: url("images/countries/Cameroon.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .morocco{
-        background-image: url("images/countries/Morocco.svg.webp");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .egypt{
-        background-image: url("images/countries/Egypt.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .iraq{
-        background-image: url("images/countries/Iraq.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat; 
-    }
-    .switzerland{
-        background-image: url("images/countries/switzerland.avif");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat; 
-    }
-    .poland{
-        background-image: url("images/countries/Poland.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat; 
-    }
-    .poland{
-        background-image: url("images/countries/Poland.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat; 
-    }
-    .czech{
-        background-image: url("images/countries/Czech_Republic.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat; 
-    }
-    .hungary{
-        background-image: url("images/countries/Flag-Hungary.webp");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat; 
-    }
-    .northkorea{
-        background-image: url("images/countries/north_korea.jpg");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat; 
-    }
-    .belgium{
-        background-image: url("images/countries/Belgium.svg.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat; 
-    }
-    .mongolia{
-        background-image: url("images/countries/mongolia.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat; 
-    }
-    /************************************END COUNTRIES***********************/
-    /******************************JUNGLE******************************/
-     .lion{
-        background-image: url("images/jungle/lion.png");
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .tiger{
-        background-image: url("images/jungle/tiger.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.usa {
+    background-image: url("images/countries/usa.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .elephant{
-        background-image: url("images/jungle/elephant.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .parrot{
-        background-image: url("images/jungle/parrot.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.spain {
+    background-image: url("images/countries/spain.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .bear{
-        background-image: url("images/jungle/bear.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .hippo{
-        background-image: url("images/jungle/hippo.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.russia {
+    background-image: url("images/countries/Russia.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .monkey{
-        background-image: url("images/jungle/monkey.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .snake{
-        background-image: url("images/jungle/snake.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.china {
+    background-image: url("images/countries/China.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .lemur{
-        background-image: url("images/jungle/lemur.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.brazil {
+    background-image: url("images/countries/Brazil.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .gorilla{
-        background-image: url("images/jungle/gorilla.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.portugal {
+    background-image: url("images/countries/portugal.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .tapir{
-        background-image: url("images/jungle/tapir.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.norway {
+    background-image: url("images/countries/Norway.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .armadillo{
-        background-image: url("images/jungle/armadillo.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.turkey {
+    background-image: url("images/countries/Turkey.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .giraffe{
-        background-image: url("images/jungle/giraffe.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.southafrica {
+    background-image: url("images/countries/South-Africa.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .leopard{
-        background-image: url("images/jungle/leopard.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.saudi {
+    background-image: url("images/countries/Saudi_Arabia.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .wolf{
-        background-image: url("images/jungle/wolf.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.grbritain {
+    background-image: url("images/countries/United_Kingdom.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .fox{
-        background-image: url("images/jungle/fox.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.sweden {
+    background-image: url("images/countries/sweden.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .goose{
-        background-image: url("images/jungle/goose.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.finland {
+    background-image: url("images/countries/finland.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .deer{
-        background-image: url("images/jungle/deer.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.denmark {
+    background-image: url("images/countries/denmark.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .kangaroo{
-        background-image: url("images/jungle/kangaroo.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.argentina {
+    background-image: url("images/countries/Argentina.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .spider{
-        background-image: url("images/jungle/spider.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.japan {
+    background-image: url("images/countries/Japan.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .turtle{
-        background-image: url("images/jungle/turtle.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.cuba {
+    background-image: url("images/countries/Cuba.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .camel{
-        background-image: url("images/jungle/camel.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.newzeeland {
+    background-image: url("images/countries/New-Zealand.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .frogey{
-        background-image: url("images/jungle/frogey.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.mexico {
+    background-image: url("images/countries/Mexico.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .lizard{
-        background-image: url("images/jungle/lizard.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.chile {
+    background-image: url("images/countries/chile.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .rabbit{
-        background-image: url("images/jungle/rabbit.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.canada {
+    background-image: url("images/countries/Canada.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .crocodile{
-        background-image: url("images/jungle/crocodile.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.austria {
+    background-image: url("images/countries/Austria.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .goat{
-        background-image: url("images/jungle/goat.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.romania {
+    background-image: url("images/countries/Romania.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .bull{
-        background-image: url("images/jungle/bull");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.bulgaria {
+    background-image: url("images/countries/bulgaria.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .horse{
-        background-image: url("images/jungle/horse.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.albania {
+    background-image: url("images/countries/Albania.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .whiteHorse{
-        background-image: url("images/jungle/whiteHorse.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.croatia {
+    background-image: url("images/countries/croatia.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .hedgehog{
-        background-image: url("images/jungle/hedgehog.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.india {
+    background-image: url("images/countries/india.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .kitten{
-        background-image: url("images/jungle/kitten.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.cameroon {
+    background-image: url("images/countries/Cameroon.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .polarBear{
-        background-image: url("images/jungle/polarBear.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.morocco {
+    background-image: url("images/countries/Morocco.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .mamba{
-        background-image: url("images/jungle/mamba.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.egypt {
+    background-image: url("images/countries/Egypt.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .labradorDog{
-        background-image: url("images/jungle/labradorDog.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+.iraq {
+    background-image: url("images/countries/Iraq.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .mouse{
-        background-image: url("images/jungle/mouse.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.switzerland {
+    background-image: url("images/countries/switzerland.avif");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .whiteDuck{
-        background-image: url("images/jungle/whiteDuck.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.poland {
+    background-image: url("images/countries/Poland.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .anteater{
-        background-image: url("images/jungle/anteater.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.poland {
+    background-image: url("images/countries/Poland.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .duck{
-        background-image: url("images/jungle/duck.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.czech {
+    background-image: url("images/countries/Czech_Republic.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .blackPanther{
-        background-image: url("images/jungle/blackPanther.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.hungary {
+    background-image: url("images/countries/Flag-Hungary.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .jaguar{
-        background-image: url("images/jungle/jaguar.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.northkorea {
+    background-image: url("images/countries/north_korea.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
-    .pitbull{
-        background-image: url("images/jungle/pitbull.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.belgium {
+    background-image: url("images/countries/Belgium.svg.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    }
+.mongolia {
+    background-image: url("images/countries/mongolia.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/************************************END COUNTRIES***********************/
+/******************************JUNGLE******************************/
+.lion {
+    background-image: url("images/jungle/lion.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.tiger {
+    background-image: url("images/jungle/tiger.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.elephant {
+    background-image: url("images/jungle/elephant.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.parrot {
+    background-image: url("images/jungle/parrot.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.bear {
+    background-image: url("images/jungle/bear.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.hippo {
+    background-image: url("images/jungle/hippo.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.monkey {
+    background-image: url("images/jungle/monkey.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.snake {
+    background-image: url("images/jungle/snake.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.lemur {
+    background-image: url("images/jungle/lemur.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.gorilla {
+    background-image: url("images/jungle/gorilla.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.tapir {
+    background-image: url("images/jungle/tapir.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.armadillo {
+    background-image: url("images/jungle/armadillo.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.giraffe {
+    background-image: url("images/jungle/giraffe.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.leopard {
+    background-image: url("images/jungle/leopard.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.wolf {
+    background-image: url("images/jungle/wolf.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.fox {
+    background-image: url("images/jungle/fox.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.goose {
+    background-image: url("images/jungle/goose.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.deer {
+    background-image: url("images/jungle/deer.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.kangaroo {
+    background-image: url("images/jungle/kangaroo.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.spider {
+    background-image: url("images/jungle/spider.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.turtle {
+    background-image: url("images/jungle/turtle.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.camel {
+    background-image: url("images/jungle/camel.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.frogey {
+    background-image: url("images/jungle/frogey.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.lizard {
+    background-image: url("images/jungle/lizard.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.rabbit {
+    background-image: url("images/jungle/rabbit.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.crocodile {
+    background-image: url("images/jungle/crocodile.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.goat {
+    background-image: url("images/jungle/goat.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.bull {
+    background-image: url("images/jungle/bull.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.horse {
+    background-image: url("images/jungle/horse.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.whiteHorse {
+    background-image: url("images/jungle/whiteHorse.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.hedgehog {
+    background-image: url("images/jungle/hedgehog.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.kitten {
+    background-image: url("images/jungle/kitten.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.polarBear {
+    background-image: url("images/jungle/polarBear.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.mamba {
+    background-image: url("images/jungle/mamba.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.labradorDog {
+    background-image: url("images/jungle/labradorDog.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.mouse {
+    background-image: url("images/jungle/mouse.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.whiteDuck {
+    background-image: url("images/jungle/whiteDuck.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.anteater {
+    background-image: url("images/jungle/anteater.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.duck {
+    background-image: url("images/jungle/duck.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.blackPanther {
+    background-image: url("images/jungle/blackPanther.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.jaguar {
+    background-image: url("images/jungle/jaguar.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.pitbull {
+    background-image: url("images/jungle/pitbull.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
 /**************************************PERSONALITIES****************************************/
-.aristotle{
-        background-image: url("images/personalities/aristotle.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+.aristotle {
+    background-image: url("images/personalities/aristotle.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-.einstein{
-        background-image: url("images/personalities/einstein.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-.napoleon{
-        background-image: url("images/personalities/napoleon.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.einstein {
+    background-image: url("images/personalities/einstein.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-.newton{
-        background-image: url("images/personalities/newton.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-.beethoven{
-        background-image: url("images/personalities/beethoven.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+.napoleon {
+    background-image: url("images/personalities/napoleon.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .churchill{
-        background-image: url("images/personalities/churchill.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .lama{
-        background-image: url("images/personalities/dalaiLama.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+.newton {
+    background-image: url("images/personalities/newton.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .maradona{
-        background-image: url("images/personalities/Diego-Maradona-Transparent-File.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .elizabeth{
-        background-image: url("images/personalities/elizabeth.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.beethoven {
+    background-image: url("images/personalities/beethoven.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .gandhi{
-        background-image: url("images/personalities/gandhi.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .hitler{
-        background-image: url("images/personalities/hitler.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.churchill {
+    background-image: url("images/personalities/churchill.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .marx{
-        background-image: url("images/personalities/karlMarx.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .lenin{
-        background-image: url("images/personalities/lenin.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+.lama {
+    background-image: url("images/personalities/dalaiLama.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .licoln{
-        background-image: url("images/personalities/licoln.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .luther{
-        background-image: url("images/personalities/lutherKing.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.maradona {
+    background-image: url("images/personalities/Diego-Maradona-Transparent-File.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .motherTeresa{
-        background-image: url("images/personalities/motherTeresa.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .picasso{
-        background-image: url("images/personalities/Pablo-Picasso-PNG-HD-Quality.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.elizabeth {
+    background-image: url("images/personalities/elizabeth.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .shakespeare{
-        background-image: url("images/personalities/shakespeare.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .stalin{
-        background-image: url("images/personalities/stalin.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+.gandhi {
+    background-image: url("images/personalities/gandhi.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .alexander{
-        background-image: url("images/personalities/alexander.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .chaplin{
-        background-image: url("images/personalities/chaplin.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.hitler {
+    background-image: url("images/personalities/hitler.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .che{
-        background-image: url("images/personalities/che.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .curie{
-        background-image: url("images/personalities/curie.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+.marx {
+    background-image: url("images/personalities/karlMarx.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .mandela{
-        background-image: url("images/personalities/mandela.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .tesla{
-        background-image: url("images/personalities/tesla.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+.lenin {
+    background-image: url("images/personalities/lenin.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .schrodinger{
-        background-image: url("images/personalities/Schrödinger.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .galileo{
-        background-image: url("images/personalities/galileo.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+.licoln {
+    background-image: url("images/personalities/licoln.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .colombus{
-        background-image: url("images/personalities/colombus.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .mozart{
-        background-image: url("images/personalities/mozart.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+.luther {
+    background-image: url("images/personalities/lutherKing.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .charlemagne{
-        background-image: url("images/personalities/charlemagne.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .planck{
-        background-image: url("images/personalities/planck.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+.motherTeresa {
+    background-image: url("images/personalities/motherTeresa.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .mao{
-        background-image: url("images/personalities/mao.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .ali{
-        background-image: url("images/personalities/ali.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
+.picasso {
+    background-image: url("images/personalities/Pablo-Picasso-webp-HD-Quality.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .roosevelt{
-        background-image: url("images/personalities/roosevelt.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .senna{
-        background-image: url("images/personalities/senna.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+.shakespeare {
+    background-image: url("images/personalities/shakespeare.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .plato{
-        background-image: url("images/personalities/plato.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .darwin{
-        background-image: url("images/personalities/darwin.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+.stalin {
+    background-image: url("images/personalities/stalin.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    }
-    .heisenberg{
-        background-image: url("images/personalities/heisenberg.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+}
 
-    }
-    .vasco{
-        background-image: url("images/personalities/vasco.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .putin{
-        background-image: url("images/personalities/putin.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .freud{
-        background-image: url("images/personalities/freud.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .monroe{
-        background-image: url("images/personalities/monroe.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .mendeleev{
-        background-image: url("images/personalities/mendeleev.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    .voltaire{
-        background-image: url("images/personalities/voltaire.png");
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.alexander {
+    background-image: url("images/personalities/alexander.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.chaplin {
+    background-image: url("images/personalities/chaplin.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.che {
+    background-image: url("images/personalities/che.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.curie {
+    background-image: url("images/personalities/curie.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.mandela {
+    background-image: url("images/personalities/mandela.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.tesla {
+    background-image: url("images/personalities/tesla.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.schrodinger {
+    background-image: url("images/personalities/Schrodinger.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.galileo {
+    background-image: url("images/personalities/galileo.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.colombus {
+    background-image: url("images/personalities/colombus.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.mozart {
+    background-image: url("images/personalities/mozart.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.charlemagne {
+    background-image: url("images/personalities/charlemagne.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.planck {
+    background-image: url("images/personalities/planck.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.mao {
+    background-image: url("images/personalities/mao.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.ali {
+    background-image: url("images/personalities/ali.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.roosevelt {
+    background-image: url("images/personalities/roosevelt.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.senna {
+    background-image: url("images/personalities/senna.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.plato {
+    background-image: url("images/personalities/plato.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.darwin {
+    background-image: url("images/personalities/darwin.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.heisenberg {
+    background-image: url("images/personalities/heisenberg.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.vasco {
+    background-image: url("images/personalities/vasco.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.putin {
+    background-image: url("images/personalities/putin.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.freud {
+    background-image: url("images/personalities/freud.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.monroe {
+    background-image: url("images/personalities/monroe.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.mendeleev {
+    background-image: url("images/personalities/mendeleev.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.voltaire {
+    background-image: url("images/personalities/voltaire.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 
 
 
 
 /*****************************************************************************************************/
-    .color-hidden {
-        background-color: grey;
-        background-image: url("https://cdn.britannica.com/68/195168-050-BBAE019A/football.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: no position;
-        transform: rotateY(180deg);
+.color-hidden {
+    background-color: grey;
+    background-image: url("https://cdn.britannica.com/68/195168-050-BBAE019A/football.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: no position;
+    transform: rotateY(180deg);
+}
+
+.founded {
+    pointer-events: none;
+}
+
+.founded .back {
+    cursor: default;
+    animation: right 1s
+}
+
+.wrong .back {
+    cursor: default;
+    animation: wrong 1s;
+}
+
+.btn {
+    /* width: 130px;
+    height: 60px;
+    border: 2px solid white;
+    border-radius: 50px;
+
+    color: white;
+    font-weight: bold;
+    background-color: rgba(31, 31, 31, 0); */
+
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ff3b00; /* Warm red */
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark */
+    border: 2px solid #ff3b00; /* Matching border */
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px); /* Glass effect */
+    box-shadow: 0 4px 15px rgba(255, 59, 0, 0.3);
+
+
+}
+
+.btn:hover {
+    /* cursor: pointer;
+    background-color: rgb(78, 78, 136);
+    box-shadow: 0px 0px 10px 5px rgb(78, 78, 136); */
+
+    transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 6px 20px rgba(255, 59, 0, 0.5);
+    color: white;
+
+
+}
+
+#message {
+    /* display: none;
+    font-weight: bold;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    margin: 20px auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10%;
+    opacity: 0.8; */
+    display:none;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: gold;
+    text-shadow: 0 0 10px gold, 0 0 20px orange;
+    text-transform: uppercase;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 200, 0, 0.6);
+    z-index: 1000;
+}
+
+#message::before {
+    content: "\2605   \2605   \2605"; /* Unicode stars */
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: gold;
+    text-shadow: 0 0 10px gold, 0 0 20px orange;
+    opacity: 1;
+    animation: glowMsg 1.5s ease-in-out infinite alternate;
+}
+
+
+
+/* #message.win {
+    opacity: 1;
+} */
+@keyframes glowMsg {
+    0% { text-shadow: 0 0 10px gold, 0 0 20px orange; }
+    50% { text-shadow: 0 0 20px yellow, 0 0 30px red; }
+    100% { text-shadow: 0 0 10px gold, 0 0 20px orange; }
+}
+
+#message.glowMsg {
+    animation: glow 1.5s infinite alternate;
+}
+
+
+
+
+#baby_appear {
+    /* display:none; */
+    margin: auto;
+    position: absolute;
+    right: 50%;
+    top: 100%;
+    /*89%*/
+    width: 220px;
+    transform: translate(50%);
+    background-image: url('images/baby.webp');
+    background-size: contain;
+    height: 170px;
+    background-repeat: no-repeat;
+
+}
+
+.babyAnimation {
+    animation: babyAppear 1.5s
+}
+
+.godlike {
+    /* background:url("/images/god.webp"); */
+    animation: godLike 3s
+}
+
+.disable {
+    pointer-events: none;
+}
+
+
+
+@keyframes right {
+
+    40% {
+        background-color: green;
+
+
     }
 
-    .founded .back {
-        cursor: default;
-        animation: right 1s
+    60% {
+        background-color: rgb(253, 247, 247);
     }
 
-    .wrong .back{
-        cursor: default;
-        animation: wrong 1s;
+    80% {
+        background-color: green;
     }
 
-    .btn {
-        width: 130px;
-        height: 60px;
-        border: 2px solid white;
-        border-radius: 50px;
+}
 
-        color: white;
-        font-weight: bold;
-        background-color: rgba(31, 31, 31, 0);
 
+@keyframes wrong {
+
+    40% {
+        background-color: red;
 
     }
 
-    .btn:hover {
-        cursor: pointer;
-        background-color: rgb(78, 78, 136);
-        box-shadow: 0px 0px 10px 5px rgb(78, 78, 136);
-
-
-    }
-    #message{
-        display:none;
-        font-weight:bold;
-        font-size:40px;
-        color:white;
-        text-align:center;
-        margin:20px auto;
-        position:absolute;
-        top:50%;
-        left:50%;
-        transform:translate(-50%,-50%);
-
-    }
-    #baby_appear{
-        margin:auto;
-        position:absolute;
-        right:50%;
-        top:100%;/*89%*/
-        width:220px;
-        transform:translate(50%);
-        background-image:url('/images/baby.png');
-        background-size:contain;
-        height:170px;
-        background-repeat:no-repeat;
-        
+    60% {
+        background-color: rgb(253, 247, 247);
     }
 
-    .babyAnimation{
-        animation:babyAppear 1.5s 
+    80% {
+        background-color: red;
     }
-    .godlike{
-        /* background:url("/images/god.png"); */
-        animation:godLike 3s
+}
+
+
+@keyframes rightChoice {
+
+    0% {
+        transform: translate(-50%, -50%)scale(0);
     }
 
 
-
-    @keyframes right {
-
-        40% {
-            background-color: green;
-            
-
-        }
-
-        60% {
-            background-color: rgb(253, 247, 247);
-        }
-
-        80% {
-            background-color: green;
-        }
-
-    }
-
-
-    @keyframes wrong {
-
-        40% {
-            background-color: red;
-
-        }
-
-        60% {
-            background-color: rgb(253, 247, 247);
-        }
-
-        80% {
-            background-color: red;
-        }
-    }
-
-    
-    @keyframes rightChoice {
-
-        0%{
-            transform:translate(-50%,-50%)scale(0);
-        }
-
-
-        /* 10% {
+    /* 10% {
            color: green
          
         } */
 
-        20% {
-            color: rgb(253, 247, 247);
-            text-shadow: 0px 0px 10px 5px rgb(253, 247, 247);
-        } 
-        /* 30% {
+    20% {
+        color: rgb(253, 247, 247);
+        text-shadow: 0px 0px 10px 5px rgb(253, 247, 247);
+    }
+
+    /* 30% {
             color: green
         }  */
-        40% {
-            color: green;
-           text-shadow: 0px 0px 10px 5px green;
-        } 
-        /* 50% {
+    40% {
+        color: green;
+        text-shadow: 0px 0px 10px 5px green;
+    }
+
+    /* 50% {
             color: green
         }  */
-        60% {
-            color: rgb(253, 247, 247);
-           text-shadow: 0px 0px 10px 5px rgb(253, 247, 247);
-        } 
-        /* 70% {
+    60% {
+        color: rgb(253, 247, 247);
+        text-shadow: 0px 0px 10px 5px rgb(253, 247, 247);
+    }
+
+    /* 70% {
             color: green
         }  */
-        80% {
-            color: green;
-            text-shadow: 0px 0px 10px 5px green;
-        } 
-        /* 90% {
+    80% {
+        color: green;
+        text-shadow: 0px 0px 10px 5px green;
+    }
+
+    /* 90% {
             color: green
         }  */
 
-        100%{
-            transform:translate(-50%,-50%)scale(1.8);
-            text-shadow: 0px 0px 10px 5px green;
-        }
+    100% {
+        transform: translate(-50%, -50%)scale(1.8);
+        text-shadow: 0px 0px 10px 5px green;
+    }
 
-     }
-     @keyframes bodyBackground{
-        
-        20%{
-            background:black;
-            color:red;
-        }
-        40%{
-            background:transparent;
-            color:red;
-        }
-        60%{
-            background:black;
-            color:red;
-        }
-        80%{
-            background:transparent;
-            color:red;
-        }
-        100%{
-            background:black;
-            color:red
-        }
-     }
+}
 
-     
-    @keyframes babyAppear {
+@keyframes bodyBackground {
 
-    
+    20% {
+        background: black;
+        color: red;
+    }
 
-        30% {
-            top:89%
-        }
-        70%{
-            top:89%
-        }
+    40% {
+        background: transparent;
+        color: red;
+    }
 
-      
+    60% {
+        background: black;
+        color: red;
+    }
+
+    80% {
+        background: transparent;
+        color: red;
+    }
+
+    100% {
+        background: black;
+        color: red
+    }
+}
+
+
+@keyframes babyAppear {
+
+    30% {
+        top: 89%
+    }
+
+    70% {
+        top: 89%
+    }
+
+
+
+}
+
+@keyframes godLike {
+    0% {
+
+        background: white;
 
     }
-    @keyframes godLike{
-        0%{
-            
-            background:white;
-          
-        }
-        20%{
-            background:url("images/god.png")no-repeat fixed top center;
-            background-size:cover;
-            
-        }
-        50%{
-            background:white;
-            
-        }
-       70%{
-            background:url("images/god.png")no-repeat fixed top center;
-            background-size:cover;
-            
-        }
-        /* 50%{
+
+    20% {
+        background: url("images/godlike1.webp")no-repeat fixed top center;
+        background-size: cover;
+
+    }
+
+    50% {
+        background: white;
+
+    }
+
+    70% {
+        background: url("images/godlike1.webp")no-repeat fixed top center;
+        background-size: cover;
+
+    }
+
+    /* 50%{
             background:white;
            
         }
         60%{
             
-            background:url("images/god.png")no-repeat fixed top center;
+            background:url("images/god.webp")no-repeat fixed top center;
             background-size:cover;
           
         }
@@ -1720,109 +2189,942 @@
             background:white;
             
         } */
-       /* 80%{
-        background:url("images/god.png")no-repeat fixed top center;
+    /* 80%{
+        background:url("images/god.webp")no-repeat fixed top center;
         background-size:cover;
             
         } */
-        100%{
-            background:white;
-            
-        }
-        /* 100%{
-            background:url("images/god.png")no-repeat fixed top center;
+    100% {
+        background: white;
+
+    }
+
+    /* 100%{
+            background:url("images/god.webp")no-repeat fixed top center;
             background-size:cover;
            
         } */
 
+}
+
+@keyframes heaven {
+    0% {
+
+        background: white;
+
     }
 
-    @keyframes heaven{
-        0%{
-            
-            background:white;
-          
-        }
-        20%{
-            background:url("images/heaven.jpg")no-repeat fixed top center;
-            background-size:cover;
-            
-        }
-        50%{
-            background:white;
-            
-        }
-       70%{
-             background:url("images/heaven.jpg")no-repeat fixed top center;
-            background-size:cover; 
-            
-        }
-       
-        100%{
-            background:white;
-            
-        }
-       
+    20% {
+        background: url("images/heaven.jpg")no-repeat fixed top center;
+        background-size: cover;
 
- 
-       
-       
+    }
+
+    50% {
+        background: white;
+
+    }
+
+    70% {
+        background: url("images/heaven.jpg")no-repeat fixed top center;
+        background-size: cover;
+
+    }
+
+    100% {
+        background: white;
 
     }
 
 
 
-    .disable {
-        pointer-events: none;
+
+
+
+}
+
+
+
+
+
+
+
+/******BONUS GAME ***********************/
+
+#mini-game {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    background: rgba(8, 8, 8, 0.541);
+    height: 500px;
+}
+
+#mini-game p {
+    text-align: center;
+    font-size: 20px;
+
+
+}
+
+#mini-game #bonus-image {
+
+    width: 16rem;
+    height: 16rem;
+    margin-bottom: 1rem;
+    /* background:url("/images/football/Panathinaikos.svg.webp") no-repeat center center fixed; */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+.mini-game-animation {
+    animation: heavenFrames 2s
+}
+
+.bonus-game-right {
+    border: 2px solid green;
+}
+
+.miniGameFinished {
+    animation: bonusFinished 5s
+}
+
+#bonus-btn {
+    width: 135px;
+    height: 50px;
+    border: 2px solid rgba(16, 147, 212, 0.533);
+    border-radius: 50px;
+    background-color: rgba(16, 147, 212, 0.533);
+}
+
+#bonus-btn:hover {
+    cursor: pointer;
+    background-color: #87ceeb;
+    box-shadow: 0px 0px 0px 1px #87ceeb;
+}
+
+#bonus-input {
+    width: 40%;
+    height: 20px;
+    border: 2px solid rgba(16, 147, 212, 0.533);
+}
+
+/***COUNTDOWN AT BONUS GAME ******/
+#countDown {
+    position: relative;
+    width: 80px;
+    margin: 15px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(22, 22, 22);
+    color: white;
+    height: 80px;
+    border-radius: 50%;
+    font-size: 10px;
+}
+
+#countDown::before {
+    position: absolute;
+    content: " ";
+    width: 95px;
+    z-index: -1;
+    height: 95px;
+    border-radius: 50%;
+    background: linear-gradient(0deg, rgba(63, 82, 249, 0.1) 33%, rgb(63, 88, 249) 100%);
+    box-shadow: 0 5px 10px #888888;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: var(--animationToPseudoElement, none);
+
+
+}
+
+#numberSquare {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+#countDown {
+    display: none;
+
+
+}
+
+
+@keyframes bonusFinished {
+    0% {
+        background: url("images/heaven.jpg") no-repeat fixed top center;
+        background-color: rgba(255, 255, 255, 0);
+        background-size: cover;
+
     }
+
+    100% {
+        background: url("images/heaven.jpg") no-repeat fixed top center;
+        background-color: rgb(255, 255, 255);
+        background-size: cover;
+        background-blend-mode: screen;
+    }
+}
+
+
+
+@keyframes heavenFrames {
+    0% {
+
+
+        background: white;
+
+    }
+
+    100% {
+
+        background: url("images/heaven.jpg")no-repeat fixed top center;
+        background-size: cover;
+
+
+    }
+}
+
+/**countdown animation */
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%)rotate(0);
+    }
+
+    to {
+        transform: translate(-50%, -50%)rotate(395deg);
+    }
+}
+
+
+/*Responsiveness*/
+
+
+@media only screen and (max-width: 720px) {
+
+
+    #results {
+        width: 100%;
+    
+    }
+
+    #game {
+        width: 80%;
+    }
+
+    #game-preferences {
+
+        width: 80%;
+        margin:0;
+    }
+
+    label {
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    fieldset {
+        margin-top: 0;
+    }
+
+    fieldset div {
+        width: 100%;
+    }
+
+    .arrow {
+        display: none;
+    }
+    #field1 {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+
+    transform: translate(-50%, -50%);
+
+} 
+ #field2 {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(100%, -50%);
+}
+#choices{
+    gap:0;
+}
+
+
+    .gallery {
+        display: flex;
+        align-items: center;
+        /* column-gap:20px; */
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+    }
+
+    .gallery_item {
+        scroll-snap-align: center;
+        min-width: 75%;
+    }
+
+    #results {
+        width: 100%;
+    }
+
+    /* .card {
+
+
+        /* height:auto; */
+        /* min-width:15px;
+    min-height:5px; */
+   /* } */
+
+    #mini-game {
+        width: 80%;
+    }
+
+    @keyframes rightChoice {
+        0% {
+            transform: translate(-50%, -50%) scale(0);
+            /* Adjust the scale for smaller screens */
+        }
+
+        20% {
+            color: rgb(253, 247, 247);
+            text-shadow: 0px 0px 5px 2px rgb(253, 247, 247);
+            /* Reduce text-shadow for smaller screens */
+        }
+
+        40% {
+            color: green;
+            text-shadow: 0px 0px 5px 2px green;
+            /* Reduce text-shadow for smaller screens */
+        }
+
+        60% {
+            color: rgb(253, 247, 247);
+            text-shadow: 0px 0px 5px 2px rgb(253, 247, 247);
+            /* Reduce text-shadow for smaller screens */
+        }
+
+        80% {
+            color: green;
+            text-shadow: 0px 0px 5px 2px green;
+            /* Reduce text-shadow for smaller screens */
+        }
+
+        100% {
+            transform: translate(-50%, -50%) scale(1.2);
+            /* Adjust the scale for smaller screens */
+            text-shadow: 0px 0px 5px 2px green;
+            /* Reduce text-shadow for smaller screens */
+        }
+    }
+}
+
+/*720px*/
+
+@media only screen and (min-width:800px) and (max-height:700px) {
+    .card ,.backgroundCard {
+        height: 11vh;
+    }
+
+}
+
+@media only screen and (max-width:340px) and (max-height:700px) {
+    .card,.backgroundCard {
+        height: 6.5vh;
+    }
+
+}
+
+/*****TEMPLATES ANIMATION*************/
+/* Cloud Animation */
+@keyframes move-clouds {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(1000%);
+        opacity: 0.8;
+    }
+}
+
+.cloud {
+    position: absolute;
+    top: 10%;
+    left: -250px;
+    width: 350px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 60px;
+    filter: blur(12px);
+    animation: move-clouds 120s linear infinite;
+}
+
+.cloud::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 60px;
+    width: 180px;
+    height: 90px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 45px;
+}
+
+.cloud::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 160px;
+    width: 200px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 40px;
+}
+
+/* Snow Animation */
+@keyframes snowfall {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.snowflake {
+    will-change: transform, opacity;
+    position: absolute;
+    top: -10px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.9;
+    animation: snowfall linear infinite;
+}
+
+/* Rain Animation */
+@keyframes rain-fall {
+    0% {
+        transform: translateY(0);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.raindrop {
+    will-change: transform, opacity;
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.6);
+    opacity: 0.8;
+    animation: rain-fall linear infinite;
+}
+
+/* Magic Particle Animation */
+@keyframes magic-glow {
+    0% {
+        opacity: 0.2;
+        transform: scale(0.8) translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2) translateY(-50px);
+    }
+
+    100% {
+        opacity: 0.2;
+        transform: scale(0.8) translateY(-100px);
+    }
+}
+
+.magic-particle {
+    will-change: transform, opacity;
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px white;
+    animation: magic-glow 3s infinite ease-in-out;
+}
+
+
+/* Star Twinkle Animation */
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.1;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+.star {
+    will-change: transform, opacity;
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 8px white;
+    animation: twinkle 2s infinite alternate ease-in-out;
+}
+
+/* Sandstorm Animation */
+@keyframes sandstorm {
+    0% {
+        transform: translateX(0) translateY(0);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translateX(150vw) translateY(-20vh);
+        opacity: 0;
+    }
+}
+
+.sand-particle {
+    will-change: transform, opacity;
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(194, 178, 128, 0.9);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: sandstorm linear infinite;
+}
+
+/* Bubble Animation */
+@keyframes bubble {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translateY(-50vh) scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+.bubble {
+    will-change: transform, opacity;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    animation: bubble 40s infinite linear;
+}
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 5px;
+    border-radius: 50%;
+    animation: floatParticles 2000s linear infinite;
+}
+
+  /* Floating Particles */
+  @keyframes floatParticles {
+    0% { transform: translateY(0); opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-20vh); opacity: 0; }
+}
+
+
+ /* Moving Light Beams */
+ @keyframes lightBeams {
+    0% { transform: translateX(-100%); opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0.7; }
+}
+
+.light-beam {
+    position: absolute;
+    top: 50%;
+    left: -200px;
+    width: 300px;
+    height: 5px;
+    filter: blur(3px);
+    animation: lightBeams 3s linear infinite;
+}
+/************************************************** */
+/* #loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #111, #000);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-size: 22px;
+    font-family: "Press Start 2P", cursive; 
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+    z-index: 9999;
+}
+
+
+#loading-logo {
+    width: 200px;
+    animation: bounce 1.5s infinite ease-in-out, glow 1.5s infinite alternate;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes glow {
+    0% {
+        filter: brightness(1);
+    }
+    100% {
+        filter: brightness(1.5);
+    }
+} */
+/******************************************************** **/
 
 /* 
-    @media only screen and (max-width: 810px){
-        #game-preferences{
-            width:70%;
-        }
-        .arrow{
-            display:none;
-        }
-    } */
 
-    @media only screen and (max-width: 810px) {
-        #game-preferences{
-            
-            width:80%;
-        }
-        label{
-            font-weight:bold;
-            font-size:15px;
-        }
-        fieldset{
-            margin-top:0;
-            /* display:block; */
-        }
-        fieldset div{
-            width:100%;
-        }
-        .arrow{
-            display:none;
-        }
-        .gallery{
-            display:flex;
-            align-items:center;
-            /* column-gap:20px; */
-            overflow-x: scroll;
-            scroll-snap-type: x mandatory;
-        }
-        
-    .gallery_item{
-        scroll-snap-align: center;
-        min-width:75%;
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-size: 20px;
+    z-index: 9999;
+    display: none; 
+}
+
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
     }
-        #results{
-            width:100%;
-        }
-      .card {
-        width:100%;
-        min-width:15px;
-        min-height:auto;
-      }
+    to {
+        transform: rotate(360deg);
     }
+} */
+
+/*********loading screen ***/
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #111, #0000002c); /* Gaming background */
+    display: none; /* Αρχικά κρυφό */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-size: 22px;
+    font-family: "Press Start 2P", cursive; /* Retro gaming font */
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+    z-index: 9999;
+}
+
+/* Logo Animation */
+#loading-logo {
+    width: 200px;
+    animation: bounce 1.5s infinite ease-in-out, glow 1.5s infinite alternate;
+}
+
+/* Τελείες που εμφανίζονται μία-μία */
+.dots::after {
+    content: "";
+    display: inline-block;
+    animation: dotsAnimation 1.5s infinite steps(4);
+}
+/* Σταθερό κείμενο "Loading" */
+#loading-text {
+    display: flex;
+    align-items: center;
+}
+
+@keyframes dotsAnimation {
+    0% { content: ""; }
+    25% { content: "."; }
+    50% { content: ".."; }
+    75% { content: "..."; }
+    100% { content: ""; }
+}
+
+/* Αναπήδηση Logo */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Glow effect */
+@keyframes glow {
+    0% { filter: brightness(1); }
+    100% { filter: brightness(1.5); }
+}
+
+
+
+
+
+
+/* @keyframes flipBackgroundCard {
+    0% { transform: rotateY(0deg) scale(1); opacity: 0.1; }
+    50% { transform: rotateY(180deg) scale(1.2); opacity: 0.5; }
+    100% { transform: rotateY(360deg) scale(1); opacity: 0.1; }
+} */
+ 
+
+#card-background {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    z-index: -1; 
+}
+
+
+.backgroundCard {
+    /* width: 100px; */
+    background-color:white;
+    /* height: 100px; */
+    border-radius: 8px;
+    position: relative;
+    transform-style: preserve-3d;
+    opacity: 0; 
+     animation: slideFadeIn 1.5s ease-out forwards;
+
+}
+
+
+
+
+ @keyframes slowFlip {
+    0% { transform: rotateY(0deg); }
+    50% { transform: rotateY(15deg); }
+    100% { transform: rotateY(-15deg); }
+}
+
+ @keyframes moveSide {
+    0% { transform: translateX(-10px); }
+    100% { transform: translateX(10px); }
+} 
+
+
+
+
+
+@keyframes explode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+
+.explode {
+    animation: explode 0.5s ease-out forwards;
+    animation-delay: 1.1s;
+}
+
+
+
+  /* @keyframes fallIn {
+    from {
+      opacity: 0;
+      transform: translateY(-50px) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  } */
+
+
+  /* @keyframes slideFadeIn {
+    from {
+      opacity: 0;
+
+    }
+    to {
+      opacity: 1;
+  
+    }
+  }
+  .backgroundCard:nth-child(1) { animation-delay: 0s; }
+.backgroundCard:nth-child(2) { animation-delay: 0.2s; }
+.backgroundCard:nth-child(3) { animation-delay: 0.4s; }
+.backgroundCard:nth-child(4) { animation-delay: 0.6s; }
+.backgroundCard:nth-child(5) { animation-delay: 0.8s; }
+.backgroundCard:nth-child(6) { animation-delay: 1s; }
+.backgroundCard:nth-child(7) { animation-delay: 1.2s; }
+.backgroundCard:nth-child(8) { animation-delay: 1.4s; } */
+/* #game-preferences {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+} */
+
+
+/* .gallery_item {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 59, 0, 0.5);
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 59, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+} */
+
+/* .gallery_item legend {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff3b00;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 59, 0, 0.6);
+} */
+
+/* input[type="radio"] {
+    accent-color: #ff3b00;
+    transform: scale(1.2);
+    margin-right: 5px;
+} */
+
+
+
+/* label:hover {
+    color: #ff3b00;
+    text-shadow: 0 0 8px rgba(255, 59, 0, 0.6);
+} */
+
+
+.paradise-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/heavenSky.webp'); /* Βάλε όποια εικόνα θέλεις */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    animation: floatBackground 10s infinite alternate ease-in-out, glowEffect 6s infinite alternate ease-in-out;
+}
+
+/* 🔹 Απαλή κίνηση πάνω-κάτω για floating effect */
+@keyframes floatBackground {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+/* 🔹 Λάμψη που δυναμώνει και χαμηλώνει */
+@keyframes glowEffect {
+    0% { filter: brightness(1) saturate(1); }
+    100% { filter: brightness(1.2) saturate(1.3); }
+}
+
+
+#credits {
+    position: fixed;
+    bottom: 10px;
+    right: 10px; /* 📍 Τοποθετεί το κείμενο κάτω δεξιά */
+    font-size: 1rem;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 1);
+    background: transparent;
+    padding: 5px 15px;
+    font-family: Arial, sans-serif;
+    text-align: right;
+    font-weight: bold;
+    white-space: nowrap;
+    /* max-width: 90vw;  */
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+

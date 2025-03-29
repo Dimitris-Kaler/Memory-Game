@@ -29,46 +29,46 @@ rightArrow.addEventListener("click",()=>{
 ///Arrays for quizzes
 //Football
 //Easy
-let easyFootball=["real", "real", "barcelona", "barcelona", "juve", "juve", "manunited", 
-"manunited", "liverpool", "liverpool", "milan", "milan", "inter", "inter", "bayern", "bayern"]
-let mediumFootball=["real", "real", "barcelona", "barcelona", "juve", "juve", "manunited", "manunited", "liverpool", "liverpool", "milan", "milan", "inter", "inter", "bayern", "bayern",
-"chelsea", "chelsea", "dortmund", "dortmund", "atletico", "atletico", "porto", "porto", "ajax", "ajax", "benfica", "benfica", "arsenal", "arsenal"]
-let hardFootball=["real", "real", "barcelona", "barcelona", "juve", "juve", "manunited", "manunited", "liverpool", "liverpool", "milan", "milan", "inter", "inter", "bayern", "bayern",
-"chelsea", "chelsea", "dortmund", "dortmund", "atletico", "atletico", "porto", "porto", "ajax", "ajax", "benfica", "benfica", "arsenal", "arsenal",
-"psg", "psg", "pao", "pao", "osfp", "osfp", "dinamo", "dinamo", "city", "city", "marseille", "marseille", "galata", "galata", "celtic", "celtic", "rangers", "rangers", "anderlecht", "anderlecht"]
-let expertFootball=["real", "real", "barcelona", "barcelona", "juve", "juve", "manunited", "manunited", "liverpool", "liverpool", "milan", "milan", "inter", "inter", "bayern", "bayern",
-"chelsea", "chelsea", "dortmund", "dortmund", "atletico", "atletico", "porto", "porto", "ajax", "ajax", "benfica", "benfica", "arsenal", "arsenal",
-"psg", "psg", "pao", "pao", "osfp", "osfp", "dinamo", "dinamo", "city", "city", "marseille", "marseille", "galata", "galata", "celtic", "celtic", "rangers", "rangers", "anderlecht", "anderlecht",
-"aek", "aek", "lyon", "lyon", "eindhoven", "eindhoven", "napoli", "napoli", "leverkusen", "leverkusen", "leipzig", "leipzig", "roma", "roma", "valencia", "valencia", "fener", "fener", "feyen", "feyen",
-"zvezda", "zvezda", "monaco", "monaco", "totthenham", "totthenham", "rosenborg", "rosenborg", "lazio", "lazio", "sparta", "sparta", "spartak", "spartak"]
-let easyCountries=["greece","greece","germany","germany","italy","italy","france","france","usa","usa","spain","spain","russia","russia","china","china"]
-let mediumCountries=["greece","greece","germany","germany","italy","italy","france","france","usa","usa","spain","spain","russia","russia","china","china",
-"brazil","brazil","portugal","portugal","norway","norway","turkey","turkey","southafrica","southafrica","saudi","saudi","grbritain","grbritain"]
-let hardCountries=["greece","greece","germany","germany","italy","italy","france","france","usa","usa","spain","spain","russia","russia","china","china",
-"brazil","brazil","portugal","portugal","norway","norway","turkey","turkey","southafrica","southafrica","saudi","saudi","grbritain","grbritain",
-"sweden","sweden","finland","finland","denmark","denmark","argentina","argentina","japan","japan","cuba","cuba","newzeeland","newzeeland","mexico","mexico","chile","chile","canada","canada"]
-let easyJungle=["lion","lion","tiger","tiger","elephant","elephant","parrot","parrot","bear","bear","hippo","hippo","monkey","monkey","snake","snake"]
-let mediumJungle=["lion","lion","tiger","tiger","elephant","elephant","parrot","parrot","bear","bear","hippo","hippo","monkey","monkey","snake","snake",
-"lemur","lemur","gorilla","gorilla","tapir","tapir","armadillo","armadillo","giraffe","giraffe","leopard","leopard","wolf","wolf"];
-let hardJungle=["lion","lion","tiger","tiger","elephant","elephant","parrot","parrot","bear","bear","hippo","hippo","monkey","monkey","snake","snake",
-"lemur","lemur","gorilla","gorilla","tapir","tapir","armadillo","armadillo","giraffe","giraffe","leopard","leopard","wolf","wolf",
-"fox","fox","goose","goose","deer","deer","kangaroo","kangaroo","spider","spider","turtle","turtle","camel","camel","frogey","frogey","lizard","lizard","rabbit","rabbit"];
-let expertJungle=["lion","lion","tiger","tiger","elephant","elephant","parrot","parrot","bear","bear","hippo","hippo","monkey","monkey","snake","snake",
-"lemur","lemur","gorilla","gorilla","tapir","tapir","armadillo","armadillo","giraffe","giraffe","leopard","leopard","wolf","wolf",
-"fox","fox","goose","goose","deer","deer","kangaroo","kangaroo","spider","spider","turtle","turtle","camel","camel","frogey","frogey","lizard","lizard","rabbit","rabbit",
-"crocodile","crocodile","goat","goat","bull","bull","horse","horse","whiteHorse","whiteHorse","hedgehog","hedgehog","kitten","kitten","polarBear","polarBear",
-"mamba","mamba","labradorDog","labradorDog","mouse","mouse","whiteDuck","whiteDuck","anteater","anteater","duck","duck","blackPanther","blackPanther","jaguar","jaguar","pitbull","pitbull"];
-let easyPersonalities=["hitler","hitler","stalin","stalin","lenin","lenin","churchill","churchill","motherTeresa","motherTeresa","einstein","einstein","gandhi","gandhi","lama","lama"]
-let mediumPersonalities=["hitler","hitler","stalin","stalin","lenin","lenin","churchill","churchill","motherTeresa","motherTeresa","einstein","einstein","gandhi","gandhi","lama","lama",
-"aristotle","aristotle","beethoven","beethoven","elizabeth","elizabeth","marx","marx","licoln","licoln","napoleon","napoleon","newton","newton"]
-let hardPersonalities=["hitler","hitler","stalin","stalin","lenin","lenin","churchill","churchill","motherTeresa","motherTeresa","einstein","einstein","gandhi","gandhi","lama","lama",
-"aristotle","aristotle","beethoven","beethoven","elizabeth","elizabeth","marx","marx","licoln","licoln","napoleon","napoleon","newton","newton",
-"alexander","alexander","tesla","tesla","mandela","mandela","shakespeare","shakespeare","che","che","chaplin","chaplin","curie","curie","luther","luther","schrodinger","schrodinger","galileo","galileo"]
-let expertPersonalities=["hitler","hitler","stalin","stalin","lenin","lenin","churchill","churchill","motherTeresa","motherTeresa","einstein","einstein","gandhi","gandhi","lama","lama",
-"aristotle","aristotle","beethoven","beethoven","elizabeth","elizabeth","marx","marx","licoln","licoln","napoleon","napoleon","newton","newton",
-"alexander","alexander","tesla","tesla","mandela","mandela","shakespeare","shakespeare","che","che","chaplin","chaplin","curie","curie","luther","luther","schrodinger","schrodinger","galileo","galileo",
-"colombus","colombus","mozart","mozart","charlemagne","charlemagne","planck","planck","mao","mao","ali","ali","roosevelt","roosevelt","plato","plato","senna","senna","darwin","darwin","voltaire","voltaire","heisenberg","heisenberg","vasco","vasco","putin","putin",
-"freud","freud","monroe","monroe","mendeleev","mendeleev"]
+let easyFootball = ["real", "real", "barcelona", "barcelona", "juve", "juve", "manunited",
+    "manunited", "liverpool", "liverpool", "milan", "milan", "inter", "inter", "bayern", "bayern"]
+let mediumFootball = ["real", "real", "barcelona", "barcelona", "juve", "juve", "manunited", "manunited", "liverpool", "liverpool", "milan", "milan", "inter", "inter", "bayern", "bayern",
+    "chelsea", "chelsea", "dortmund", "dortmund", "atletico", "atletico", "porto", "porto", "ajax", "ajax", "benfica", "benfica", "arsenal", "arsenal"]
+let hardFootball = ["real", "real", "barcelona", "barcelona", "juve", "juve", "manunited", "manunited", "liverpool", "liverpool", "milan", "milan", "inter", "inter", "bayern", "bayern",
+    "chelsea", "chelsea", "dortmund", "dortmund", "atletico", "atletico", "porto", "porto", "ajax", "ajax", "benfica", "benfica", "arsenal", "arsenal",
+    "psg", "psg", "pao", "pao", "osfp", "osfp", "dinamo", "dinamo", "city", "city", "marseille", "marseille", "galata", "galata", "celtic", "celtic", "rangers", "rangers", "anderlecht", "anderlecht"]
+let expertFootball = ["real", "real", "barcelona", "barcelona", "juve", "juve", "manunited", "manunited", "liverpool", "liverpool", "milan", "milan", "inter", "inter", "bayern", "bayern",
+    "chelsea", "chelsea", "dortmund", "dortmund", "atletico", "atletico", "porto", "porto", "ajax", "ajax", "benfica", "benfica", "arsenal", "arsenal",
+    "psg", "psg", "pao", "pao", "osfp", "osfp", "dinamo", "dinamo", "city", "city", "marseille", "marseille", "galata", "galata", "celtic", "celtic", "rangers", "rangers", "anderlecht", "anderlecht",
+    "aek", "aek", "lyon", "lyon", "eindhoven", "eindhoven", "napoli", "napoli", "leverkusen", "leverkusen", "leipzig", "leipzig", "roma", "roma", "valencia", "valencia", "fener", "fener", "feyen", "feyen",
+    "zvezda", "zvezda", "monaco", "monaco", "totthenham", "totthenham", "rosenborg", "rosenborg", "lazio", "lazio", "sparta", "sparta", "spartak", "spartak"]
+let easyCountries = ["greece", "greece", "germany", "germany", "italy", "italy", "france", "france", "usa", "usa", "spain", "spain", "russia", "russia", "china", "china"]
+let mediumCountries = ["greece", "greece", "germany", "germany", "italy", "italy", "france", "france", "usa", "usa", "spain", "spain", "russia", "russia", "china", "china",
+    "brazil", "brazil", "portugal", "portugal", "norway", "norway", "turkey", "turkey", "southafrica", "southafrica", "saudi", "saudi", "grbritain", "grbritain"]
+let hardCountries = ["greece", "greece", "germany", "germany", "italy", "italy", "france", "france", "usa", "usa", "spain", "spain", "russia", "russia", "china", "china",
+    "brazil", "brazil", "portugal", "portugal", "norway", "norway", "turkey", "turkey", "southafrica", "southafrica", "saudi", "saudi", "grbritain", "grbritain",
+    "sweden", "sweden", "finland", "finland", "denmark", "denmark", "argentina", "argentina", "japan", "japan", "cuba", "cuba", "newzeeland", "newzeeland", "mexico", "mexico", "chile", "chile", "canada", "canada"]
+let easyJungle = ["lion", "lion", "tiger", "tiger", "elephant", "elephant", "parrot", "parrot", "bear", "bear", "hippo", "hippo", "monkey", "monkey", "snake", "snake"]
+let mediumJungle = ["lion", "lion", "tiger", "tiger", "elephant", "elephant", "parrot", "parrot", "bear", "bear", "hippo", "hippo", "monkey", "monkey", "snake", "snake",
+    "lemur", "lemur", "gorilla", "gorilla", "tapir", "tapir", "armadillo", "armadillo", "giraffe", "giraffe", "leopard", "leopard", "wolf", "wolf"];
+let hardJungle = ["lion", "lion", "tiger", "tiger", "elephant", "elephant", "parrot", "parrot", "bear", "bear", "hippo", "hippo", "monkey", "monkey", "snake", "snake",
+    "lemur", "lemur", "gorilla", "gorilla", "tapir", "tapir", "armadillo", "armadillo", "giraffe", "giraffe", "leopard", "leopard", "wolf", "wolf",
+    "fox", "fox", "goose", "goose", "deer", "deer", "kangaroo", "kangaroo", "spider", "spider", "turtle", "turtle", "camel", "camel", "frogey", "frogey", "lizard", "lizard", "rabbit", "rabbit"];
+let expertJungle = ["lion", "lion", "tiger", "tiger", "elephant", "elephant", "parrot", "parrot", "bear", "bear", "hippo", "hippo", "monkey", "monkey", "snake", "snake",
+    "lemur", "lemur", "gorilla", "gorilla", "tapir", "tapir", "armadillo", "armadillo", "giraffe", "giraffe", "leopard", "leopard", "wolf", "wolf",
+    "fox", "fox", "goose", "goose", "deer", "deer", "kangaroo", "kangaroo", "spider", "spider", "turtle", "turtle", "camel", "camel", "frogey", "frogey", "lizard", "lizard", "rabbit", "rabbit",
+    "crocodile", "crocodile", "goat", "goat", "bull", "bull", "horse", "horse", "whiteHorse", "whiteHorse", "hedgehog", "hedgehog", "kitten", "kitten", "polarBear", "polarBear",
+    "mamba", "mamba", "labradorDog", "labradorDog", "mouse", "mouse", "whiteDuck", "whiteDuck", "anteater", "anteater", "duck", "duck", "blackPanther", "blackPanther", "jaguar", "jaguar", "pitbull", "pitbull"];
+let easyPersonalities = ["hitler", "hitler", "stalin", "stalin", "lenin", "lenin", "churchill", "churchill", "motherTeresa", "motherTeresa", "einstein", "einstein", "gandhi", "gandhi", "lama", "lama"]
+let mediumPersonalities = ["hitler", "hitler", "stalin", "stalin", "lenin", "lenin", "churchill", "churchill", "motherTeresa", "motherTeresa", "einstein", "einstein", "gandhi", "gandhi", "lama", "lama",
+    "aristotle", "aristotle", "beethoven", "beethoven", "elizabeth", "elizabeth", "marx", "marx", "licoln", "licoln", "napoleon", "napoleon", "newton", "newton"]
+let hardPersonalities = ["hitler", "hitler", "stalin", "stalin", "lenin", "lenin", "churchill", "churchill", "motherTeresa", "motherTeresa", "einstein", "einstein", "gandhi", "gandhi", "lama", "lama",
+    "aristotle", "aristotle", "beethoven", "beethoven", "elizabeth", "elizabeth", "marx", "marx", "licoln", "licoln", "napoleon", "napoleon", "newton", "newton",
+    "alexander", "alexander", "tesla", "tesla", "mandela", "mandela", "shakespeare", "shakespeare", "che", "che", "chaplin", "chaplin", "curie", "curie", "luther", "luther", "schrodinger", "schrodinger", "galileo", "galileo"]
+let expertPersonalities = ["hitler", "hitler", "stalin", "stalin", "lenin", "lenin", "churchill", "churchill", "motherTeresa", "motherTeresa", "einstein", "einstein", "gandhi", "gandhi", "lama", "lama",
+    "aristotle", "aristotle", "beethoven", "beethoven", "elizabeth", "elizabeth", "marx", "marx", "licoln", "licoln", "napoleon", "napoleon", "newton", "newton",
+    "alexander", "alexander", "tesla", "tesla", "mandela", "mandela", "shakespeare", "shakespeare", "che", "che", "chaplin", "chaplin", "curie", "curie", "luther", "luther", "schrodinger", "schrodinger", "galileo", "galileo",
+    "colombus", "colombus", "mozart", "mozart", "charlemagne", "charlemagne", "planck", "planck", "mao", "mao", "ali", "ali", "roosevelt", "roosevelt", "plato", "plato", "senna", "senna", "darwin", "darwin", "voltaire", "voltaire", "heisenberg", "heisenberg", "vasco", "vasco", "putin", "putin",
+    "freud", "freud", "monroe", "monroe", "mendeleev", "mendeleev"]
 
 
 
@@ -209,6 +209,33 @@ function changerSubjectRadios(){
 }
 changerSubjectRadios()
 
+// const subjectChoice = document.querySelector('input[name="subject"]:checked').value
+
+// function findSubject(){
+//     if (subjectChoice == "football") {
+//         classesEasy =easyFootball
+//         classesMedium = mediumFootball
+//         classesHard = hardFootball
+//         classesExpert = expertFootball
+
+//     } else if (subjectChoice == "countries") {
+//         classesEasy =easyCountries
+//         classesMedium = mediumFootball
+//         classesHard = hardFootball
+//         classesExpert = expertFootball
+//     } else if (subjectChoice == "jungle") {
+//         rows = 5
+//         columns = 10
+//         classes = classesHard
+//     } else {
+//         rows = 6
+//         columns = 14
+//         classes = classesExpert
+//     }
+
+
+// }
+// // findSubject()
 
 //WHEN PUSH THE START GAME
 startGame=()=>{
@@ -243,7 +270,10 @@ startGame=()=>{
 
             const difficultyChoice = document.querySelector('input[name="difficulty"]:checked').value
             
-
+            // const classesEasy =easyFootball
+            // const classesMedium = mediumFootball
+            // const classesHard = hardFootball
+            // const classesExpert = expertFootball
             let rows, columns, classes
             function findRowColumns() {
                 if (difficultyChoice == "easy") {
