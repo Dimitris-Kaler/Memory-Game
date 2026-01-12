@@ -39,7 +39,7 @@ let backs = document.getElementsByClassName("back");
 let GameSettings = {
     screenResizing: false,
     bonusTemplate: { name: "heaven", pic: "/images/heaven.webp" },
-    backgroundTemplates: [{ name: "forest", pic: "/images/forest6.webp" }, { name: "pyramid", pic: "/images/pyramids1.webp" }, { name: "bigben", pic: "/images/big-ben.webp" }, { name: "space", pic: "/images/space2.webp" }, { name: "north-pole", pic: "/images/ice3.webp" }, { name: "underwater", pic: "/images/buble.webp" }, { name: "futuristic-city", pic: "/images/futuristic-city.webp" }],
+    backgroundTemplates: [{ name: "forest", pic: "/images/forestCartoun.webp" }, { name: "pyramid", pic: "/images/pyramids1.webp" }, { name: "bigben", pic: "/images/big-ben.webp" }, { name: "space", pic: "/images/spaceCartoun.webp" }, { name: "north-pole", pic: "/images/icedCartoun.webp" }, { name: "underwater", pic: "/images/seaCartoun.webp" }, { name: "futuristic-city", pic: "/images/futuristic-city.webp" }],
     playedAgain: false,
     boardColumns: 4,
     boardRows: 4,
